@@ -2,8 +2,9 @@
 /**
 * defines the MySQL parameters
 */
-
-$host = 'localhost';
-$dbname = 'APE';
-$username = 'root';
-$password = '';
+return array(
+    'host' => 'localhost',
+    'username' => 'root',
+	'dbname' = 'APE',
+	'password' = ''
+);

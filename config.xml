@@ -3,7 +3,7 @@
         <param name="file" value="myLog.log" />
     </appender>
     <root>
-        <level value="" />
+        <level value="DEBUG" />
         <appender_ref ref="myAppender" />
     </root>
 </configuration>
