@@ -3,28 +3,32 @@
 	require('controller/front.php');
 
 try {
-	var_dump('on est ici');
 	if (isset($_GET['action'])) {
 
 		switch ($_GET['action']) {
 
 			case 'showHome':
-				var_dump('coucou');
 				showHome();
 				break;
 
-			case 'showLogin':
-			var_dump('coucou depuis le routeur');
-				showLogin();
+			case 'showRegistration':
+
+				showRegistration();
 				break;
 
-			case 'register':
+			case 'registerUser':
+				if (!empty($_POST['firstname']) || !empty($_POST['lastname']) || !empty($_POST['email']) || !empty($_POST['password'])) 
+				{
+					registerUser($_POST['firstname'], $_POST['lastname'], $_POST['email'], $_POST['password']);
+				}
+				else {
+					echo 'Veuillez remplir tous les champs.';
+				}
 				break;
 
 		}
 	}
 	else {
-		var_dump('coucoucoucou');
 		showHome();
 	}
 			

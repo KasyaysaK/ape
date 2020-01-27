@@ -1,18 +1,16 @@
-<?
-	namespace APE\Site\Model;
-	require_once('model/Manager.php');
+<?php
 
-	class UserManager extends Manager
+	namespace APE\Site\Model;
+	require_once('model/Database.php');
+
+	class UserManager extends Database
 	{
-		function registerUser($child_firstname, $child_lastname, $email, $password)
+		function registerUser($firstname, $lastname, $email, $hash)
 		{
 			$dbh = $this->dbhConnect();
+			$newUser = $dbh->prepare('INSERT INTO users (firstname, lastname, email, password, role_id, status) VALUES (?, ?, ?, ?, 3, 0)');
 
-			$hash = password_hash($_POST['password'], PASSWORD_DEFAULT);
-
-			$newUser = $dbh->prepare('INSERT INTO users (child_firstname, $child_lastname, email, password) VALUES (?, ?, ?, ?)');
-
-			return $newUser->execute(array($child_name, $email, $password)); 
+			return $newUser->execute(array($firstname, $lastname, $email, $hash)); 
 		}
 
 		function getUser($email, $password)

@@ -9,6 +9,10 @@ body {
 	text-transform: uppercase;
 }
 
+.btn:focus {
+	box-shadow: none;
+}
+
 .parallax {
 	position: relative;
 	width: 100%;
@@ -17,6 +21,16 @@ body {
 	background-size: cover;
 	background-attachment: fixed;
 }
+
+.credentials, .user-info, .password {
+	width: 229px;
+}
+
+.email {
+	width: 466px;	
+}
+
+
 
 .carousel-inner{
   width:100%;
