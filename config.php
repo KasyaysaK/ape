@@ -2,9 +2,7 @@
 /**
 * defines the MySQL parameters
 */
-return array(
-    'host' => 'localhost',
-	'dbname' => 'APE',
-   	'username' => 'root',
-	'password' => '',
-);
+	define('host', 'localhost');
+    define('dbname', 'APE');
+    define('username', 'root');
+    define('password', '');

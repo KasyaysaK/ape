@@ -5,28 +5,52 @@
 <div class="container" id="signup-form">
 	<div class="row">
 		<div class="col-8 offset-2">
-			<h2 class="title my-4">Inscription</h2>
-			<button class="btn" id="signin-button">Déjà membre ? Connectez-vous !</button>
+			<div class="d-flex justify-content-between">
+				<h2 class="title my-4">Inscription</h2>
+				<button class="btn" id="signin-button">Déjà membre ? Connectez-vous !</button>
+			</div>
+			
 
 			<hr class="mb-3"></hr>
-			<form action="index.php?action=registerUser" method="POST">
-				<label for="firstname" class="mt-2">Prénom</label>
-				<input type="text" name="firstname" class="form-control" required />
+
+			<?php if(!empty($errors)): ?>
+			<div class="alert alert-danger">
+				<p>Le formulaire n'a pas été rempli correctement :</p>
+				<ul>
+					<?php foreach($errors as $error): ?>
+						<li><?= $error; ?></li>
+					<?php endforeach; ?>
+				</ul>	
+			</div>
+			<?php endif; ?>
+
+			<form action="index.php?action=registerUser" onsubmit="return " method="POST">
+				<div class="form-group" id="username">
+					<label for="username" class="mt-2">Pseudo</label>
+					<input type="text" name="username" class="form-control" />
+					<div id="username-error"></div>
+				</div>
+
+				<div class="form-group" id="email">
+					<label for="email" class="mt-2">Adresse email</label>
+					<input type="email" name="email" class="form-control" />
+					<div id="email-error"></div>
+				</div>
 				
-				<label for="lastname" class="mt-2">Nom</label>
-				<input type="text" name="lastname" class="form-control" required />
+				<div class="form-group" id="password">
+					<label for="password" class="mt-2">Mot de passe</label>
+					<input type="password" name="password" class="form-control" />
+				</div>
 				
-				<label for="email" class="mt-2">Adresse email</label>
-				<input type="email" name="email" class="form-control" required />
+				<div class="form-group" id="password-confirm">
+					<label for="password-confirm" class="mt-2">Confirmez votre mot de passe</label>
+					<input type="password" name="password-confirm" class="form-control" />
+					<div id="password-error"></div>
+				</div>
 				
-				<label for="password" class="mt-2">Mot de passe</label>
-				<input type="password" name="password" class="form-control" required />
-				
-				<!-- <label for="password2" class="mt-2">Confirmez votre mot de passe</label>
-				<input type="password" name="password2" class="form-control" required /> -->
-				
+
 				<hr class="mb-3"></hr>
-				<input type="submit" name="registerUser" value="Je m'inscris" class="title btn btn-outline-success mt-2">
+				<input type="submit" name="signup" value="Je m'inscris" class="title btn btn-outline-success mt-2">
 			</form>
 		</div>
 	</div>

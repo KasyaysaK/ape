@@ -1,17 +1,25 @@
 <?php 
 
-	namespace APE\Site\Model;
-	$configs = include('config.php');
-
+	//namespace APE\Site\Model;
 
 	class Database
 	{
+//		private $host = host;
+//		private $dbname = dbname;
+//		private $username = username;
+//		private $password = password;
+
 		protected function dbhConnect()
 		{	
-			$host	= $configs['host'];
-			$dbname	= $configs['dbname'];
+			 $configs = include('config.php');
+                        $host		= host;
+                        $dbname		= dbname;
+                        $username	=  username;
+                        $password 	= password;
 
-	        $dbh = new \PDO('mysql:host={$host};dbname={$dbname};charset=utf8',$configs['username'],$configs['password']);
+                $dbh = new \PDO('mysql:host='.$host.';dbname='.$dbname.';charset=utf8',''.$username.'',''.$password.'');
+	        
+	    	$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	        
 	        return $dbh;	 
 		}

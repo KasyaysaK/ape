@@ -1,44 +1,57 @@
 <?php
-//passer le code en POO
+	
+	//namespace APE\Site\Model;
 
-//créer une fonction pour ob_start
-
-require_once('model/UserManager.php');
-
-
-	function showHome() //loads homepage
+	//passer les require_once dans autoload
+	//passer le code en POO
+	//créer une fonction pour ob_start
+	class Controller 
 	{
-		require('view/front/home.php');
-	}
+		protected $users;
+		protected $posts;
 
-	function showRegistration() //loads login page
-	{
-		require('view/front/registration.php');
-	}
+		public function __construct() 
+		{
+			$this->users = new Users();
+			$this->posts = new Posts();
+		}
 
-	function getUser() {
-		
-	}
+		public function showHome() //loads homepage
+		{
+			require('view/front/home.php');
+		}
 
-	function registerUser($firstname, $lastname, $email, $hash) // saves user to the database
-	{
-		if (isset($_POST['signup'])) {
-			$firstname 	= htmlspecialchars($_POST['firstname']);
-			$lastname 	= htmlspecialchars($_POST['lastname']);
-			$email 		= htmlspecialchars($_POST['email']);
-			$hash 		= password_hash($_POST['password'], PASSWORD_DEFAULT);
+		public function showRegistration() //loads login page
+		{
+			require('view/front/registration.php');
+		}
+
+		public function registerUser($username, $email, $password) // saves user to the database
+		{
+
+			$checkForm = new FormValidator($_POST);
+			$validUsername = $checkForm->isUsernameValid($username, $errors);
+			$validEmail = $checkForm->isEmailValid($email, $errors);
+			$validPassword = $checkForm->isPasswordValid($password, $errors);
+	//		$errors = $checkForm->isThereError($errorCount);
+
+			var_dump($errors);
+
+
+			if ($errors = null) {
+				$newUser = $this->users->createUser($username, $email, $password);
+				require('view/front/profile.php');
+				echo 'inscription réussie !';
 			}
-
-		echo $firstname . " " . $lastname . " " . $email . " " . $hash;
-
-		$userManager = new \APE\Site\Model\UserManager();
-		$newUser = $userManager->registerUser($firstname, $lastname, $email, $hash);
-
-		if ($newUser === false) {
-			echo 'erreur :(';
 		}
-		else {
-			require('view/front/profile.php');
+
+		public function listPosts()
+		{
+		    $allPosts = $this->posts->getPosts();
+	    	require('view/front/postList.php');
 		}
+
 	}
+
+	
 

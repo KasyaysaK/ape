@@ -22,18 +22,7 @@
 	          		<a class="dropdown-item" href="#">Qui sommes nous ?</a>
 	          		<div class="dropdown-divider"></div>
 	          		<div class="dropdown-divider"></div>
-	          		<a class="dropdown-item" href="#">La revue de l'APE</a>
 	          		<a class="dropdown-item" href="#">Nos projets en cours</a>
-		        </div>
-      		</li>
-      		<li class="nav-item dropdown">
-	        	<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-	          L'école
-	        	</a>
-		        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-	          		<a class="dropdown-item" href="#">Actualités</a>
-	          		<div class="dropdown-divider"></div>
-	          		<a class="dropdown-item" href="#">Le personnel</a>
 		        </div>
       		</li>
       		<li class="nav-item dropdown">
@@ -41,7 +30,7 @@
 	          Informations
 	        	</a>
 		        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-	          		<a class="dropdown-item" href="#">Conseils aux parents</a>
+	          		<a class="dropdown-item" href="index.php?action=listPosts">Conseils aux parents</a>
 	          		<div class="dropdown-divider"></div>
 	          		<a class="dropdown-item" href="index.php?action=showRegistration">Devenir membre</a>
 	          		<div class="dropdown-divider"></div>

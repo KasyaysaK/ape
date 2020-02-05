@@ -46,3 +46,8 @@ body {
 	background-color: rgba(255,255,255,0.6);
 	height: 250px;
 }
+
+.add {
+	color: green;
+	font-size: 2em;
+}
