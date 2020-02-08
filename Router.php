@@ -35,7 +35,6 @@
 							break;
 						case 'signin':
 							if (!isset($_SESSION['username']) || !isset($_SESSION['password'])) {
-									var_dump('pas de session');
 									if(!empty($_POST['username']) || !empty($_POST['password'])) {
 										$this->front->signin($_POST['username'], $_POST['password']);
 									}
@@ -50,6 +49,8 @@
 			                else {
 			                        echo 'il y a des erreurs';
 			                }
+			            case 'signout':
+			            	$this->front->signout();
 					}
 				}
 				else {

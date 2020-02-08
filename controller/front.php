@@ -14,11 +14,12 @@ class Controller
 	{
 		$this->users = new Users();
 		$this->posts = new Posts();
+		$this->session = session_start();
 	}
-	public function session() // public public function __construct() -> is part of the constructor, avoids calling for the 						public function everytime
-	{
-		session_start();
-	}
+//	public function session() // public public function __construct() -> is part of the constructor, avoids calling for the 						public function everytime
+//	{
+//		session_start();
+//	}
 	public function home() //loads homepage
 	{
 		/*
@@ -29,7 +30,7 @@ class Controller
 	}
 	public function signup() //shows registration form
 	{
-		$this->session(); 
+		//$this->session; 
 		if (!isset($_SESSION['user']) || !isset($_SESSION['password'])) {
 			require('view/front/signup.php');
 		}
@@ -37,22 +38,16 @@ class Controller
 	public function signin($username, $password)
 	{
 		if (isset($_POST['signin'])) {
-			var_dump('on rentre dans le contrôleur');
 			$username = htmlspecialchars($_POST['username']);
 			$password = htmlspecialchars($_POST['password']);
-			var_dump($username);
-			var_dump($password);
 			$user = new Users(); // namespace \APE\Site\Model\
 			$signin = $user->getUSer($username, $password);
-			var_dump($signin);
 			if ($signin) {
-			var_dump('instanciation ok');
-				$this->session();
+				//$this->session();
 				$_SESSION['username'] = htmlspecialchars($_POST['username']);
 				$_SESSION['password'] = htmlspecialchars($_POST['password']);
 				$hash = password_hash($password, PASSWORD_DEFAULT);
 				if($_SESSION['password'] && $_SESSION['password'] = password_verify('admin', $hash)) {
-					var_dump('administrateur');
 					require('view/admin/pannel.php');
 				} 
 				else {
@@ -64,9 +59,7 @@ class Controller
         }		
 	}
 	public function signout() //logs user out
-	{
-		session(); // to remove in OOP
-		$_SESSION = array();
+	{		
 		session_destroy();
 		header('Location: index.php');
 		exit;
