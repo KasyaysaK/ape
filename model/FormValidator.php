@@ -4,18 +4,19 @@
 
 	class FormValidator extends Database 
 	{
-		private $errors = [];
-//		public function __construct($errors)
-//		{
-//			$this->$errors = $errors;
-//		}
+		protected $errors = [];
+
+		public function __construct($errors)
+		{
+			$this->$errors = $errors;
+		}
 		public function isUsernameValid($username, $errors)
 		{
 			if(!empty($_POST['username'])) {
 				$username = htmlspecialchars($_POST['username']);
 			}
 			else {
-				$errors = 'Le pseudo n\'est pas valide';
+				$this->errors = 'Le pseudo n\'est pas valide';
 			}
 		}
 
@@ -26,7 +27,7 @@
 				
 			}
 			else {
-				$errors = 'L\'adresse email n\'est pas valide';
+				$this->$errors = 'L\'adresse email n\'est pas valide';
 			}
 		}
 
@@ -36,7 +37,7 @@
 				$password = password_hash($_POST['password'], PASSWORD_BCRYPT);
 			}
 			else {
-				$errors = 'Le mot de passe n\'est pas valide';
+				$this->$errors = 'Le mot de passe n\'est pas valide';
 			}
 		}
 

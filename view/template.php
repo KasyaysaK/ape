@@ -15,14 +15,16 @@
         <script src="public/js/tinymce/tinymce.min.js" referrerpolicy="origin"></script>
         <script type="text/javascript">tinymce.init({ height : "480", selector:'.post-editor', language: 'fr_FR'});</script>
     </head>
-    <body class="frontend-body">
+    <body class="parallax">
         
         <section class="header">
             <?php include('header.php'); ?>
         </section>
 
-        <section class="body">
-            <?= $content ?>     
+        <section class="main py-5">
+            <div class="container">
+                <?= $content ?>          
+            </div>
         </section>
 
         <section class="footer">

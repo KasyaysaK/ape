@@ -1,7 +1,19 @@
-body {
+
+
+/*body {
+	background: url(../images/pattern.jpg);
 	margin: 0;
 	padding: 0;
 	font-family: 'Lato', sans-serif;
+}*/
+
+.head, .footer {
+	height: 30vh;
+	background: url(../images/pattern.jpg);
+}
+
+.main {
+	background: rgba(250,250,250,0.9);
 }
 
 .title {
@@ -17,7 +29,7 @@ body {
 	position: relative;
 	width: 100%;
 	height: 100vh;
-	background: url(../images/family.jpg) no-repeat center;
+	background: url(../images/mother-daughter.jpg) no-repeat center;
 	background-size: cover;
 	background-attachment: fixed;
 }
@@ -37,17 +49,16 @@ body {
   max-height: 600px !important;
 }
 
-.footer {
-	background-image: url("../images/APE_logo_2.png");
-	height: 250px;
-}
-
-.sitemap {
-	background-color: rgba(255,255,255,0.6);
-	height: 250px;
-}
-
-.add {
+.icons {
 	color: green;
 	font-size: 2em;
+}
+
+/* CARDS */
+
+.card {
+	border: 1px dotted rgba(0,0,0,.125);
+}
+.card-img-top {
+	height: 
 }
