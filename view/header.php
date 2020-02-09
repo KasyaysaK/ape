@@ -51,8 +51,10 @@
 		            <div class="dropdown-menu" aria-labelledby="about">
 		                <a class="dropdown-item" href="#">Qui sommes nous ?</a>
 		                <div class="dropdown-divider"></div>
-		                <a class="dropdown-item" href="index.php?action=signup">Devenir membre</a>
-		                <div class="dropdown-divider"></div>
+		                <?php if (!$_SESSION) : ?>
+			                <a class="dropdown-item" href="index.php?action=login">Devenir membre</a>
+			                <div class="dropdown-divider"></div>
+		            	<?php endif ?>
 		                <a class="dropdown-item" href="#">Contactez-nous</a>
 		            </div>
 		        </div>
@@ -84,15 +86,15 @@
 				    <div class="modal-content">
 
 			      		<div class="modal-header">
-					        <h5 class="modal-title title" id="login-form-title">Déonnexion</h5>
+					        <h5 class="modal-title title" id="login-form-title">Déconnexion</h5>
 			      		</div>
 			         		<div class="modal-body">
-			         			<p>Souhaitez-vous vous déconnecter ?</p>
+			         			<p> <?= $_SESSION['username'] ?>, souhaitez-vous vous déconnecter ?</p>
 			         		</div>
 				      		
 				      		<div class="modal-footer justify-content-center">
-	  							<a class="title btn btn-outline-success my-2 my-sm-0" href="index.php?action=signout">valider</a>
-				       		 	<button type="button" class="title btn btn-outline-secondary my-2 my-sm-0" data-dismiss="modal">annuler</button>
+	  							<a class="title btn btn-outline-success my-2 my-sm-0" href="index.php?action=signout">oui</a>
+				       		 	<button type="button" class="title btn btn-outline-secondary my-2 my-sm-0" data-dismiss="modal">non</button>
 					      	</div>
 
 				    </div>

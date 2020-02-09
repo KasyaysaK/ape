@@ -1,4 +1,4 @@
-+-*<?php $title = htmlspecialchars('Association Parents-Élèves'); ?>
+<?php $title = htmlspecialchars('Association Parents-Élèves'); ?>
 
 <?php ob_start(); ?>
 
@@ -24,7 +24,7 @@
 			</div>
 			<?php endif; ?>
 
-			<form action="index.php?action=create_user" onsubmit="return " method="POST">
+			<form action="index.php?action=signup" onsubmit="return " method="POST">
 				<div class="form-group" id="username">
 					<label for="username" class="mt-2">Pseudo</label>
 					<input type="text" name="username" class="form-control" />

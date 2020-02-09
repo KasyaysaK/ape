@@ -2,7 +2,7 @@
 
 <?php ob_start(); ?>
 
-<div class="my-4">
+<div class="container my-4">
 
 	<div class="col-md-6 offset-4 text-justify">
 		<p>

@@ -11,7 +11,7 @@ class Database
 
 	protected function dbhConnect()
 	{	
-		 $configs = include('config.php');
+		 $configs = require_once('config.php');
                     $host		= host;
                     $dbname		= dbname;
                     $username	=  username;

@@ -7,8 +7,6 @@
 		if (file_exists($file_name)) {
 			require $file_name;
 		}
-
-		
 	}
 
 	spl_autoload_register('model_autoload');

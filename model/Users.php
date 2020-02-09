@@ -10,13 +10,13 @@ class Users extends Database
 	public function __construct() {
 		$this->dbh = $this->dbhConnect();
 	}
-	public function createUser($username, $email, $password)
+	public function create_user($username, $email, $password)
 	{ 
 		$newUser = $this->dbh->prepare('INSERT INTO users (username, email, password, role_id, status) VALUES (?, ?, ?, 3, 0)');
 		return $newUser->execute(array($username, $email, $password)); 
 	}
 
-	public function getUser($username, $password)
+	public function get_user($username, $password)
 	{
 		$user = $this->dbh->prepare('SELECT username FROM users WHERE username = :username'); 
 		$user->execute(array('username' => $username));

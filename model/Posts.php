@@ -12,5 +12,13 @@
 
 			return $request;
 		}
+		public function create_post($title, $content) 
+		{
+			$dbh = $this->dbhConnect();
+			$request = $dbh->prepare('INSERT INTO posts (title, content, creation_date) VALUES (?, ?, NOW())');
+			$newPost = $request->execute(array($title, $content));
+
+			return $newPost;
+		}
 
 	}
