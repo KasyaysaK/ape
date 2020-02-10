@@ -15,67 +15,39 @@
 
 	    <div class="col-md-6">
     		<div class="card my-4">
-		  		<div class="card-header d-flex justify-content-between align-items-center">
-		   	 		<h3>Ajouter un nouvel article</h3>
-		   	 		<a href="index.php?action=add_post" class="title btn"><i class="far fa-plus-square add"></i></a>
-			  	</div>
 			  	<div class="card-body">
-			  		<img src="public/images/article.jpg" alt="bloc-note avec un stylo et ordinateur posés sur une table" class="img-thumbnail" />
-				    <!-- <h4 class="carousel-caption">Rédiger un nouvel article à but informatif ou pour donner des conseils.</h4> -->
-				</div>
-				<div class="card-footer">
-				    <h4 class="card-text text-center">Voir tous les articles</h4> 
+			  		<a href="index.php?action=add_post" class="title btn"><img src="public/images/article.jpg" alt="bloc-note avec un stylo et ordinateur posés sur une table" class="img-thumbnail" /></a>
+				    <a href="index.php?action=add_post" class="carousel-caption"><h4 class="title btn btn-secondary my-2 my-sm-0">Ajouter un article</h4></a>
 				</div>
 			</div>
 		</div>
 
 		<div class="col-md-6">
-			<div class="card my-4">
-		  		<div class="card-header d-flex justify-content-between align-items-center">
-		   	 		<h3>Créer une nouvelle activité</h3>
-		   	 		<a href="index.php?action=add_activity" class="title btn"><i class="far fa-plus-square add"></i></a>
-			  	</div>
+    		<div class="card my-4">
 			  	<div class="card-body">
-			  		<img src="public/images/activity.jpg" alt=" des blocs de construction et des pieds d'enfants" class="img-thumbnail" />
-				    <!-- <h4 class="carousel-caption">Créer une nouvelle activité à partager en famille pour de bon moments</h4> -->
-				</div>
-				<div class="card-footer">
-				    <h4 class="card-text text-center">Voir toutes les activités</h4> 
+			  		<a href="index.php?action=posts_manager" class="title btn"><img src="public/images/article.jpg" alt="bloc-note avec un stylo et ordinateur posés sur une table" class="img-thumbnail" /></a>
+				    <a href="index.php?action=post_manager" class="carousel-caption"><h4 class="title btn btn-secondary my-2 my-sm-0">Gérer les articles</h4></a>
 				</div>
 			</div>
 		</div>
 
 		<div class="col-md-6">
-			<div class="card my-4">
-		  		<div class="card-header d-flex justify-content-between align-items-center">
-		   	 		<h3>Ajouter une nouvelle recette</h3>
-		   	 		<a href="index.php?action=add_recipe" class="title btn"><i class="far fa-plus-square add"></i></a>
-			  	</div>
+    		<div class="card my-4">
 			  	<div class="card-body">
-			  		<img src="public/images/recipe.jpg" alt="un plan de travail avec des oeufs, de la farine et un rouleau à patisserie" class="img-thumbnail" />
-				    <!-- <h4 class="carousel-caption">Ajouter une nouvelle recette à faire et à déguster tous ensemble<h4> -->
-				</div>
-				<div class="card-footer">
-				    <h4 class="card-text text-center">Voir toutes les recettes</h4> 
+			  		<a href="index.php?action=comments_manager" class="title btn"><img src="public/images/article.jpg" alt="bloc-note avec un stylo et ordinateur posés sur une table" class="img-thumbnail" /></a>
+				    <a href="index.php?action=comments_manager" class="carousel-caption"><h4 class="title btn btn-secondary my-2 my-sm-0">Gérer les commentaires</h4></a>
 				</div>
 			</div>
-    	</div>
+		</div>
 
-    	<div class="col-md-6">
-			<div class="card my-4">
-		  		<div class="card-header d-flex justify-content-between align-items-center">
-		   	 		<h3>Modération</h3>
-		   	 		<a href="#" class="title btn"><i class="far fa-plus-square add"></i></a>
-			  	</div>
+		<div class="col-md-6">
+    		<div class="card my-4">
 			  	<div class="card-body">
-			  		<img src="public/images/admin.png" alt="un plan de travail avec des oeufs, de la farine et un rouleau à patisserie" class="img-thumbnail" />
-				    <!-- <h4 class="carousel-caption">Ajouter une nouvelle recette à faire et à déguster tous ensemble<h4> -->
-				</div>
-				<div class="card-footer">
-				    <h4 class="card-text text-center">Voir tous les signalements</h4> 
+			  		<a href="index.php?action=users_manager" class="title btn"><img src="public/images/article.jpg" alt="bloc-note avec un stylo et ordinateur posés sur une table" class="img-thumbnail" /></a>
+				    <a href="index.php?action=users_manager" class="carousel-caption"><h4 class="title btn btn-secondary my-2 my-sm-0">Gérer les utilisateurs</h4></a>
 				</div>
 			</div>
-    	</div>
+		</div>
 
 	</div>
 			

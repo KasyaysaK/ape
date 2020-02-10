@@ -43,41 +43,17 @@
 		      	<div class="row">
 
 			        <div class="col-md-4">
+			        	
 		          		<div class="card mb-2">
-		            		<img class="card-img-top" src="public/images/yoga.jpg"
+		            		<img class="card-img-top" src=""
 			              alt="Une femme s'étire sur un tapis de yoga">
 		            		<div class="card-body">
-		              			<h4 class="card-title">Yoga</h4>
-		      					<p class="card-text">Un bon moyen de découvrir son corps et de se détendre.</p>
-			                	<h4 class="title btn btn-outline-success">Voir</h4> 
+		              			<h4 class="card-title"><?= $post['title']; ?></h4>
+		      					<p class="card-text"><?= substr($post['content'], 0, 120) ?>...</p>
+			                	<h4 class="title btn btn-outline-success"><a href="index.php?action=display_post&amp;id=<?= $post['id'] ?>" class="btn btn-dark">Lire la suite</a></h4> 
 			            	</div>
 		          		</div>
 			        </div>
-
-			        <div class="col-md-4 clearfix d-none d-md-block">
-			          	<div class="card mb-2">
-				            <img class="card-img-top" src="public/images/oobleck.jpg"
-				              alt="Deux mains enfarinées">
-				            <div class="card-body">
-				              	<h4 class="card-title">Ooblek</h4>
-				              	<p class="card-text">Un nom bizarre pour une activité plutôt rigolote.</p>
-				              	<h4 class="title btn btn-outline-success my-2 my-sm-0">Voir</h4> 
-				            </div>
-		          		</div>
-			        </div>
-
-			        <div class="col-md-4 clearfix d-none d-md-block">
-			          	<div class="card mb-2">
-				            <img class="card-img-top" src="public/images/garden.jpg"
-				              alt="Un enfant qui arrose des fleurs">
-				            <div class="card-body">
-				              	<h4 class="card-title">Jardinage</h4>
-				              	<p class="card-text">Pas besoin d'un grand espace ou même d'un extérieur pour faire pousser quelques plantes</p>
-				              	<h4 class="title btn btn-outline-success my-2 my-sm-0">Voir</h4> 
-				            </div>
-		          		</div>
-			        </div>
-
 	      		</div>
 	        </div>
 	        <!--/.First slide-->
@@ -145,6 +121,7 @@
 
 	<div class="row">
 		<div class="col-md-4">
+			<?php foreach ($last_posts as $post): ?>
           	<div class="card mb-2">
 	            <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(60).jpg"
 	              alt="Card image cap">
@@ -154,32 +131,8 @@
 	              	<h4 class="title btn btn-outline-success my-2 my-sm-0">Lire la suite</h4> 
 	            </div>
           	</div>
+          	<?php endforeach; ?>
         </div>
-
-		<div class="col-md-4">
-			<div class="card mb-2">
-	            <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(60).jpg"
-	              alt="Card image cap">
-	            <div class="card-body">
-	              	<h4 class="card-title">Le poids de la grossesse</h4>
-	              	<p class="card-text">Déjà +5 kilos en quelques semaines de grossesse, et pourtant on vous dit que ça ne se voit pas ? Découvrez à quoi correspond ce poids.</p>
-	              	<h4 class="title btn btn-outline-success my-2 my-sm-0">Lire la suite</h4> 
-	            </div>
-          	</div>
-		</div>
-
-		<div class="col-md-4">
-			<div class="card mb-2">
-	            <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(60).jpg"
-	              alt="Card image cap">
-	            <div class="card-body">
-	              	<h4 class="card-title">La diversification</h4>
-	              	<p class="card-text">Suivez notre calendrier des fruits et légumes en fonction des saisons</p>
-	              	<h4 class="title btn btn-outline-success my-2 my-sm-0">Lire la suite</h4> 
-	            </div>
-          	</div>
-		</div>
-
 	</div>
 
 </div>

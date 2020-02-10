@@ -1,4 +1,4 @@
-<?php $title = htmlspecialchars('Jean Forteroche'); ?>
+<?php $title = htmlspecialchars('Liste des articles'); ?>
 
 <?php ob_start(); ?>
     
@@ -7,11 +7,7 @@
 			<div class="col-10 offset-1 text-center">
     			<h2 class="">Liste des chapitres</h2>
    
-			    <?php
-			    	while ($post = $posts->fetch())
-			    	{
-			    ?>
-
+			    <?php foreach ($posts as $post): ?>
 				<div class="card content">
 					<div class="card-header d-flex justify-content-between">
 						 <h3 class="card-title"><?= $post['title']; ?></h3>
@@ -25,14 +21,9 @@
 				   		</div>
 					    
 				    </div>
-				    <div class="card-footer"><a href="index.php?action=post&amp;id=<?= $post['id'] ?>" class="btn btn-dark">Lire la suite</a></div> 
+				    <div class="card-footer"><a href="index.php?action=display_post&amp;id=<?= $post['id'] ?>" class="btn btn-dark">Lire la suite</a></div> 
 				</div>
-
-			    <?php
-			    	}
-			    	$posts -> closeCursor();
-			    ?>
-
+			    <?php endforeach; ?>
 			</div>
 		</div>
 	</div>

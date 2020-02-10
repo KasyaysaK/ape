@@ -4,39 +4,85 @@
 
 /**
  * Class Controller 
- * 
  */	
-
 class Controller 
 {
 
 	/**
-	 * @var defines the model managing the users
-	 * @var defines the model managing the posts
+	 * @var $users defines the model managing the users
+	 * @var $posts defines the model managing the posts
+	 * @var $session starts the session
 	 */	
 
 	protected $users;
 	protected $posts;
-	protected $ession;
-
-
+	protected $comments;
+	//protected $ession;
 
 	public function __construct() 
 	{
-		$this->users = new Users();
-		$this->posts = new Posts();
-		$this->session = session_start();
+		$this->users 	= new Users();
+		$this->posts 	= new Posts();
+		$this->comments = new Comments();
+		//$this->session = session_start();
 	}
 
+//****************************************** CONTENT MANAGER ******************************************
 	/**
 	 * loads the homepage view
 	 */
-
 	public function home() //loads homepage
 	{
 		//$this->session;
+		$last_posts = $this->posts->get_last_posts();
 		require('view/front/home.php');
 	}
+	/**
+	 * shows all the posts
+	 */
+	public function list_posts()
+	{
+		$posts = $this->posts->get_posts();
+		require('view/front/posts_list.php');
+	}
+	/**
+	 * shows one post and its comments
+	 */
+	public function display_post()
+	{
+		$post_id = $_GET['id'];
+		$post 	 = $this->posts->get_post($post_id);
+		$comment = $this->comments->get_comment($post_id);
+		require('view/front/post.php');
+	}
+	/**
+	 * shows all the posts
+	 */
+	public function post_manager()
+	{
+		$posts = $this->posts->get_posts();
+		var_dump($posts);
+		require('view/admin/post_manager.php');
+	}	
+	/**
+	 * shows all the comments
+	 */
+	public function list_comments()
+	{
+		$comment = $this->comments->get_comments();
+	}
+	/**
+	 * shows the flagged comments
+	 */
+	public function list_flagged_comments()
+	{
+		$comment = $this->comments->get_comments();
+	}
+	/**
+	 * shows user profile and comments
+	 */
+	//public function get_user() 
+
 
 	//************************************** LOGIN MANAGER ***************************************
 
@@ -54,7 +100,25 @@ class Controller
 			echo "Vous êtes déjà connecté";
 		}
 	}
-
+	/**
+	 * shows user's profile
+	 * @param $user_id
+	 */
+	public function profile($user_id)
+	{
+		//if there is a session
+		require('view/front/profile.php');
+		//else veuillez vous connecter
+	}
+	/**
+	 * shows the dashboard
+	 */
+	public function dashboard()
+	{
+		if(isset($_SESSION['username']) && isset($_SESSION['password'])) {
+			require('view/admin/pannel.php');
+		}
+	}
 	/**
 	 * saves a new user to the database
 	 * @param string $username
@@ -65,10 +129,10 @@ class Controller
 	{
 		//$this->session;
 		if (isset($_POST['signup'])) {
-			$username 		= htmlspecialchars($_POST['username']);
+			$username 	= htmlspecialchars($_POST['username']);
 			$email 		= htmlspecialchars($_POST['email']);
 			$password 	= password_hash($_POST['password'], PASSWORD_BCRYPT);
-			$new_user = $this->users->create_user($username, $email, $password);
+			$new_user 	= $this->users->create_user($username, $email, $password);
 			}
 		if ($new_user) {
 			$this->session;
@@ -93,17 +157,17 @@ class Controller
 
 			$username = htmlspecialchars($_POST['username']);
 			$password = htmlspecialchars($_POST['password']);
-			$signin = $this->users->get_uSer($username, $password);
+			$signin   = $this->users->get_uSer($username, $password);
 			if ($signin) {
-				$this->session;
+				//$this->session;
 				$_SESSION['username'] = htmlspecialchars($_POST['username']);
 				$_SESSION['password'] = htmlspecialchars($_POST['password']);
-				$hash = password_hash($password, PASSWORD_DEFAULT);
+				$hash = password_hash($password, PASSWORD_BCRYPT);
 				if($_SESSION['password'] && $_SESSION['password'] = password_verify('admin', $hash)) {
 					require('view/admin/pannel.php');
 				} 
 				else {
-					$this->session;
+					//$this->session;
 					require('view/front/profile.php');
 				}
 			}
@@ -120,54 +184,23 @@ class Controller
 		exit;
 	}
 
-//****************************************** CONTENT MANAGER ******************************************
-	/**
-	 * shows all the posts
-	 */
-	//public function list_posts()
-
-	/**
-	 * shows one post
-	 */
-	//public function get_post()
-
-	/**
-	 * shows all the comments
-	 */
-	//public function list_comments()
-
-	/**
-	 * shows all the posts
-	 * @param post_id
-	 */
-	//public function get_comments(post_id)
-
-	/**
-	 * shows user profile
-	 */
-	//public function get_user() 
-
-	/**
-	 * shows user's comment
-	 */
-	//public function get_user_comments()
-
 
 //***************************************** BACKOFFICE MANAGER ****************************************
 
 	/**
 	 * loads the add post view
 	 */
-	public function add_post() {
+	public function add_post()
+	{
 		require('view/admin/add_post.php');
 	}
-
 	/**
 	 * saves a new post to the database, status is set to 1 by defaulft
 	 * @param $title
 	 * @param $content
 	 */
-	public function save_post($title, $content) {
+	public function save_post($title, $content) 
+	{
 		$new_post = $this->posts->create_post($title, $content);
 		if ($new_post) {
        		header('Location: index.php');
@@ -180,6 +213,30 @@ class Controller
        		exit;
 	    }
 	}
+	/**
+	 * get post to edit
+	 */
+	public function edit_post() 
+	{
+		$post_id = $_GET['id'];
+	    $post_to_edit = $this->posts->get_post($post_id);
+	    require('view/admin/edit_post.php');
+	}
+	/**
+	 * saves edited 
+	 */
+	public function save_edited_post($post_id, $title, $content)
+	{
+	    $update_post = $this->posts->update_post($post_id, $title, $content);
+	    var_dump($update_post);
+
+	    if ($update_post === false) {
+	        echo 'Impossible de mettre à jour le chapitre';
+	    }
+	    else {
+	        $this->post_manager();
+	    }
+	}
 
 	/**
 	 *allows admin/author to publish a post on the website when status is set to 0
@@ -188,17 +245,10 @@ class Controller
 	 * @param $status
 	 */
 	//public function publish_post($title, $content, $status)
-
-	/**
-	 *allows admin/author to edit a post
-	 * @param $title
-	 * @param $content
-	 * @param $status
-	 */
-	//public function edit_post($title, $content, $status)
-
 	
-	//public function delete_post()
-
+	public function delete_post($post_id)
+		$post_id = $_GET['id'];
+		$post 	 = $this->posts->get_post($post_id);
+		$comment = $this->comments->get_comment($post_id);
 
 }

@@ -7,3 +7,4 @@ const signin = new Login(document.getElementById('signin-button'),
 						document.getElementById('signin-form'), 
 						document.getElementById('signup-form'));
 signin.displayForm();
+
