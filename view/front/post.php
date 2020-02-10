@@ -3,6 +3,10 @@
 <?php ob_start(); ?>
 
    	<div class="container">
+   		<hr class="mb-3" />
+		<h2 class="text-center">Ajouter un nouvel article</h2>
+		<a href="index.php?action=dashboard">Revenir sur la page d'administration</a>
+		<hr class="mb-3" />
 		<div class="row">
 			<div class="col-10 offset-1">
 				<div class="d-flex justify-content-between my-4">

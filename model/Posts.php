@@ -72,9 +72,9 @@ class Posts extends Database
 	 * inserts a new post in the database
 	 * @param $id
 	 */
-	public function delete_post($id) 
+	public function delete_post($post_id) 
 	{
 		$request = $this->dbh->prepare('DELETE FROM posts WHERE id = ?');
-		$deletedPost = $request->execute(array($id));
+		$deleted_post = $request->execute(array($post_id));
 	}
 }

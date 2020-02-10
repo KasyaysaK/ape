@@ -5,7 +5,7 @@
 	<div class="container my-5">
 		<div class="row">
 			<div class="col-10 offset-1 text-center">
-    			<h2 class="">Liste des chapitres</h2>
+    			<h2 class="">La revue</h2>
    
 			    <?php foreach ($posts as $post): ?>
 				<div class="card content">

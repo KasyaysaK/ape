@@ -61,7 +61,6 @@ class Controller
 	public function post_manager()
 	{
 		$posts = $this->posts->get_posts();
-		var_dump($posts);
 		require('view/admin/post_manager.php');
 	}	
 	/**
@@ -228,7 +227,6 @@ class Controller
 	public function save_edited_post($post_id, $title, $content)
 	{
 	    $update_post = $this->posts->update_post($post_id, $title, $content);
-	    var_dump($update_post);
 
 	    if ($update_post === false) {
 	        echo 'Impossible de mettre à jour le chapitre';
@@ -246,9 +244,12 @@ class Controller
 	 */
 	//public function publish_post($title, $content, $status)
 	
-	public function delete_post($post_id)
-		$post_id = $_GET['id'];
-		$post 	 = $this->posts->get_post($post_id);
-		$comment = $this->comments->get_comment($post_id);
+	public function remove_post($post_id)
+	{
+		$post 	 = $this->posts->delete_post($post_id);
+		//$comment = $this->comments->delete_comment($post_id);
+		$this->post_manager();
+	}
+		
 
 }

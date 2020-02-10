@@ -120,15 +120,15 @@
 	<hr class="mb-3" />
 
 	<div class="row">
-		<div class="col-md-4">
+		<div class="col-md-8">
 			<?php foreach ($last_posts as $post): ?>
           	<div class="card mb-2">
 	            <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(60).jpg"
 	              alt="Card image cap">
 	            <div class="card-body">
-	              	<h4 class="card-title">L'éducation bienveillante</h4>
-	              	<p class="card-text">Être parent c'est quoi ? Et c'est possible de se faire respecter sans utiliser de la violence verbale ou physique ?</p>
-	              	<h4 class="title btn btn-outline-success my-2 my-sm-0">Lire la suite</h4> 
+	              	<h4 class="card-title"><?= $post['title']; ?></h4>
+	              	<p class="card-text"><?= substr($post['content'], 0, 120) ?>...</p>
+	              	<a href="index.php?action=display_post&amp;id=<?= $post['id'] ?>"><h4 class="title btn btn-outline-success my-2 my-sm-0">Lire la suite</h4></a> 
 	            </div>
           	</div>
           	<?php endforeach; ?>

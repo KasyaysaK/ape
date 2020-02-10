@@ -20,7 +20,7 @@
 			<!-- Visualiser l'article -->
 			<a href="index.php?action=dashboard" class="list-group-item list-group-item-action text-center">Annuler</a>
 			<button type="submit" class="list-group-item list-group-item-action text-center">Publier</button>
-			<a href="index.php?action=erase_post" class="list-group-item list-group-item-action text-center">Supprimer</a>
+			<a href="index.php?action=remove_post" class="list-group-item list-group-item-action text-center">Supprimer</a>
 		</div>>
     </form>
 </div>

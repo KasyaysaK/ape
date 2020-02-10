@@ -91,7 +91,14 @@ class Router
 			                    require('view/backend/error.php');
 			                    throw new Exception('Veuillez écrire l\'article avant de l\'envoyer.');   
 			                }
-			                break;
+			            break;
+			        case 'remove_post' : 
+			        	if(isset($_GET['post_id'])) {
+		                  	$this->controller->remove_post($_GET['post_id']); 
+		                } else {
+		                  	throw new Exception('L\'article n\'a pas été supprimé');
+		                }
+		                break;
 				}
 			}
 			else {
