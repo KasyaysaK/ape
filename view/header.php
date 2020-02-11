@@ -1,4 +1,4 @@
-ç_<div class="head">
+<div class="head">
 	<div>
 	<div class="container">
 	    <div id="carouselContent" class="carousel slide" data-ride="carousel">
@@ -78,7 +78,7 @@
 
 			<!-- Button trigger modal -->
 			
-			<?php if (isset($_SESSION)) : ?>
+			<?php if ($_SESSION) : ?>
 				<button type="button" class="title btn btn-outline-success my-2 my-sm-0" data-toggle="modal" data-target="#login-form">se déconnecter</button>
 				<!-- Modal -->
 				<div class="modal fade" id="login-form" tabindex="-1" role="dialog" aria-labelledby="login-form-title" aria-hidden="true">

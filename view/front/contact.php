@@ -11,3 +11,5 @@
         <input type="submit" value="Envoyer" />
     </form>
 </div>
+
+<!-- if user is connected, show the form, else show message "Veuillez vous connecter pour pouvoir nous contacter, lien vers page d'inscription ou modal de connextion" -->

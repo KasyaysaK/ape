@@ -19,9 +19,8 @@
 			</div>
 
 			<div class="col-md-3 sidebar">
-				<hr class="mb-3" />
 				<h6 class="text-center">Derniers articles</h6>
-				<a href="">Voir tous les articles</a>
+				<a href="" class="btn text-center">Voir tous les articles</a>
 				<hr class="mb-3" />
 				<?php foreach ($last_posts as $post): ?>
 				<ul class="list-group">

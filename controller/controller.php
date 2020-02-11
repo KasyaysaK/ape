@@ -1,24 +1,24 @@
 <?php
-	
+
 //namespace APE\Site\Controller;
 
 /**
- * Class Controller 
- */	
-class Controller 
+ * Class Controller
+ */
+class Controller
 {
 
 	/**
 	 * @var $users defines the model managing the users
 	 * @var $posts defines the model managing the posts
 	 * @var $session starts the session
-	 */	
+	 */
 
 	protected $users;
 	protected $posts;
 	protected $comments;
 
-	public function __construct() 
+	public function __construct()
 	{
 		$this->users 	= new Users();
 		$this->posts 	= new Posts();
@@ -30,7 +30,7 @@ class Controller
 	 * loads the homepage view
 	 */
 	public function home() //loads homepage
-	{ 
+	{
 		$last_posts = $this->posts->get_last_posts();
 		require('view/front/home.php');
 	}
@@ -39,7 +39,6 @@ class Controller
 	 */
 	public function list_posts()
 	{
-		// 
 		$posts = $this->posts->get_posts();
 		$comments = $this->comments->get_last_comments();
 		require('view/front/posts_list.php');
@@ -47,10 +46,10 @@ class Controller
 	/**
 	 * shows one post and its comments
 	 */
-	public function display_post($post_id)
+	public function display_post()
 	{
-		 
-		$last_posts = $this->posts->get_last_posts();		
+		$last_posts = $this->posts->get_last_posts();
+		$post_id = $_GET['id'];
 		$post 	 = $this->posts->get_post($post_id);
 		$comment = $this->comments->get_comment($post_id);
 		require('view/front/post.php');
@@ -60,16 +59,14 @@ class Controller
 	 */
 	public function post_manager()
 	{
-		 
 		$posts = $this->posts->get_posts();
 		require('view/admin/post_manager.php');
-	}	
+	}
 	/**
 	 * shows all the comments
 	 */
 	public function list_comments()
 	{
-		 
 		$comment = $this->comments->get_comments();
 	}
 	/**
@@ -77,13 +74,12 @@ class Controller
 	 */
 	public function list_flagged_comments()
 	{
-		 
 		$comment = $this->comments->get_comments();
 	}
 	/**
 	 * shows user profile and comments
 	 */
-	//public function get_user() 
+	//public function get_user()
 
 
 	//************************************** LOGIN MANAGER ***************************************
@@ -107,7 +103,6 @@ class Controller
 	 */
 	public function profile($user_id)
 	{
-		 
 		//if there is a session
 		require('view/front/profile.php');
 		//else veuillez vous connecter
@@ -117,7 +112,6 @@ class Controller
 	 */
 	public function dashboard()
 	{
-		 
 		if(isset($_SESSION['username']) && isset($_SESSION['password'])) {
 			require('view/admin/pannel.php');
 		}
@@ -126,9 +120,9 @@ class Controller
 	 * saves a new user to the database
 	 * @param string $username
 	 * @param string $email
-	 * @param string $password 
+	 * @param string $password
 	 */
-	public function signup($username, $email, $password) 
+	public function signup($username, $email, $password)
 	{
 		session_start();
 		if (isset($_POST['username']) && isset($_POST['email']) && isset($_POST['password']) && isset($_POST['password-confirm'])) {
@@ -145,32 +139,34 @@ class Controller
 					echo 'erreur :(';
 				}
 			}
-		}				
+		}
 	}
 
 	/**
 	 * signs an existing user in
-	 * if the password is admin and the role_id is set to 1 -> show admin pannel 
+	 * if the password is admin and the role_id is set to 1 -> show admin pannel
 	 * else show the profile page
 	 * @param string $username
-	 * @param string $password 
+	 * @param string $password
 	 */
 	public function signin($username, $password)
 	{
 		session_start();
 		if (isset($_POST['signin'])) {
+
 			
 			$username = htmlspecialchars($username);
 			$password = htmlspecialchars($password);
 			$hash = password_hash($password, PASSWORD_BCRYPT);
-
+			
 			$user = $this->users->get_user($username);
-		 	if ($user) {
-	            $_SESSION['username'] = $username;
+			if ($user) {
+				$_SESSION['username'] = $username;
 				$_SESSION['password'] = $password;
 				if($_SESSION['password'] && $_SESSION['password'] == password_verify('admin', $hash)) {
 					require('view/admin/pannel.php');
-				} 
+					var_dump("hello");
+				}
 				else {
 					$correct_password = password_verify($password, $user['password']);
 					if ($correct_password) {
@@ -178,15 +174,15 @@ class Controller
 					}
 				}
 			}
-        }		
+        }
 	}
 
 	/**
 	 * signs user out
 	 */
 	public function signout()
-	{		
-		//session_start();
+	{
+		session_start();
         session_destroy();
 		require('view/front/logout.php');
 	}
@@ -199,7 +195,6 @@ class Controller
 	 */
 	public function add_post()
 	{
-		 
 		require('view/admin/add_post.php');
 	}
 	/**
@@ -207,9 +202,8 @@ class Controller
 	 * @param $title
 	 * @param $content
 	 */
-	public function save_post($title, $content) 
+	public function save_post($title, $content)
 	{
-		 
 		$new_post = $this->posts->create_post($title, $content);
 		if ($new_post) {
        		header('Location: index.php');
@@ -225,19 +219,17 @@ class Controller
 	/**
 	 * get post to edit
 	 */
-	public function edit_post() 
+	public function edit_post()
 	{
-		 
 		$post_id = $_GET['id'];
 	    $post_to_edit = $this->posts->get_post($post_id);
 	    require('view/admin/edit_post.php');
 	}
 	/**
-	 * saves edited 
+	 * saves edited
 	 */
 	public function save_edited_post($post_id, $title, $content)
 	{
-		 
 	    $update_post = $this->posts->update_post($post_id, $title, $content);
 
 	    if ($update_post === false) {
@@ -255,14 +247,13 @@ class Controller
 	 * @param $status
 	 */
 	//public function publish_post($title, $content, $status)
-	
+
 	public function remove_post($post_id)
 	{
-		 
 		$post 	 = $this->posts->delete_post($post_id);
 		//$comment = $this->comments->delete_comment($post_id);
 		$this->post_manager();
 	}
-		
+
 
 }
