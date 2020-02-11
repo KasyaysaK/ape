@@ -17,15 +17,12 @@ class Controller
 	protected $users;
 	protected $posts;
 	protected $comments;
-	//protected $session;
 
 	public function __construct() 
 	{
-		var_dump($_SESSION);
 		$this->users 	= new Users();
 		$this->posts 	= new Posts();
 		$this->comments = new Comments();
-		//$this->session 	= session_start();
 	}
 
 //****************************************** CONTENT MANAGER ******************************************
@@ -33,8 +30,7 @@ class Controller
 	 * loads the homepage view
 	 */
 	public function home() //loads homepage
-	{
-		//$this->start_session(); 
+	{ 
 		$last_posts = $this->posts->get_last_posts();
 		require('view/front/home.php');
 	}
@@ -43,8 +39,7 @@ class Controller
 	 */
 	public function list_posts()
 	{
-		var_dump($_SESSION);
-		////$this->start_session(); 
+		// 
 		$posts = $this->posts->get_posts();
 		$comments = $this->comments->get_last_comments();
 		require('view/front/posts_list.php');
@@ -52,11 +47,10 @@ class Controller
 	/**
 	 * shows one post and its comments
 	 */
-	public function display_post()
+	public function display_post($post_id)
 	{
-		//$this->start_session(); 
+		 
 		$last_posts = $this->posts->get_last_posts();		
-		$post_id = $_GET['id'];
 		$post 	 = $this->posts->get_post($post_id);
 		$comment = $this->comments->get_comment($post_id);
 		require('view/front/post.php');
@@ -66,7 +60,7 @@ class Controller
 	 */
 	public function post_manager()
 	{
-		//$this->start_session(); 
+		 
 		$posts = $this->posts->get_posts();
 		require('view/admin/post_manager.php');
 	}	
@@ -75,7 +69,7 @@ class Controller
 	 */
 	public function list_comments()
 	{
-		//$this->start_session(); 
+		 
 		$comment = $this->comments->get_comments();
 	}
 	/**
@@ -83,7 +77,7 @@ class Controller
 	 */
 	public function list_flagged_comments()
 	{
-		//$this->start_session(); 
+		 
 		$comment = $this->comments->get_comments();
 	}
 	/**
@@ -113,7 +107,7 @@ class Controller
 	 */
 	public function profile($user_id)
 	{
-		//$this->start_session(); 
+		 
 		//if there is a session
 		require('view/front/profile.php');
 		//else veuillez vous connecter
@@ -123,7 +117,7 @@ class Controller
 	 */
 	public function dashboard()
 	{
-		//$this->start_session(); 
+		 
 		if(isset($_SESSION['username']) && isset($_SESSION['password'])) {
 			require('view/admin/pannel.php');
 		}
@@ -171,11 +165,9 @@ class Controller
 			$hash = password_hash($password, PASSWORD_BCRYPT);
 
 			$user = $this->users->get_user($username);
-			var_dump($user);
 		 	if ($user) {
 	            $_SESSION['username'] = $username;
 				$_SESSION['password'] = $password;
-				var_dump($_SESSION);
 				if($_SESSION['password'] && $_SESSION['password'] == password_verify('admin', $hash)) {
 					require('view/admin/pannel.php');
 				} 
@@ -194,6 +186,7 @@ class Controller
 	 */
 	public function signout()
 	{		
+		//session_start();
         session_destroy();
 		require('view/front/logout.php');
 	}
@@ -206,7 +199,7 @@ class Controller
 	 */
 	public function add_post()
 	{
-		//$this->start_session(); 
+		 
 		require('view/admin/add_post.php');
 	}
 	/**
@@ -216,7 +209,7 @@ class Controller
 	 */
 	public function save_post($title, $content) 
 	{
-		//$this->start_session(); 
+		 
 		$new_post = $this->posts->create_post($title, $content);
 		if ($new_post) {
        		header('Location: index.php');
@@ -234,7 +227,7 @@ class Controller
 	 */
 	public function edit_post() 
 	{
-		//$this->start_session(); 
+		 
 		$post_id = $_GET['id'];
 	    $post_to_edit = $this->posts->get_post($post_id);
 	    require('view/admin/edit_post.php');
@@ -244,7 +237,7 @@ class Controller
 	 */
 	public function save_edited_post($post_id, $title, $content)
 	{
-		//$this->start_session(); 
+		 
 	    $update_post = $this->posts->update_post($post_id, $title, $content);
 
 	    if ($update_post === false) {
@@ -265,7 +258,7 @@ class Controller
 	
 	public function remove_post($post_id)
 	{
-		//$this->start_session(); 
+		 
 		$post 	 = $this->posts->delete_post($post_id);
 		//$comment = $this->comments->delete_comment($post_id);
 		$this->post_manager();

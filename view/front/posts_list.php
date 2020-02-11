@@ -28,7 +28,7 @@
 	    		<div>
 	    			<?php foreach ($comments as $comment): ?>
 				      	<p>
-				      		Par <?= htmlspecialchars($comment['author']); ?> sur <a href=""><?= htmlspecialchars($comment['post_id']); ?></a>
+				      		Par <?= htmlspecialchars($comment['author']); ?> sur <a href="index.php?action=display_post&amp;id=<?= $comment['postid'] ?>"><?= htmlspecialchars($comment['title']); ?></a>
 				      	<br /><?= htmlspecialchars($comment['comment']) ?>
 				      
 				      	</p>

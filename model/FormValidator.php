@@ -22,7 +22,7 @@
 
 		public function isEmailValid($email, $errors) 
 		{
-			if(!empty($email) || filter_var($email], FILTER_VALIDATE_EMAIL)) {
+			if(!empty($email) || filter_var($email), FILTER_VALIDATE_EMAIL) {
 				$email = htmlspecialchars($email);
 				
 			}
@@ -33,7 +33,7 @@
 
 		public function isPasswordValid($password, $errors)
 		{
-			if(!empty($_POST['password']) || $_POST['password'] != $_POST['password-confirm']) {
+			if(!empty($password) || $_POST['password'] != $_POST['password-confirm']) {
 				$password = password_hash($_POST['password'], PASSWORD_BCRYPT);
 			}
 			else {
