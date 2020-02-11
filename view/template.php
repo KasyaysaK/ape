@@ -1,10 +1,3 @@
-<?php
-if(!isset($_SESSION))
-{
-    session_start();
-}
-?>
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -70,9 +63,8 @@ if(!isset($_SESSION))
         </section>
 
         <section class="main py-5">
-            <div class="container">
+           
                 <?= $content ?>          
-            </div>
         </section>
 
         <section class="footer">

@@ -12,7 +12,7 @@
 		}
 		public function isUsernameValid($username, $errors)
 		{
-			if(!empty($_POST['username'])) {
+			if(!empty($username) {
 				$username = htmlspecialchars($_POST['username']);
 			}
 			else {
@@ -22,8 +22,8 @@
 
 		public function isEmailValid($email, $errors) 
 		{
-			if(!empty($_POST['email']) || filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
-				$email = htmlspecialchars($_POST['email']);
+			if(!empty($email) || filter_var($email], FILTER_VALIDATE_EMAIL)) {
+				$email = htmlspecialchars($email);
 				
 			}
 			else {

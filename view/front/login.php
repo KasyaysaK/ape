@@ -17,7 +17,7 @@
 			<div class="alert alert-danger">
 				<p>Le formulaire n'a pas été rempli correctement :</p>
 				<ul>
-					<?php foreach($errors as $error): ?>
+					<?php foreach($this->errors as $error): ?>
 						<li><?= $error; ?></li>
 					<?php endforeach; ?>
 				</ul>	

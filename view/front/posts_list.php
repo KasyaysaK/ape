@@ -1,32 +1,44 @@
 <?php $title = htmlspecialchars('Liste des articles'); ?>
 
 <?php ob_start(); ?>
-    
-	<div class="container my-5">
-		<div class="row">
-			<div class="col-10 offset-1 text-center">
-    			<h2 class="">La revue</h2>
-   
-			    <?php foreach ($posts as $post): ?>
-				<div class="card content">
-					<div class="card-header d-flex justify-content-between">
-						 <h3 class="card-title"><?= $post['title']; ?></h3>
-					</div>
-				   <div class="card-body">
-				   		<div class="card-text">
-				   			<p>
-					        	<?= substr($post['content'], 0, 120) ?>...
-					    	</p>
-
-				   		</div>
-					    
-				    </div>
-				    <div class="card-footer"><a href="index.php?action=display_post&amp;id=<?= $post['id'] ?>" class="btn btn-dark">Lire la suite</a></div> 
-				</div>
-			    <?php endforeach; ?>
-			</div>
-		</div>
+<div class="container">
+	<div>
+		<hr class="mb-3" />
+		<h2 class="text-center">La revue</h2>
+		<hr class="mb-3" />
 	</div>
+	<div class="row">
+		<div class="col-md-8">
+			<?php foreach ($posts as $post): ?>
+	      	<div class="card mb-2">
+	            <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(60).jpg"
+	              alt="Card image cap">
+	            <div class="card-body">
+	              	<h3 class="card-title"><?= $post['title']; ?></h3>
+	              	<p class="card-text"><?= substr($post['content'], 0, 120) ?>...</p>
+	              	<a href="index.php?action=display_post&amp;id=<?= $post['id'] ?>"><h3 class="title btn btn-outline-success my-2 my-sm-0">Lire la suite</h3></a> 
+	            </div>
+	      	</div>
+			<?php endforeach; ?>
+	    </div>
+	    <div class="col-sm-4">
+	    	<div>
+	    		<h3>Derniers commentaires</h3>
+	    		<hr class="mb-3" />
+	    		<div>
+	    			<?php foreach ($comments as $comment): ?>
+				      	<p>
+				      		Par <?= htmlspecialchars($comment['author']); ?> sur <a href=""><?= htmlspecialchars($comment['post_id']); ?></a>
+				      	<br /><?= htmlspecialchars($comment['comment']) ?>
+				      
+				      	</p>
+				      	
+				     <?php endforeach; ?> 
+	    		</div>
+	    	</div>
+	    </div>
+	</div>
+</div>
 
 <?php $content = ob_get_clean(); ?>
 

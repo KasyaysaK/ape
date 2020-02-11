@@ -20,6 +20,11 @@ class Comments extends Database
 		$comments_list = $this->dbh->query('SELECT id, author, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%i\') AS comment_date_fr, flagged FROM comments ORDER BY comment_date DESC');
 		return $comments_list;
 	}
+	public function get_last_comments()
+	{
+		$last_comments_list = $this->dbh->query('SELECT id, post_id, author, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%i\') AS comment_date_fr FROM comments ORDER BY comment_date dESC LIMIT 0, 5');
+		return $last_comments_list;
+	}
 	/**
 	 * selects comments related to one post
 	 * @param $post_id 

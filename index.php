@@ -1,11 +1,12 @@
 <?php
-
-	require_once('Router.php');
-	require('autoload.php');
-	$router = new Router();
-	$router->request();
-	ob_start();
-	$content = ob_get_clean();
+var_dump($_SESSION);
+//session_start();
+require_once('Router.php');
+require('autoload.php');
+$router = new Router();
+$router->request();
+//ob_start();
+//$content = ob_get_clean();
 
 //require('controller/front.php');
 //try {

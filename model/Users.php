@@ -16,9 +16,9 @@ public function create_user($username, $email, $password)
 	return $newUser->execute(array($username, $email, $password)); 
 }
 
-public function get_user($username, $password)
+public function get_user($username)
 {
-	$user = $this->dbh->prepare('SELECT username FROM users WHERE username = :username'); 
+	$user = $this->dbh->prepare('SELECT username, password FROM users WHERE username = :username'); 
 	$user->execute(array('username' => $username));
 	return $user->fetch();
 }

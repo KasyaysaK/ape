@@ -1,11 +1,11 @@
 <?php 
-session_start();
+//session_start();
 require_once('controller/controller.php');
 
 class Router
 {
 	protected $controller;
-	//private $session;
+	//protected $session;
 
 	public function __construct()
 	{
@@ -29,7 +29,7 @@ class Router
 							$this->controller->display_post();
 						}
 						else {
-							echo 'l\'ariticle n\'existe pas';
+							echo 'l\'article n\'existe pas';
 						}
 						break;
 					case 'login':
