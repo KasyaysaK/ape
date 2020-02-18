@@ -7,7 +7,7 @@
 		<div class="col-8 offset-2">
 			<div class="d-flex justify-content-between">
 				<h2 class="title my-4">Inscription</h2>
-				<button class="btn" id="signin-button">Déjà membre ? Connectez-vous !</button>
+				<button type="button" class="title btn" data-toggle="modal" data-target="#login-form">Déjà membre ? Connectez-vous !</button>
 			</div>
 			
 
@@ -55,33 +55,6 @@
 		</div>
 	</div>
 </div>
-		
-<div id="signin-form" style="display:none;"> 
-	<fieldset>
-		<legend>
-			<h2>Connexion</h2>
-		</legend>
-
-		<form action="index.php?action=getUser" method="POST">
-
-			<div class="form-group" id="username">
-				<label for="username" class="mt-2">Pseudo</label>
-				<input type="text" name="username" class="form-control" />
-				<div id="username-error"></div>
-			</div>
-			
-			<div class="form-group" id="password">
-				<label for="password" class="mt-2">Mot de passe</label>
-				<input type="password" name="password" class="form-control" />
-			</div>
-
-
-			<input type="submit" name="signin" value="Je me connecte" class="title btn btn-outline-success mt-2">
-		</form>
-	</fieldset>
-
-</div>
-
 
 <?php $content = ob_get_clean(); ?>
 

@@ -20,6 +20,10 @@ class Router
 						session_start();
 						$this->controller->home();
 						break;
+					case 'about':
+						session_start();
+						$this->controller->about();
+						break;
 					case 'list_posts' :
 						session_start();
 						$this->controller->list_posts();

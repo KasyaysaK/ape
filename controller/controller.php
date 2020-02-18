@@ -27,12 +27,19 @@ class Controller
 
 //****************************************** CONTENT MANAGER ******************************************
 	/**
-	 * loads the homepage view
+	 * loads the homepage page
 	 */
 	public function home() //loads homepage
 	{
 		$last_posts = $this->posts->get_last_posts();
 		require('view/front/home.php');
+	}
+	/**
+	 * loads the about page
+	 */
+	public function about() //loads homepage
+	{
+		require('view/front/about.php');
 	}
 	/**
 	 * shows all the posts
