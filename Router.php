@@ -14,7 +14,6 @@ class Router
 	{
 		try {
 			if (isset($_GET['action'])) {
-				var_dump($_GET['action']);
 				switch ($_GET['action']) {
 					case 'home':
 						session_start();
@@ -23,6 +22,10 @@ class Router
 					case 'about':
 						session_start();
 						$this->controller->about();
+						break;
+					case 'contact':
+						session_start();
+						$this->controller->contact();
 						break;
 					case 'list_posts' :
 						session_start();

@@ -42,6 +42,13 @@ class Controller
 		require('view/front/about.php');
 	}
 	/**
+	 * loads the contact page
+	 */
+	public function contact() //loads homepage
+	{
+		require('view/front/contact.php');
+	}
+	/**
 	 * shows all the posts
 	 */
 	public function list_posts()
@@ -97,7 +104,6 @@ class Controller
 	public function login() //shows registration form
 	{
 		if (!isset($_SESSION['username']) || !isset($_SESSION['password'])) {
-			$this->session;
 			require('view/front/login.php');
 		}
 		else {
@@ -190,7 +196,9 @@ class Controller
 	public function signout()
 	{
 		session_start();
+		$_SESSION = array();
         session_destroy();
+        var_dump($_SESSION);
 		require('view/front/logout.php');
 	}
 

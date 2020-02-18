@@ -55,7 +55,7 @@
 			                <a class="dropdown-item" href="index.php?action=login">Devenir membre</a>
 			                <div class="dropdown-divider"></div>
 		            	<?php endif ?>
-		                <a class="dropdown-item" href="#">Contactez-nous</a>
+		                <a class="dropdown-item" href="index.php?action=contact">Contactez-nous</a>
 		            </div>
 		        </div>
       		</li>
@@ -78,7 +78,7 @@
 
 			<!-- Button trigger modal -->
 			
-			<?php if ($_SESSION) : ?>
+			<?php if (isset($_SESSION) && isset($_SESSION['username'])) : ?>
 				<button type="button" class="title btn btn-outline-success my-2 my-sm-0" data-toggle="modal" data-target="#login-form">se déconnecter</button>
 				<!-- Modal -->
 				<div class="modal fade" id="login-form" tabindex="-1" role="dialog" aria-labelledby="login-form-title" aria-hidden="true">

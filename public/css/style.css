@@ -25,6 +25,11 @@
 	box-shadow: none;
 }
 
+a {
+	text-decoration: none !important;
+	color: #306b04;
+}
+
 .parallax {
 	position: relative;
 	width: 100%;

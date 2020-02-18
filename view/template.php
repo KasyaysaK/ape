@@ -63,7 +63,6 @@
         </section>
 
         <section class="main py-5">
-           
                 <?= $content ?>          
         </section>
 
