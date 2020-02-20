@@ -26,13 +26,37 @@ class Controller
 	}
 
 //****************************************** CONTENT MANAGER ******************************************
+	
 	/**
 	 * loads the homepage page
 	 */
 	public function home() //loads homepage
 	{
+		$this->cookies();
 		$last_posts = $this->posts->get_last_posts();
 		require('view/front/home.php');
+	}
+	/**
+	 * loads the homepage page
+	 */
+	public function accept_cookie() //loads homepage
+	{
+		if(isset($_COOKIE['accept_cookie'])) {
+		   $showcookie = false;
+		} else {
+		   $showcookie = true;
+		}
+	}
+	/**
+	 * loads the homepage page
+	 */
+	public function showcookie() //loads homepage
+	{
+		if(isset($_COOKIE['accept_cookie'])) {
+		   $showcookie = false;
+		} else {
+		   $showcookie = true;
+		}
 	}
 	/**
 	 * loads the about page
