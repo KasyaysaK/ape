@@ -3,11 +3,9 @@
 <?php ob_start(); ?>
 
 <div class="container my-4">
-	<div class="col-md-6 text-justify">
-		<p>
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam dictum, mauris et scelerisque dignissim, tellus est tincidunt diam, in varius mi risus at elit. Pellentesque eu tempus lorem. Vestibulum ac tincidunt tortor. Cras nunc orci, euismod ut ultricies vitae, congue ut quam. In eu elementum dolor, non congue turpis. Ut sed ultrices lorem. Phasellus hendrerit nisi nibh, in congue sem pellentesque in. Etiam porttitor tempus sem vel lacinia. Quisque ante orci, rutrum eu ornare in, viverra in orci. 
-		</p>
-	</div>
+	<p>
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam dictum, mauris et scelerisque dignissim, tellus est tincidunt diam, in varius mi risus at elit. Pellentesque eu tempus lorem. Vestibulum ac tincidunt tortor. Cras nunc orci, euismod ut ultricies vitae, congue ut quam. In eu elementum dolor, non congue turpis. Ut sed ultrices lorem. Phasellus hendrerit nisi nibh, in congue sem pellentesque in. Etiam porttitor tempus sem vel lacinia. Quisque ante orci, rutrum eu ornare in, viverra in orci. 
+	</p>
 </div>
 
 <div id="carousel" class="carousel slide my-4" data-ride="carousel">
