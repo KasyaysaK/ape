@@ -80,7 +80,7 @@ a {
 	border-left : 1px dotted;
 }
 
-.cookie-alert {
+.cookie-banner {
    position: fixed;
    bottom: 20px;
    right:20px;
@@ -92,16 +92,16 @@ a {
    box-shadow: 2px 2px 20px black;
    z-index:100;
 }
-.cookie-alert p {
+.cookie-banner p {
 	margin-left: 20px;
 }
-.cookie-alert a { 
+.cookie-banner button { 
    display:block;
    border-radius: 10px;
 }
 
 @media only screen and (max-width:480px) {
-   .cookie-alert {
+   .cookie-banner {
 	    text-align: center;
 	    left: 0;
 	    right: 0;
@@ -109,7 +109,7 @@ a {
 	    max-width: 700px;
 	    padding: 10px 30px;
    }
-   .cookie-alert p {
+   .cookie-banner p {
 	margin-left: 0px;
 }
 }
