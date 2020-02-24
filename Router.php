@@ -77,6 +77,21 @@ class Router
 						session_start();
 		            	$this->controller->add_post();
 		            	break;
+		            case 'add_tag' :
+		            	session_start();
+		            	if (!empty ($_POST['tag-name'])) {
+		            		$this->controller->add_tag($_POST['tag-name']);
+		            		//$this->controller->add_post();	
+		            	} 
+		            	else {
+		            		echo "tag non crée";
+		            		$this->controller->add_post();
+		            	}
+		            	break;
+		            case 'display_tags' : 
+		            	session_start();
+		            	$this->controller->display_tags();
+		            	break;
 					case 'publish_post' :
 						session_start();
 		            	if (!empty ($_POST['title']) && !empty($_POST['content'])) {

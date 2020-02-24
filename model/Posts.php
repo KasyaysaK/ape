@@ -26,7 +26,7 @@ class Posts extends Database
 	 */
 	public function get_last_posts()
 	{
-		$posts_list = $this->dbh->query('SELECT id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%i\') AS creation_date_fr FROM posts ORDER BY creation_date dESC LIMIT 0, 3');
+		$posts_list = $this->dbh->query('SELECT id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%i\') AS creation_date_fr FROM posts ORDER BY creation_date DESC LIMIT 0, 3');
 		return $posts_list;
 	}
 	/**
@@ -40,7 +40,6 @@ class Posts extends Database
 	    $post->execute(array($post_id));
 	    return $post->fetch();
 	}
-
 	/**
 	 * inserts a new post in the database
 	 * @param $title

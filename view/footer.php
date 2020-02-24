@@ -6,7 +6,22 @@
 <?php endif; ?>
 
 <div class="d-flex justify-content-center align-items-center sitemap">
-	<ul>
-		<li>plan du site</li>
-	</ul>
+	<fieldset class="mt-4">
+		<legend>À propos</legend>
+		<ul class="list-group">
+			<li class="list-group-item"><a href="index.php?action=about">Qui sommes nous</a></li>
+			<li class="list-group-item"><a href="index.php?action=terms_conditions">Mentions légales</a></li>
+			<li class="list-group-item"><a href="index.php?action=privacy_policy">Politique de confidentialité</a></li>
+			<li class="list-group-item"><a href="index.php?action=contact">Contact</a></li>
+		</ul>
+	</fieldset>
+	<fieldset>
+		<legend>La revue</legend>
+		<ul class="list-group">
+			<li class="list-group-item"><a href="index.php?action=list_posts">Articles</a></li>
+			<li class="list-group-item"><a href="index.php?action=list_activities"></a>Activités</li>
+			<li class="list-group-item"><a href="index.php?action=list_recipes"></a>Recettes</li>
+		</ul>
+	</fieldset>
+	
 </div>

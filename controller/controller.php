@@ -16,12 +16,14 @@ class Controller
 
 	protected $users;
 	protected $posts;
+	protected $tags;
 	protected $comments;
 
 	public function __construct()
 	{
 		$this->users 	= new Users();
 		$this->posts 	= new Posts();
+		$this->tags 	= new Tags();
 		$this->comments = new Comments();
 	}
 
@@ -180,7 +182,6 @@ class Controller
 				$_SESSION['password'] = $password;
 				if($_SESSION['password'] && $_SESSION['password'] == password_verify('admin', $hash)) {
 					require('view/admin/pannel.php');
-					var_dump("hello");
 				}
 				else {
 					$correct_password = password_verify($password, $user['password']);
@@ -200,7 +201,6 @@ class Controller
 		session_start();
 		$_SESSION = array();
         session_destroy();
-        var_dump($_SESSION);
 		require('view/front/logout.php');
 	}
 
@@ -212,10 +212,33 @@ class Controller
 	 */
 	public function add_post()
 	{
+		$tags = $this->tags->get_tags();
 		require('view/admin/add_post.php');
+
 	}
 	/**
-	 * saves a new post to the database, status is set to 1 by defaulft
+	 * loads the add post view
+	 */
+	public function display_tags()
+	{
+		require('view/admin/tags.php');
+	}
+	/**
+	 * saves a new tag into the database
+	 * @param $name
+	 */
+	public function add_tag($name)
+	{
+		$new_tag = $this->tags->create_tag($name);
+		if ($new_tag) {
+			var_dump($new_tag);
+			header('Location: index.php?action=add_post');
+    		exit;
+		}
+		
+	}
+	/**
+	 * saves a new post to the database, status is set to 1 by defaulft (public)
 	 * @param $title
 	 * @param $content
 	 */

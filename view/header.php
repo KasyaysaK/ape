@@ -76,18 +76,28 @@
 
 	    <div class="form-inline my-2 my-lg-0">
 
-			<!-- Button trigger modal -->
-			
+			<?php if (isset($_SESSION) && isset($_SESSION['username']) && $_SESSION['password'] === 'admin' ) : ?>
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item">
+						<a class="nav-link" href="index.php?action=dashboard">Administration</a>
+					</li>
+				</ul>
+			<?php endif; ?> 
 			<?php if (isset($_SESSION) && isset($_SESSION['username'])) : ?>
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item">
+						<a class="nav-link" href="index.php?action=profile">Profil</a>
+					</li>
+				</ul>
+				<!-- Button trigger modal -->
 				<button type="button" class="title btn btn-outline-success my-2 my-sm-0" data-toggle="modal" data-target="#login-form">se déconnecter</button>
 				<!-- Modal -->
 				<div class="modal fade" id="login-form" tabindex="-1" role="dialog" aria-labelledby="login-form-title" aria-hidden="true">
-				  <div class="modal-dialog modal-dialog-centered" role="document">
-				    <div class="modal-content">
-
-			      		<div class="modal-header">
-					        <h5 class="modal-title title" id="login-form-title">Déconnexion</h5>
-			      		</div>
+					<div class="modal-dialog modal-dialog-centered" role="document">
+					    <div class="modal-content">
+				      		<div class="modal-header">
+						        <h5 class="modal-title title" id="login-form-title">Déconnexion</h5>
+				      		</div>
 			         		<div class="modal-body">
 			         			<p> <?= $_SESSION['username'] ?>, souhaitez-vous vous déconnecter ?</p>
 			         		</div>
@@ -96,9 +106,8 @@
 	  							<a class="title btn btn-outline-success my-2 my-sm-0" href="index.php?action=signout">oui</a>
 				       		 	<button type="button" class="title btn btn-outline-secondary my-2 my-sm-0" data-dismiss="modal">non</button>
 					      	</div>
-					      	
-				    </div>
-				  </div>
+					    </div>
+					</div>
 				</div>
 			<?php else : ?>
 			<button type="button" class="title btn btn-outline-success my-2 my-sm-0" data-toggle="modal" data-target="#login-form">je me connecte</button>
@@ -142,7 +151,7 @@
 			    </div>
 			  </div>
 			</div>
-			<?php endif ?>
+			<?php endif; ?>
 
 			
 
