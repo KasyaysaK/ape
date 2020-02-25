@@ -78,6 +78,7 @@ class Controller
 	public function post_manager()
 	{
 		$posts = $this->posts->get_posts();
+		$tags = $this->tags->get_tags();
 		require('view/admin/post_manager.php');
 	}
 	/**

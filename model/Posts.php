@@ -17,7 +17,7 @@ class Posts extends Database
 	 */
 	public function get_posts()
 	{
-		$posts_list = $this->dbh->query('SELECT id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y\') AS creation_date_fr FROM posts ORDER BY creation_date ASC');
+		$posts_list = $this->dbh->query('SELECT posts.id AS postid,tags.id AS tagid, label, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y\') AS creation_date_fr FROM posts LEFT JOIN tags ON posts.tag_id = tags.id ORDER BY creation_date ASC');
 		return $posts_list;
 	}
 	/**

@@ -34,7 +34,7 @@
 		<div class="col-md-6">
     		<div class="card my-4">
 			  	<div class="card-body">
-			  		<a href="index.php?action=comments_manager" class="title btn"><img src="public/images/article.jpg" alt="bloc-note avec un stylo et ordinateur posés sur une table" class="img-thumbnail" /></a>
+			  		<a href="index.php?action=comment_manager" class="title btn"><img src="public/images/article.jpg" alt="bloc-note avec un stylo et ordinateur posés sur une table" class="img-thumbnail" /></a>
 				    <a href="index.php?action=comments_manager" class="carousel-caption"><h4 class="title btn btn-secondary my-2 my-sm-0">Gérer les commentaires</h4></a>
 				</div>
 			</div>

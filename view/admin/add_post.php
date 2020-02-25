@@ -23,10 +23,10 @@
 			<div class="collapse" id="tags">
 				<?php foreach ($tags as $tag): ?>
 					<input type="radio" name="tag_id">
-					<label><?= $tag['name'] ?></label>
+					<label><?= $tag['label'] ?></label>
 				<p></p>
      			<?php endforeach; ?>
-				<?php if (isset($_SESSION) && isset($_SESSION['username']) && $_SESSION['password'] === 'admin' ) : ?>
+				<?php if (isset($_SESSION) && isset($_SESSION['name']) && $_SESSION['password'] === 'admin' ) : ?>
      			 <a href="index.php?action=display_tags" class="title btn btn-outline-success my-2 my-sm-0">gérer</a>
      			<?php endif; ?>		
 			</div>	

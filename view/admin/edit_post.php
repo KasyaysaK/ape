@@ -1,9 +1,13 @@
 <?php ob_start(); ?>
 
 <div class="container mt-4">
-	<div  class="my-4">
-		<h2>Modifier l'article</h2>
+	<hr class="mb-3" />
+	<div class="d-flex align-items-center justify-content-between">	
+		<a href="index.php?action=dashboard"><i class="fas fa-arrow-left"></i></a>
+		<h2 class="text-center">Modifier l'article</h2>
+		<a href="index.php?action=post_manager">Tous les articles</a>
 	</div>
+	<hr class="mb-3" />
 
 	<div>
 		<h2></h2> <p></p>
@@ -23,7 +27,7 @@
 			<div class="collapse" id="tags">
 				<?php foreach ($tags as $tag): ?>
 					<input type="radio" name="tag_id">
-					<label><?= $tag['name'] ?></label>
+					<label><?= $tag['label'] ?></label>
 				<p></p>
      			<?php endforeach; ?>
 				<?php if (isset($_SESSION) && isset($_SESSION['username']) && $_SESSION['password'] === 'admin' ) : ?>

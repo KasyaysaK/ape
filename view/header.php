@@ -51,7 +51,7 @@
 		            <div class="dropdown-menu" aria-labelledby="about">
 		                <a class="dropdown-item" href="index.php?action=about">Qui sommes nous ?</a>
 		                <div class="dropdown-divider"></div>
-		                <?php if (isset($_SESSION) && isset($_SESSION['name'])) : ?>
+		                <?php if (!isset($_SESSION['name'])) : ?>
 			                <a class="dropdown-item" href="index.php?action=login">Devenir membre</a>
 			                <div class="dropdown-divider"></div>
 		            	<?php endif ?>

@@ -5,7 +5,7 @@
 </div>
 <?php endif; ?>
 
-<div class="d-flex justify-content-center align-items-center sitemap">
+<div class="d-flex justify-content-around align-items-center sitemap">
 	<fieldset class="mt-4">
 		<legend>À propos</legend>
 		<ul class="list-group">
@@ -23,5 +23,15 @@
 			<li class="list-group-item"><a href="index.php?action=list_recipes"></a>Recettes</li>
 		</ul>
 	</fieldset>
+	<?php if (isset($_SESSION) && isset($_SESSION['name']) && $_SESSION['password'] === 'admin' ) : ?>
+		<fieldset>
+			<legend>Administration</legend>
+			<ul class="list-group">
+				<li class="list-group-item"><a href="index.php?action=post_manager">Articles</a></li>
+				<li class="list-group-item"><a href="index.php?action=comment_manager"></a>Commentaires</li>
+				<li class="list-group-item"><a href="index.php?action=user_manager"></a>Utilisateurs</li>
+			</ul>
+		</fieldset>
+		<?php endif; ?> 
 	
 </div>

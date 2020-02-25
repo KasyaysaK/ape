@@ -1,6 +1,6 @@
 <?php
 
-//namespace APE\Site\Model;
+//labelspace APE\Site\Model;
 require_once('model/Database.php');
 
 class Tags extends Database
@@ -10,15 +10,15 @@ private $dbh;
 public function __construct() {
 	$this->dbh = $this->dbhConnect();
 }
-public function create_tag($name)
+public function create_tag($label)
 { 
-	$request = $this->dbh->prepare('INSERT INTO tags (name) VALUES (?)');
-	$new_tag = $request->execute(array($name)); 
+	$request = $this->dbh->prepare('INSERT INTO tags (label) VALUES (?)');
+	$new_tag = $request->execute(array($label)); 
 	return $new_tag;
 }
 public function get_tags()
 	{
-	    $tags_list = $this->dbh->query('SELECT name FROM tags ORDER BY id ASC');
+	    $tags_list = $this->dbh->query('SELECT label FROM tags ORDER BY id ASC');
 	    return $tags_list;
 	}
 }
