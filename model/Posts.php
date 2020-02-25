@@ -46,10 +46,10 @@ class Posts extends Database
 	 * @param $content
 	 * @return $new_post
 	 */
-	public function create_post($title, $content) 
+	public function create_post($title, $content, $tag_id) 
 	{
-		$request = $this->dbh->prepare('INSERT INTO posts (title, content, creation_date) VALUES (?, ?, NOW())');
-		$new_post = $request->execute(array($title, $content));
+		$request = $this->dbh->prepare('INSERT INTO posts (title, content, tag_id, creation_date) VALUES (?, ?, ?, NOW())');
+		$new_post = $request->execute(array($title, $content, $tag_id));
 		return $new_post;
 	}
 
@@ -61,9 +61,9 @@ class Posts extends Database
 	 * @param $status
 	 * @return $edited_post
 	 */
-	public function  update_post($post_id, $title, $content)
+	public function update_post($post_id, $title, $content)
 	{
-		$request = $this->dbh->prepare('UPDATE posts set title = ?, content = ? WHERE id = ?');
+		$request = $this->dbh->prepare('UPDATE posts SET title = ?, content = ? WHERE id = ?');
 		$edited_post = $request->execute(array($title, $content, $post_id));
 		return $edited_post;
 	}

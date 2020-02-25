@@ -25,10 +25,10 @@
 			<?php endif; ?>
 
 			<form action="index.php?action=signup" onsubmit="return" method="POST">
-				<div class="form-group" id="username">
-					<label for="username" class="mt-2">Pseudo</label>
-					<input type="text" name="username" class="form-control" />
-					<div id="username-error"></div>
+				<div class="form-group" id="name">
+					<label for="name" class="mt-2">Pseudo</label>
+					<input type="text" name="name" class="form-control" />
+					<div id="name-error"></div>
 				</div>
 
 				<div class="form-group" id="email">

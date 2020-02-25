@@ -51,7 +51,7 @@
 		            <div class="dropdown-menu" aria-labelledby="about">
 		                <a class="dropdown-item" href="index.php?action=about">Qui sommes nous ?</a>
 		                <div class="dropdown-divider"></div>
-		                <?php if (isset($_SESSION) && isset($_SESSION['username'])) : ?>
+		                <?php if (isset($_SESSION) && isset($_SESSION['name'])) : ?>
 			                <a class="dropdown-item" href="index.php?action=login">Devenir membre</a>
 			                <div class="dropdown-divider"></div>
 		            	<?php endif ?>
@@ -76,14 +76,14 @@
 
 	    <div class="form-inline my-2 my-lg-0">
 
-			<?php if (isset($_SESSION) && isset($_SESSION['username']) && $_SESSION['password'] === 'admin' ) : ?>
+			<?php if (isset($_SESSION) && isset($_SESSION['name']) && $_SESSION['password'] === 'admin' ) : ?>
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item">
 						<a class="nav-link" href="index.php?action=dashboard">Administration</a>
 					</li>
 				</ul>
 			<?php endif; ?> 
-			<?php if (isset($_SESSION) && isset($_SESSION['username'])) : ?>
+			<?php if (isset($_SESSION) && isset($_SESSION['name'])) : ?>
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item">
 						<a class="nav-link" href="index.php?action=profile">Profil</a>
@@ -99,7 +99,7 @@
 						        <h5 class="modal-title title" id="login-form-title">Déconnexion</h5>
 				      		</div>
 			         		<div class="modal-body">
-			         			<p> <?= $_SESSION['username'] ?>, souhaitez-vous vous déconnecter ?</p>
+			         			<p> <?= $_SESSION['name'] ?>, souhaitez-vous vous déconnecter ?</p>
 			         		</div>
 				      		
 				      		<div class="modal-footer justify-content-center">
@@ -127,10 +127,10 @@
 		         		<div class="modal-body container">
 
 		         			<div class="row justify-content-center">
-		         				<div class="form-group" id="username">
-									<label for="username" class="my-2 mr-5 ">Pseudo</label>
-									<input type="text" name="username" class="form-control" />
-									<div id="username-error"></div>
+		         				<div class="form-group" id="name">
+									<label for="name" class="my-2 mr-5 ">Pseudo</label>
+									<input type="text" name="name" class="form-control" />
+									<div id="name-error"></div>
 								</div>
 								
 								<div class="form-group my-2" id="password">

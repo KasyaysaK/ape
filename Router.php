@@ -45,22 +45,22 @@ class Router
 						$this->controller->login();
 						break;
 					case 'signup':
-						if (!empty($_POST['username']) || !empty($_POST['email']) || !empty($_POST['password']))
+						if (!empty($_POST['name']) || !empty($_POST['email']) || !empty($_POST['password']))
 						{
-							$this->controller->signup($_POST['username'], $_POST['email'], $_POST['password']);
+							$this->controller->signup($_POST['name'], $_POST['email'], $_POST['password']);
 						}
 						break;
 					case 'signin':
-						if (!isset($_SESSION['username']) || !isset($_SESSION['password'])) {
-								if(!empty($_POST['username']) || !empty($_POST['password'])) {
-									$this->controller->signin($_POST['username'], $_POST['password']);
+						if (!isset($_SESSION['name']) || !isset($_SESSION['password'])) {
+								if(!empty($_POST['name']) || !empty($_POST['password'])) {
+									$this->controller->signin($_POST['name'], $_POST['password']);
 								}
 								else {
 									echo 'veuillez remplir le formulaire';
 								}
 		                }
-		                elseif (isset($_SESSION['username']) && (isset($_SESSION['password']))) {
-		                    $this->controller->signin($_SESSION['username'], $_SESSION['password']);
+		                elseif (isset($_SESSION['name']) && (isset($_SESSION['password']))) {
+		                    $this->controller->signin($_SESSION['name'], $_SESSION['password']);
 		                }
 		                else {
 		                        echo 'il y a des erreurs';
@@ -94,9 +94,9 @@ class Router
 		            	break;
 					case 'publish_post' :
 						session_start();
-		            	if (!empty ($_POST['title']) && !empty($_POST['content'])) {
+		            	if (!empty ($_POST['title']) && !empty($_POST['content']) && !empty($_POST['tag_id'])) {
 				       		echo "post crée";
-		                    $this->controller->save_post($_POST['title'], $_POST['content']);
+		                    $this->controller->save_post($_POST['title'], $_POST['content'], $_POST['tag_id']);
 		                }
 		                else {
 		                    header('Location: index.php');
@@ -130,6 +130,14 @@ class Router
 		                  	throw new Exception('L\'article n\'a pas été supprimé');
 		                }
 		                break;
+		            case 'user_manager' :
+		            	session_start();
+		            	$this->controller->user_manager();
+		            	break;
+		            case 'update_role' :
+		            	session_start();
+		            	$this->controller->update_role($_GET['user_id'], $_POST['role_id']);
+		            	break;
 				}
 			}
 			else {

@@ -107,7 +107,7 @@ class Controller
 	 */
 	public function login() //shows registration form
 	{
-		if (!isset($_SESSION['username']) || !isset($_SESSION['password'])) {
+		if (!isset($_SESSION['name']) || !isset($_SESSION['password'])) {
 			require('view/front/login.php');
 		}
 		else {
@@ -129,26 +129,26 @@ class Controller
 	 */
 	public function dashboard()
 	{
-		if(isset($_SESSION['username']) && isset($_SESSION['password'])) {
+		if(isset($_SESSION['name']) && isset($_SESSION['password'])) {
 			require('view/admin/pannel.php');
 		}
 	}
 	/**
 	 * saves a new user to the database
-	 * @param string $username
+	 * @param string $name
 	 * @param string $email
 	 * @param string $password
 	 */
-	public function signup($username, $email, $password)
+	public function signup($name, $email, $password)
 	{
 		session_start();
-		if (isset($_POST['username']) && isset($_POST['email']) && isset($_POST['password']) && isset($_POST['password-confirm'])) {
-            if (!empty($_POST['username']) && !empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['password-confirm'])) {
-                $username = htmlspecialchars($_POST['username']);
+		if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['password']) && isset($_POST['password-confirm'])) {
+            if (!empty($_POST['name']) && !empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['password-confirm'])) {
+                $name = htmlspecialchars($_POST['name']);
                 $email = htmlspecialchars($_POST['email']);
                 $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
 
-                $new_user = $this->users->create_user($username, $email, $password);
+                $new_user = $this->users->create_user($name, $email, $password);
 				if ($new_user) {
 					require('view/front/profile.php');
 				}
@@ -163,22 +163,22 @@ class Controller
 	 * signs an existing user in
 	 * if the password is admin and the role_id is set to 1 -> show admin pannel
 	 * else show the profile page
-	 * @param string $username
+	 * @param string $name
 	 * @param string $password
 	 */
-	public function signin($username, $password)
+	public function signin($name, $password)
 	{
 		session_start();
 		if (isset($_POST['signin'])) {
 
 			
-			$username = htmlspecialchars($username);
+			$name = htmlspecialchars($name);
 			$password = htmlspecialchars($password);
 			$hash = password_hash($password, PASSWORD_BCRYPT);
 			
-			$user = $this->users->get_user($username);
+			$user = $this->users->get_user($name);
 			if ($user) {
-				$_SESSION['username'] = $username;
+				$_SESSION['name'] = $name;
 				$_SESSION['password'] = $password;
 				if($_SESSION['password'] && $_SESSION['password'] == password_verify('admin', $hash)) {
 					require('view/admin/pannel.php');
@@ -207,6 +207,7 @@ class Controller
 
 //***************************************** BACKOFFICE MANAGER ****************************************
 
+	//POSTS & COMMENTS
 	/**
 	 * loads the add post view
 	 */
@@ -242,9 +243,9 @@ class Controller
 	 * @param $title
 	 * @param $content
 	 */
-	public function save_post($title, $content)
+	public function save_post($title, $content, $tag_id)
 	{
-		$new_post = $this->posts->create_post($title, $content);
+		$new_post = $this->posts->create_post($title, $content, $tag_id);
 		if ($new_post) {
        		header('Location: index.php');
        		echo "post crée";
@@ -263,12 +264,13 @@ class Controller
 	{
 		$post_id = $_GET['id'];
 	    $post_to_edit = $this->posts->get_post($post_id);
+	    $tags = $this->tags->get_tags();
 	    require('view/admin/edit_post.php');
 	}
 	/**
 	 * saves edited
 	 */
-	public function save_edited_post($post_id, $title, $content)
+	public function save_edited_post($post_id, $title, $content, $tag_id)
 	{
 	    $update_post = $this->posts->update_post($post_id, $title, $content);
 
@@ -290,10 +292,30 @@ class Controller
 
 	public function remove_post($post_id)
 	{
-		$post 	 = $this->posts->delete_post($post_id);
+		$post = $this->posts->delete_post($post_id);
 		//$comment = $this->comments->delete_comment($post_id);
 		$this->post_manager();
 	}
 
+	//USERS
+	/**
+	 * shows all the users
+	 */
+	public function user_manager()
+	{
+		$users = $this->users->get_users();
+		$roles = $this->users->get_roles();
+		require('view/admin/user_manager.php');
+	}
+	public function update_role($user_id, $role_id)
+	{
+		$set_role = $this->users->set_role($user_id, $role_id);
+	    if ($set_role === false) {
+	        echo 'Impossible de mettre à jour le chapitre';
+	    }
+	    else {
+	        $this->user_manager();
+	    }
+	}
 
 }

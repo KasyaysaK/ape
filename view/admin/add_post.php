@@ -5,36 +5,31 @@
 	<div class="d-flex align-items-center justify-content-between">	
 		<a href="index.php?action=dashboard"><i class="fas fa-arrow-left"></i></a>
 		<h2 class="text-center">Ajouter un nouvel article</h2>
-			<div class="my-2">
-				<fieldset>
-					<legend>
-						<button class="btn btn-lg" id="border" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-		    			Rubriques
-						</button>
-					</legend>
-					<!-- add a loop to fetch categories from the database, add javascript showing which category was selected -->
-					<div class="collapse" id="collapseExample">
-						<?php foreach ($tags as $tag): ?>
-							<input type="radio" name="tag">
-							<label><?= $tag['name'] ?></label>
-						<p></p>
-	         			<?php endforeach; ?>
-						<?php if (isset($_SESSION) && isset($_SESSION['username']) && $_SESSION['password'] === 'admin' ) : ?>
-	         			 <a href="index.php?action=display_tags" class="title btn btn-outline-success my-2 my-sm-0">gérer</a>
-	         			<?php endif; ?>
-				</fieldset>			
-			</div>
-		</div>
-		<hr class="mb-3" />
-		<form class="row" action="index.php?action=publish_post" method="POST">
-
+		<a href="index.php?action=post_manager">Tous les articles</a>
+	</div>
+	<hr class="mb-3" />
+	<form class="row" action="index.php?action=publish_post" method="POST">
 		<div class="col-md-10">
 			<input id="title" class="form-control form my-2" aria-describedby="titre" name="title" placeholder="Titre de l'article" />
+			<!-- main image -->
 			<textarea class="post-editor" aria-describedby="contenu" name="content" placeholder="Contenu de l'article"> 
 				<p>Écrivez le contenu de l'article ici</p> 
 			</textarea>
 		</div>
-		<div class="col-md-2 list-group justify-content-end">		
+		<div class="col-md-2 list-group justify-content-end">	
+			<a class="list-group-item list-group-item-action text-center" data-toggle="collapse" href="#tags" role="button" aria-expanded="false" aria-controls="tags">
+    			Rubriques
+			</a>
+			<div class="collapse" id="tags">
+				<?php foreach ($tags as $tag): ?>
+					<input type="radio" name="tag_id">
+					<label><?= $tag['name'] ?></label>
+				<p></p>
+     			<?php endforeach; ?>
+				<?php if (isset($_SESSION) && isset($_SESSION['username']) && $_SESSION['password'] === 'admin' ) : ?>
+     			 <a href="index.php?action=display_tags" class="title btn btn-outline-success my-2 my-sm-0">gérer</a>
+     			<?php endif; ?>		
+			</div>	
 			<!-- Preview -->
 			<a href="index.php?action=dashboard" class="list-group-item list-group-item-action text-center">Annuler</a>
 			<button type="submit" class="list-group-item list-group-item-action text-center">Publier</button>
