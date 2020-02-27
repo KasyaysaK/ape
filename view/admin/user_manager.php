@@ -12,21 +12,21 @@
 		<table class="table table-light table-striped">
 	  		<thead>
 		    	<tr>
-		      		<th scope="col">Pseudo</th>
-		      		<th scope="col">Rôle</th>
-		      		<th scope="col">Signalement</th>
-		      		<th>Action</th>
+		      		<th class="text-center" scope="col">Pseudo</th>
+		      		<th class="text-center" scope="col">Rôle</th>
+		      		<th class="text-center" scope="col">Signalement</th>
+		      		<th class="text-center" scope="col">Action</th>
 
 		    	</tr> 		
 		  	</thead>
 		  	<tbody>
 			  	<?php foreach ($users as $user): ?>
 			    <tr>
-			      	<td><?= htmlspecialchars($user['name']); ?></td>
-			      	<td><?= htmlspecialchars($user['type']) ?></td>
-			      	<td><?= htmlspecialchars($user['status']) ?></td>
-			      	<td>
-			      		<a href="index.php?action=display_profile&amp;id=<?= $user['id'] ?>" class="btn"><i class="far fa-eye"></i></a> | 
+			      	<td class="border-right text-center"><?= htmlspecialchars($user['name']); ?></td>
+			      	<td class="border-right text-center"><?= htmlspecialchars($user['rolelabel']) ?></td>
+			      	<td class="border-right text-center"><?= htmlspecialchars($user['status']) ?></td>
+			      	<td class="text-center">
+			      		<a href="index.php?action=display_profile&amp;user_id=<?= $user['userid'] ?>" class="btn"><i class="far fa-eye"></i></a> | 
 			      		<!-- Button trigger modal -->
 						<button type="button" class="btn" data-toggle="modal" data-target="#role"><i class="fas fa-user-tag"></i></button>
 						<!-- Modal -->
@@ -34,14 +34,14 @@
 							<div class="modal-dialog modal-dialog-centered" role="document">
 							    <div class="modal-content">
 						      		<div class="modal-header">
-								        <h5 class="modal-title title" id="role-title">Rôle du membre</h5>
+								        <h5 class="modal-title title" id="role-title">Rôle du membre : <?= $user['name'] ?> </h5>
 						      		</div>
 						      		<form action="index.php?action=update_role" method="POST">
 					         			<div class="modal-body">
 					         				<?php foreach ($roles as $role): ?>
 				         					<div class="form-group" id="role_id">
-												<input type="radio" name="role_id">
-												<label class="form-control"><?= $role['type'] ?></label>
+												<input type="radio" name="role_id" value="<?= $role['id'] ?>">
+												<label class="form-control"><?= $role['label'] ?></label>
 											</div>
 											<?php endforeach; ?>					         			
 					         			</div>

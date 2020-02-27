@@ -18,8 +18,8 @@
                 height : "480",
                 selector:'.post-editor', 
                 language: 'fr_FR',
-                plugins: 'image code',
-                toolbar: 'undo redo | image code',
+                plugins: 'link lists image code',
+                toolbar: 'undo redo | link | numlist | bullist | image | code',
                 // without images_upload_url set, Upload tab won't show up
                 images_upload_url: 'upload.php',
                 // override default upload handler to simulate successful upload

@@ -9,7 +9,6 @@ class Router
 	{
 		$this->controller = new Controller();
 	}
-
 	public function request()
 	{
 		try {
@@ -26,6 +25,10 @@ class Router
 					case 'contact':
 						session_start();
 						$this->controller->contact();
+						break;
+					case 'terms_conditions':
+						session_start();
+						$this->controller->terms_conditions();
 						break;
 					case 'list_posts' :
 						session_start();
@@ -94,9 +97,9 @@ class Router
 		            	break;
 					case 'publish_post' :
 						session_start();
-		            	if (!empty ($_POST['title']) && !empty($_POST['content']) && !empty($_POST['tag_id'])) {
+		            	if (!empty ($_POST['title']) && !empty($_POST['description']) && !empty($_POST['content']) && !empty($_POST['tag_id'])) {
 				       		echo "post crée";
-		                    $this->controller->save_post($_POST['title'], $_POST['content'], $_POST['tag_id']);
+		                    $this->controller->save_post($_POST['title'], $_POST['description'], $_POST['content'], $_POST['tag_id']);
 		                }
 		                else {
 		                    header('Location: index.php');
@@ -110,12 +113,13 @@ class Router
 		            	break;
 					case 'edit_post' :
 						session_start();
-		            	$this->controller->edit_post();
+		            	$this->controller->edit_post($_GET['id']);
 		            	break;
 					case 'save_edited_post' :
+						var_dump('ici');
 						session_start();
-	            	 	if (!empty ($_POST['title']) && !empty($_POST['content'])) {
-		                    $this->controller->save_edited_post($_GET['post_id'], $_POST['title'], $_POST['content']);
+	            	 	if (!empty ($_POST['title']) && !empty($_POST['description']) && !empty($_POST['content']) && !empty($_POST['tag_id'])) {
+		                    $this->controller->save_edited_post($_GET['post_id'], $_POST['title'], $_POST['description'], $_POST['content'], $_POST['tag_id']);
 			                }
 			                else {
 			                    require('view/backend/error.php');
@@ -136,7 +140,7 @@ class Router
 		            	break;
 		            case 'update_role' :
 		            	session_start();
-		            	$this->controller->update_role($_GET['user_id'], $_POST['role_id']);
+		            	$this->controller->update_role($_GET['id'], $_POST['role_id']);
 		            	break;
 				}
 			}

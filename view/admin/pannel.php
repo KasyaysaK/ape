@@ -1,6 +1,3 @@
-        <link href="public/css/style.css" rel="stylesheet" /> 
-
-
 <?php $title = htmlspecialchars('Association Parents-Élèves'); ?>
 
 <?php ob_start(); ?>

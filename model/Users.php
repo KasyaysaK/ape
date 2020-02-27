@@ -21,7 +21,7 @@ class Users extends Database
 	 */
 	public function get_users()
 	{
-	    $users_list = $this->dbh->query('SELECT users.id AS userid, roles.id AS roleid, type, role_id, name, status FROM users LEFT JOIN roles ON users.role_id = roles.id ORDER BY users.id ASC');
+	    $users_list = $this->dbh->query('SELECT users.id AS userid, roles.id AS roleid, roles.type AS roletype, roles.label AS rolelabel, role_id, name, status FROM users LEFT JOIN roles ON users.role_id = roles.id ORDER BY users.id ASC');
 	    return $users_list;
 	} 
 	public function get_roles()
@@ -31,7 +31,7 @@ class Users extends Database
 	}
 	 function get_user($name)
 	{
-		$user = $this->dbh->prepare('SELECT id, name, password, role_id FROM users WHERE name = :name'); 
+		$user = $this->dbh->prepare('SELECT users.id AS id, name, password, role_id, roles.type AS roletype FROM users LEFT JOIN roles ON users.role_id = roles.id WHERE name = :name'); 
 		$user->execute(array('name' => $name));
 		return $user->fetch();
 	}

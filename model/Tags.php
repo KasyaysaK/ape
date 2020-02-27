@@ -18,7 +18,7 @@ public function create_tag($label)
 }
 public function get_tags()
 	{
-	    $tags_list = $this->dbh->query('SELECT label FROM tags ORDER BY id ASC');
+	    $tags_list = $this->dbh->query('SELECT id, label FROM tags ORDER BY id ASC');
 	    return $tags_list;
 	}
 }

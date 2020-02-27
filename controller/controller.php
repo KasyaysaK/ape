@@ -22,6 +22,7 @@ class Controller
 	public function __construct()
 	{
 		$this->users 	= new Users();
+		$this->roles 	= new Roles();
 		$this->posts 	= new Posts();
 		$this->tags 	= new Tags();
 		$this->comments = new Comments();
@@ -55,6 +56,13 @@ class Controller
 	/**
 	 * shows all the posts
 	 */
+	/**
+	 * loads the terms and conditions page
+	 */
+	public function terms_conditions() //loads homepage
+	{
+		require('view/front/terms_conditions.php');
+	}
 	public function list_posts()
 	{
 		$posts = $this->posts->get_posts();
@@ -178,9 +186,11 @@ class Controller
 			$hash = password_hash($password, PASSWORD_BCRYPT);
 			
 			$user = $this->users->get_user($name);
+			var_dump($user);
 			if ($user) {
-				$_SESSION['name'] = $name;
+				$_SESSION['name']     = $name;
 				$_SESSION['password'] = $password;
+				$_SESSION['role'] 	  = $user['roletype'];
 				if($_SESSION['password'] && $_SESSION['password'] == password_verify('admin', $hash)) {
 					require('view/admin/pannel.php');
 				}
@@ -244,11 +254,11 @@ class Controller
 	 * @param $title
 	 * @param $content
 	 */
-	public function save_post($title, $content, $tag_id)
+	public function save_post($title, $description, $content, $tag_id)
 	{
-		$new_post = $this->posts->create_post($title, $content, $tag_id);
+		$new_post = $this->posts->create_post($title, $description, $content, $tag_id);
 		if ($new_post) {
-       		header('Location: index.php');
+       		header('Location: index.php?action=post_manager');
        		echo "post crée";
        		exit;
 	    }
@@ -261,9 +271,8 @@ class Controller
 	/**
 	 * get post to edit
 	 */
-	public function edit_post()
+	public function edit_post($post_id)
 	{
-		$post_id = $_GET['id'];
 	    $post_to_edit = $this->posts->get_post($post_id);
 	    $tags = $this->tags->get_tags();
 	    require('view/admin/edit_post.php');
@@ -271,15 +280,16 @@ class Controller
 	/**
 	 * saves edited
 	 */
-	public function save_edited_post($post_id, $title, $content, $tag_id)
+	public function save_edited_post($post_id, $title, $description, $content, $tag_id)
 	{
-	    $update_post = $this->posts->update_post($post_id, $title, $content);
-
+	    $update_post = $this->posts->update_post($post_id, $title, $description, $content, $tag_id);
 	    if ($update_post === false) {
 	        echo 'Impossible de mettre à jour le chapitre';
 	    }
 	    else {
-	        $this->post_manager();
+	        header('Location: index.php?action=post_manager');
+       		echo "post mis à jour";
+       		exit;
 	    }
 	}
 
@@ -305,7 +315,7 @@ class Controller
 	public function user_manager()
 	{
 		$users = $this->users->get_users();
-		$roles = $this->users->get_roles();
+		$roles = $this->roles->get_roles();
 		require('view/admin/user_manager.php');
 	}
 	public function update_role($user_id, $role_id)

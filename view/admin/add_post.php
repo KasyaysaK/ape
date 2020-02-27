@@ -11,6 +11,7 @@
 	<form class="row" action="index.php?action=publish_post" method="POST">
 		<div class="col-md-10">
 			<input id="title" class="form-control form my-2" aria-describedby="titre" name="title" placeholder="Titre de l'article" />
+			<input id="description" class="form-control form my-2" aria-describedby="description" name="description" placeholder="description de l'article" />
 			<!-- main image -->
 			<textarea class="post-editor" aria-describedby="contenu" name="content" placeholder="Contenu de l'article"> 
 				<p>Écrivez le contenu de l'article ici</p> 
@@ -22,11 +23,11 @@
 			</a>
 			<div class="collapse" id="tags">
 				<?php foreach ($tags as $tag): ?>
-					<input type="radio" name="tag_id">
+					<input type="radio" name="tag_id" value="<?= $tag['id'] ?>">
 					<label><?= $tag['label'] ?></label>
 				<p></p>
      			<?php endforeach; ?>
-				<?php if (isset($_SESSION) && isset($_SESSION['name']) && $_SESSION['password'] === 'admin' ) : ?>
+				<?php if (isset($_SESSION) && isset($_SESSION['name']) && $_SESSION['role'] === 'admin' ) : ?>
      			 <a href="index.php?action=display_tags" class="title btn btn-outline-success my-2 my-sm-0">gérer</a>
      			<?php endif; ?>		
 			</div>	
