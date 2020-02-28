@@ -3,7 +3,7 @@
 <div class="container mt-4">
 	<hr class="mb-3" />
 	<div class="d-flex align-items-center justify-content-between">	
-		<a href="index.php?action=dashboard"><i class="fas fa-arrow-left"></i></a>
+		<a href="index.php?action=dashboard"><i class="icon fas fa-arrow-left"></i></a>
 		<h2 class="text-center">Ajouter un nouvel article</h2>
 		<a href="index.php?action=post_manager">Tous les articles</a>
 	</div>

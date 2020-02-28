@@ -4,8 +4,10 @@ body {
 }
 
 .head, .footer {
-	height: 30vh;
 	background: url(../images/pattern.jpg);
+}
+.head {
+	height: 15vh;
 }
 
 .main {
@@ -42,8 +44,6 @@ a {
 .email {
 	width: 466px;	
 }
-
-
 
 .carousel-inner{
   width:100%;

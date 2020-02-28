@@ -5,33 +5,39 @@
 </div>
 <?php endif; ?>
 
-<div class="d-flex justify-content-around align-items-center sitemap">
-	<fieldset class="mt-4">
-		<legend>À propos</legend>
-		<ul class="list-group">
-			<li class="list-group-item"><a href="index.php?action=about">Qui sommes nous</a></li>
-			<li class="list-group-item"><a href="index.php?action=terms_conditions">Mentions légales</a></li>
-			<li class="list-group-item"><a href="index.php?action=privacy_policy">Politique de confidentialité</a></li>
-			<li class="list-group-item"><a href="index.php?action=contact">Contact</a></li>
-		</ul>
-	</fieldset>
-	<fieldset>
-		<legend>La revue</legend>
-		<ul class="list-group">
-			<li class="list-group-item"><a href="index.php?action=list_posts">Articles</a></li>
-			<li class="list-group-item"><a href="index.php?action=list_activities"></a>Activités</li>
-			<li class="list-group-item"><a href="index.php?action=list_recipes"></a>Recettes</li>
-		</ul>
-	</fieldset>
-	<?php if (isset($_SESSION) && isset($_SESSION['name']) && $_SESSION['password'] === 'admin' ) : ?>
-		<fieldset>
-			<legend>Administration</legend>
-			<ul class="list-group">
-				<li class="list-group-item"><a href="index.php?action=post_manager">Articles</a></li>
-				<li class="list-group-item"><a href="index.php?action=comment_manager"></a>Commentaires</li>
-				<li class="list-group-item"><a href="index.php?action=user_manager"></a>Utilisateurs</li>
-			</ul>
-		</fieldset>
-		<?php endif; ?> 
-	
-</div>
+<footer class="page-footer">
+	<div class="container text-center text-md-left">
+		<div class="row">
+			<div class="col-md-4 mt-4">
+				<h5 class="font-weight-bold text-uppercase mt-3 mb-4">À propos</h5>
+				<ul class="list-unstyled">
+					<li class=""><a href="index.php?action=about">Qui sommes nous</a></li>
+					<li class=""><a href="index.php?action=terms_conditions">Mentions légales</a></li>
+					<li class=""><a href="index.php?action=privacy_policy">Politique de confidentialité</a></li>
+					<li class=""><a href="index.php?action=contact">Contact</a></li>
+				</ul>
+			</div>
+			<div class="col-md-4 mt-4">
+				<h5 class="font-weight-bold text-uppercase mt-3 mb-4">À propos</h5>
+				<ul class="list-unstyled">
+					<li class=""><a href="index.php?action=list_posts">Articles</a></li>
+					<li class=""><a href="index.php?action=list_activities"></a>Activités</li>
+					<li class=""><a href="index.php?action=list_recipes"></a>Recettes</li>
+				</ul>
+			</div>
+			<div class="col-md-4 mt-4">
+				<?php if (isset($_SESSION) && isset($_SESSION['name']) && $_SESSION['role'] === 'admin' ) : ?>
+				<h5 class="font-weight-bold text-uppercase mt-3 mb-4">Administration</h5>
+				<ul class="list-unstyled">
+					<li class=""><a href="index.php?action=post_manager">Articles</a></li>
+					<li class=""><a href="index.php?action=comment_manager"></a>Commentaires</li>
+					<li class=""><a href="index.php?action=user_manager"></a>Utilisateurs</li>
+				</ul>
+				<?php endif; ?>
+			</div>
+		</div>	
+	</div> 
+	 <div class="footer-copyright text-center py-3">© 2020
+    <a href=""> APE</a>
+  </div>
+</footer>

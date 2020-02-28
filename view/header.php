@@ -1,28 +1,33 @@
 <div class="head container-fluid d-flex align-items-center justify-content-center">
-    <div id="carouselContent" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner" role="listbox">
-            <div class="carousel-item active text-center p-4">
-             	<p class="font-italic">“Les enfants n’ont pas besoin d’être éduqués, mais d’être accompagnés avec empathie.” – Jesper Juul</p>
-            </div>
-            <div class="carousel-item text-center p-4">
-                <p class="font-italic">“N’oubliez pas que vous êtes le réceptacle privilégié de ses souffrances non parce que vous n’avez pas d’autorité (c’est ce que racontent parfois les papas ou votre propre mère…), mais parce qu’elle est en sécurité avec vous.” – Isabelle Filliozat </p>
-            </div>
-            <div class="carousel-item text-center p-4">
-                <p class="font-italic">“L’éducation consiste à comprendre l’enfant tel qu’il est, sans lui imposer l’image de ce que nous pensons qu’il devrait être.”- Krishnamurti</p>
-            </div>
-            <div class="carousel-item text-center p-4">
-                <p class="font-italic">“C’est lorsqu’ils semblent en mériter le moins que les enfants ont le plus besoin d’amour et d’attention” – Aletha solter</p>
-            </div>
-        </div>
-        <a class="carousel-control-prev" href="#carouselContent" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Précédent</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselContent" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Suivant</span>
-        </a>
-    </div>
+	<div class="row">
+		<div class="col-md-12">
+			<div id="carouselContent" class="carousel slide" data-ride="carousel">
+		        <div class="carousel-inner" role="listbox">
+		            <div class="carousel-item active text-center p-4">
+		             	<p class="font-italic">“Les enfants n’ont pas besoin d’être éduqués, mais d’être accompagnés avec empathie.” – Jesper Juul</p>
+		            </div>
+		            <div class="carousel-item text-center p-4">
+		                <p class="font-italic">“N’oubliez pas que vous êtes le réceptacle privilégié de ses souffrances non parce que vous n’avez pas d’autorité (c’est ce que racontent parfois les papas ou votre propre mère…), mais parce qu’elle est en sécurité avec vous.” – Isabelle Filliozat </p>
+		            </div>
+		            <div class="carousel-item text-center p-4">
+		                <p class="font-italic">“L’éducation consiste à comprendre l’enfant tel qu’il est, sans lui imposer l’image de ce que nous pensons qu’il devrait être.”- Krishnamurti</p>
+		            </div>
+		            <div class="carousel-item text-center p-4">
+		                <p class="font-italic">“C’est lorsqu’ils semblent en mériter le moins que les enfants ont le plus besoin d’amour et d’attention” – Aletha solter</p>
+		            </div>
+		        </div>
+		        <a class="carousel-control-prev" href="#carouselContent" role="button" data-slide="prev">
+		            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+		            <span class="sr-only">Précédent</span>
+		        </a>
+		        <a class="carousel-control-next" href="#carouselContent" role="button" data-slide="next">
+		            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+		            <span class="sr-only">Suivant</span>
+		        </a>
+		    </div>
+		</div>
+	</div>
+    
 </div>
 
 <div class="navigation">

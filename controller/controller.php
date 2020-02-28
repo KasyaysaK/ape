@@ -233,7 +233,8 @@ class Controller
 	 */
 	public function display_tags()
 	{
-		require('view/admin/tags.php');
+		$tags = $this->tags->get_tags();
+		require('view/admin/tag_manager.php');
 	}
 	/**
 	 * saves a new tag into the database

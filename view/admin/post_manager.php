@@ -4,8 +4,8 @@
 	<hr class="mb-3" />
 	<div class="d-flex align-items-center justify-content-between">	
 		<a href="index.php?action=dashboard"><i class="fas fa-arrow-left"></i></a>
-		<h2 class="text-center">Article</h2>
-		<a href="index.php?action=add_post"><i class="far fa-plus-square"></i></a>
+		<h2 class="text-center">Articles</h2>
+		<a href="index.php?action=add_post"><i class="icons far fa-plus-square"></i></a>
 	</div>
 	<hr class="mb-3" />
 	<div>
