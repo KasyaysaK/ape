@@ -21,11 +21,9 @@
 	<form class="row" action="index.php?action=publish_post" method="POST">
 		<div class="col-md-10">
 			<input id="title" class="form-control form my-2" aria-describedby="titre" name="title" placeholder="Titre de l'article" />
-			<input id="description" class="form-control form my-2" aria-describedby="description" name="description" placeholder="description de l'article" />
+			<input id="description" class="form-control form my-2" aria-describedby="description" name="description" placeholder="Description de l'article" />
 			<!-- main image -->
-			<textarea id="content" class="post-editor" aria-describedby="contenu" name="content" placeholder="Contenu de l'article"> 
-				<p>Écrivez le contenu de l'article ici</p> 
-			</textarea>
+			<textarea id="content" class="post-editor" aria-describedby="contenu" name="content" placeholder="Contenu de l'article"> </textarea>
 		</div>
 		<div class="col-md-2 list-group justify-content-end">	
 			<a class="list-group-item list-group-item-action text-center" data-toggle="collapse" href="#tags" role="button" aria-expanded="false" aria-controls="tags">

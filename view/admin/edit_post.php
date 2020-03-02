@@ -9,8 +9,15 @@
 	</div>
 	<hr class="mb-3" />
 
-	<div>
-		<h2></h2> <p></p>
+	<div class="notice">
+		<p>Pour pouvoir publier un article, il faut: </p>
+		<ul>
+			<li id="title-notice">Écrire un <a href="#title">titre</a> de plus de trois lettres</li>
+			<li id="description-notice">Mettre une <a href="#description">description</a> en une ou deux phrases</li>
+			<li id="content-notice">Rédiger le <a href="#content">contenu</a> de l'article</li>
+			<li id="tag-notice">Choisir une <a class="" data-toggle="collapse" href="#tags" role="button" aria-expanded="false" aria-controls="tags">rubrique</a></li>
+			<li>Appuyer sur le bouton 'Publier'</li>
+		</ul>
 	</div>
 
 	<form class="row" action="index.php?action=save_edited_post&amp;post_id=<?= $post_to_edit['postid'] ?>" method="post">
@@ -27,10 +34,11 @@
 			</a>
 			<div class="collapse" id="tags">
 				<?php foreach ($tags as $tag): ?>
-					<input type="radio" name="tag_id" value="<?= $tag['id'] ?>" >
+					<input id="tag"  type="radio" name="tag_id" value="<?= $tag['id'] ?>">
 					<label><?= $tag['label'] ?></label>
-				<?php endforeach; ?>
-				<?php if (isset($_SESSION) && isset($_SESSION['username']) && $_SESSION['role'] === 'admin' ) : ?>
+				<p></p>
+     			<?php endforeach; ?>
+				<?php if (isset($_SESSION) && isset($_SESSION['name']) && $_SESSION['role'] === 'admin' ) : ?>
      			 <a href="index.php?action=display_tags" class="title btn btn-outline-success my-2 my-sm-0">gérer</a>
      			<?php endif; ?>		
 			</div>	

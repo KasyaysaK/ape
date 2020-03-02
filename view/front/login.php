@@ -12,29 +12,25 @@
 			
 
 			<hr class="mb-3"></hr>
-
-			<?php if(!empty($this->errors)): ?>
-			<div class="alert alert-danger">
-				<p>Le formulaire n'a pas été rempli correctement :</p>
+			<div class="notice">
+				<p>Pour pouvoir créer un compte, il faut: </p>
 				<ul>
-					<?php foreach($this->errors as $error): ?>
-						<li><?= $error; ?></li>
-					<?php endforeach; ?>
-				</ul>	
+					<li id="name-notice">Choisir un pseudo</li>
+					<li id="email-notice">Indiquer son adresse email</li>
+					<li id="password-notice">Entrer un mot de passe et le confimer</li>
+					<li>Appuyer sur le bouton 'Publier'</li>
+				</ul>
 			</div>
-			<?php endif; ?>
 
 			<form action="index.php?action=signup" onsubmit="return" method="POST">
-				<div class="form-group" id="name">
+				<div class="form-group">
 					<label for="name" class="mt-2">Pseudo</label>
-					<input type="text" name="name" class="form-control" />
-					<div id="name-error"></div>
+					<input id="name" class="form-control" type="text" aria-describedby="pseudo" name="name" />
 				</div>
 
-				<div class="form-group" id="email">
+				<div class="form-group">
 					<label for="email" class="mt-2">Adresse email</label>
-					<input type="email" name="email" class="form-control" />
-					<div id="email-error"></div>
+					<input id="email" type="email" name="email" class="form-control" />
 				</div>
 				
 				<div class="form-group" id="password">
@@ -45,7 +41,6 @@
 				<div class="form-group" id="password-confirm">
 					<label for="password-confirm" class="mt-2">Confirmez votre mot de passe</label>
 					<input type="password" name="password-confirm" class="form-control" />
-					<div id="password-error"></div>
 				</div>
 				
 
