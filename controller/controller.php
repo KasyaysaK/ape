@@ -66,16 +66,25 @@ class Controller
 	public function list_posts()
 	{
 		$posts = $this->posts->get_posts();
-		$comments = $this->comments->get_last_comments();
+		//$last_comments = $this->comments->get_last_comments();
 		require('view/front/posts_list.php');
+	}
+	/**
+	 * shows all article
+	 */
+	public function list_articles()
+	{
+		$articles = $this->posts->get_articles($tag_id);
+		$post 	 = $this->posts->get_post($post_id);
+		$comment = $this->comments->get_comment($post_id);
+		require('view/front/post.php');
 	}
 	/**
 	 * shows one post and its comments
 	 */
-	public function display_post()
+	public function display_post($post_id)
 	{
 		$last_posts = $this->posts->get_last_posts();
-		$post_id = $_GET['id'];
 		$post 	 = $this->posts->get_post($post_id);
 		$comment = $this->comments->get_comment($post_id);
 		require('view/front/post.php');

@@ -37,7 +37,7 @@ class Router
 					case 'display_post' :
 						session_start();
 						if (isset($_GET['id']) && $_GET['id'] > 0) {
-							$this->controller->display_post();
+							$this->controller->display_post($_GET['id']);
 						}
 						else {
 							echo 'l\'article n\'existe pas';
