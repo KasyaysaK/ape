@@ -11,7 +11,6 @@ fetch('https://randomuser.me/api/?results=3')
 	.then((resp) => resp.json())
 
 	.then(function (data) {
-		console.log(data);
 		let users = data.results;
 		return users.map(function (user) {
 			let div  = createUser('div');
@@ -25,5 +24,5 @@ fetch('https://randomuser.me/api/?results=3')
 		})
 	})
 	.catch(function (error) {
-		console.log(error);
+		/*console.log(error);*/
 	});

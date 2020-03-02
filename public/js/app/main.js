@@ -3,5 +3,11 @@ const cookies = new Cookies(document.querySelector('.cookie-banner'), document.q
 
 cookies.load();
 
-const fieldset = new Border(document.getElementById('border'), document.getElementsByTagName('fieldset'));
-console.log(fieldset);
+const titleValidation = new Validation(document.getElementById('title'), document.getElementById('title-notice'));
+titleValidation.empty();
+const descriptionValidation = new Validation(document.getElementById('description'), document.getElementById('description-notice'));
+descriptionValidation.empty();
+console.log
+const tagValidation = new Validation(document.getElementById('tag'), document.getElementById('tag-notice'));
+tagValidation.empty();
+

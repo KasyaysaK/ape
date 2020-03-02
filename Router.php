@@ -102,7 +102,7 @@ class Router
 		                    $this->controller->save_post($_POST['title'], $_POST['description'], $_POST['content'], $_POST['tag_id']);
 		                }
 		                else {
-		                    header('Location: index.php');
+		                    header('Location: index.php?action=add_post');
 				       		echo "post non crée";
 				       		exit;
 		                }

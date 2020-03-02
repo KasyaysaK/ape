@@ -272,11 +272,6 @@ class Controller
        		echo "post crée";
        		exit;
 	    }
-	    else {
-	       	header('Location: index.php');
-       		echo "post non crée";
-       		exit;
-	    }
 	}
 	/**
 	 * get post to edit

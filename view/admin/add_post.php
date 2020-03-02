@@ -8,12 +8,22 @@
 		<a href="index.php?action=post_manager">Tous les articles</a>
 	</div>
 	<hr class="mb-3" />
+	<div class="notice">
+		<p>Pour pouvoir publier un article, il faut: </p>
+		<ul>
+			<li id="title-notice">Écrire un <a href="#title">titre</a> de plus de trois lettres</li>
+			<li id="description-notice">Mettre une <a href="#description">description</a> en une ou deux phrases</li>
+			<li id="content-notice">Rédiger le <a href="#content">contenu</a> de l'article</li>
+			<li id="tag-notice">Choisir une <a class="" data-toggle="collapse" href="#tags" role="button" aria-expanded="false" aria-controls="tags">rubrique</a></li>
+			<li>Appuyer sur le bouton 'Publier'</li>
+		</ul>
+	</div>
 	<form class="row" action="index.php?action=publish_post" method="POST">
 		<div class="col-md-10">
 			<input id="title" class="form-control form my-2" aria-describedby="titre" name="title" placeholder="Titre de l'article" />
 			<input id="description" class="form-control form my-2" aria-describedby="description" name="description" placeholder="description de l'article" />
 			<!-- main image -->
-			<textarea class="post-editor" aria-describedby="contenu" name="content" placeholder="Contenu de l'article"> 
+			<textarea id="content" class="post-editor" aria-describedby="contenu" name="content" placeholder="Contenu de l'article"> 
 				<p>Écrivez le contenu de l'article ici</p> 
 			</textarea>
 		</div>
@@ -23,7 +33,7 @@
 			</a>
 			<div class="collapse" id="tags">
 				<?php foreach ($tags as $tag): ?>
-					<input type="radio" name="tag_id" value="<?= $tag['id'] ?>">
+					<input id="tag"  type="radio" name="tag_id" value="<?= $tag['id'] ?>">
 					<label><?= $tag['label'] ?></label>
 				<p></p>
      			<?php endforeach; ?>
@@ -32,9 +42,7 @@
      			<?php endif; ?>		
 			</div>	
 			<!-- Preview -->
-			<a href="index.php?action=dashboard" class="list-group-item list-group-item-action text-center">Annuler</a>
-			<button type="submit" class="list-group-item list-group-item-action text-center">Publier</button>
-			<a href="index.php?action=erase_post" class="list-group-item list-group-item-action text-center">Supprimer</a>
+			<button type="submit" class="text-center btn btn-outline-success" id="publish-post">Publier</button>
 		</div>
 	</form>
     
@@ -42,3 +50,4 @@
 
 <?php $content = ob_get_clean(); ?>  
 <?php require('view/template.php'); ?>
+
