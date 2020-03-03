@@ -6,8 +6,10 @@ body {
 .head, .footer {
 	background: url(../images/pattern.jpg);
 }
-.head {
-	height: 15vh;
+
+.header-box {
+	width: 800px;
+	height: 200px;
 }
 
 .main {
@@ -29,9 +31,6 @@ a {
 }
 
 .parallax {
-	position: relative;
-	width: 100%;
-	height: 100vh;
 	background: url(../images/mother-daughter.jpg) no-repeat center;
 	background-size: cover;
 	background-attachment: fixed;

@@ -1,7 +1,8 @@
 <?php
+
+require_once('controller/page_controller.php');
 require_once('controller/user_controller.php');
 require_once('controller/backoffice_controller.php');
-require_once('controller/page_controller.php');
 
 class Router
 {
@@ -11,7 +12,7 @@ class Router
 
 	public function __construct()
 	{
-		$this->controller = new Page_controller();
+		$this->page_controller = new Page_controller();
 		$this->user_controller = new User_controller();
 		$this->backoffice_controller = new Backoffice_controller();
 
@@ -49,6 +50,18 @@ class Router
 						else {
 							echo 'l\'article n\'existe pas';
 						}
+						break;
+					case 'list_articles' : 
+						session_start();
+						$this->page_controller->list_articles();
+						break;
+					case 'list_activities' : 
+						session_start();
+						$this->page_controller->list_activities();
+						break;
+					case 'list_recipes' : 
+						session_start();
+						$this->page_controller->list_recipes();
 						break;
 					case 'login':
 						session_start();
@@ -128,7 +141,6 @@ class Router
 		                    $this->backoffice_controller->save_edited_post($_GET['post_id'], $_POST['title'], $_POST['description'], $_POST['content'], $_POST['tag_id']);
 			                }
 			                else {
-			                	var_dump($update_post);
 		                		var_dump('coucou');
 			                    throw new Exception('Veuillez écrire l\'article avant de l\'envoyer.');
 			                }

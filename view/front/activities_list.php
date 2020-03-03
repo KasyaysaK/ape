@@ -1,4 +1,4 @@
-<?php $title = htmlspecialchars('La revue : liste des rubriques'); ?>
+<?php $title = htmlspecialchars('La revue : liste des activités'); ?>
 
 <?php ob_start(); ?>
 <div class="container">
@@ -6,21 +6,19 @@
 		<hr class="mb-3" />
 		<div class="d-flex align-items-center justify-content-between">
 			<a href="index.php?action=home"><i class="icon fas fa-arrow-left"></i></a>
-			<h2 class="text-center title">La revue : toutes les rubriques</h2>
-			<a href=""></a>
+			<h2 class="text-center title">La revue : toutes les activités</h2>
+			<a href="index.php?action=list_posts">Toutes les publications</a>
 		</div>
 		<hr class="mb-3" />
 	</div>
 	<div class="row">
 		<div class="col-md-8">
-			<?php foreach ($posts as $post): ?>
+			<?php foreach ($activities as $activity): ?>
 	      	<div class="card mb-2">
-	            <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(60).jpg"
-	              alt="Card image cap">
 	            <div class="card-body">
-	              	<h3 class="card-title"><?= $post['title']; ?></h3>
-	              	<p class="card-text"><?= $post['description'] ?></p>
-	              	<a href="index.php?action=display_post&amp;id=<?= $post['postid'] ?>"><h3 class="title btn btn-outline-success my-2 my-sm-0">Lire la suite</h3></a> 
+	              	<h3 class="card-title"><?= $activity['title']; ?></h3>
+	              	<p class="card-text"><? $activity['description'] ?></p>
+	              	<a href="index.php?action=display_activity&amp;id=<?= $activity['activityid'] ?>"><h3 class="title btn btn-outline-success my-2 my-sm-0">Lire la suite</h3></a> 
 	            </div>
 	      	</div>
 			<?php endforeach; ?>
@@ -32,7 +30,7 @@
 	    		<div>
 	    			<?php foreach ($last_comments as $comment): ?>
 				      	<p>
-				      		Par <?= htmlspecialchars($comment['author']); ?> sur <a href="index.php?action=display_post&amp;id=<?= $comment['postid'] ?>"><?= htmlspecialchars($comment['title']); ?></a>
+				      		Par <?= htmlspecialchars($comment['author']); ?> sur <a href="index.php?action=display_activity&amp;id=<?= $comment['activityid'] ?>"><?= htmlspecialchars($comment['title']); ?></a>
 				      	<br /><?= htmlspecialchars($comment['comment']) ?>
 				      
 				      	</p>

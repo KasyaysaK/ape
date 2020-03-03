@@ -1,4 +1,4 @@
-<?php $title = htmlspecialchars('Association Parents-Élèves'); ?>
+<?php $title = htmlspecialchars('Formulaire d\'inscription'); ?>
 
 <?php ob_start(); ?>
 

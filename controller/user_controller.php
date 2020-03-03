@@ -90,13 +90,14 @@ class User_controller
 				$_SESSION['name']     = $name;
 				$_SESSION['password'] = $password;
 				$_SESSION['role'] 	  = $user['roletype'];
-				if($_SESSION['password'] && $_SESSION['password'] == password_verify('admin', $hash)) {
+				if($_SESSION['password'] && $_SESSION['role'] == 'admin') {
 					require('view/admin/pannel.php');
 				}
 				else {
 					$correct_password = password_verify($password, $user['password']);
 					if ($correct_password) {
-						require('view/front/profile.php');
+						header('Location: index.php');
+    					exit;
 					}
 				}
 			}

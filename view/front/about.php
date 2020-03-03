@@ -1,4 +1,4 @@
-<?php $title = htmlspecialchars('Association Parents-Élèves'); ?>
+<?php $title = htmlspecialchars('Qui sommes nous'); ?>
 
 <?php ob_start(); ?>
 

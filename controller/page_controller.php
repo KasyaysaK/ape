@@ -67,17 +67,32 @@ class Page_controller
 		require('view/front/posts_list.php');
 	}
 	/**
-	 * shows all article
+	 * shows all articles
 	 */
 	public function list_articles()
 	{
-		$articles = $this->posts->get_articles($tag_id);
-		$post 	  = $this->posts->get_post($post_id);
-		$comment  = $this->comments->get_comment($post_id);
-		require('view/front/post.php');
+		$articles = $this->posts->get_articles();
+		require('view/front/articles_list.php');
+	}
+	/**
+	 * shows all activities
+	 */
+	public function list_activities()
+	{
+		$activities = $this->posts->get_activities();
+		require('view/front/activities_list.php');
+	}
+	/**
+	 * shows all articles
+	 */
+	public function list_recipes()
+	{
+		$recipes = $this->posts->get_recipes();
+		require('view/front/recipes_list.php');
 	}
 	/**
 	 * shows one post and its comments
+	 * @param string $post_id
 	 */
 	public function display_post($post_id)
 	{

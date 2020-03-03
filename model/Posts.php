@@ -31,17 +31,6 @@ class Posts extends Database
 	}
 	/**
 	 * selects one post
-	 * @param $tag_id 
-	 * @return $article
-	 */
-	public function get_articles($tag_id)
-	{
-	    $article = $this->dbh->prepare('SELECT id, title, description, tag_id, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%i\') AS creation_date_fr FROM posts WHERE tag_id = 1 ORDER BY creation_date DESC');
-	    $article->execute(array($article_id));
-	    return $article->fetch();
-	}
-	/**
-	 * selects one post
 	 * @param $id 
 	 * @return $post_id
 	 */
@@ -57,6 +46,37 @@ class Posts extends Database
 	    $post->execute(array($post_id));
 	    return $post->fetch();
 	}*/
+	/**
+	 * selects all the articles
+	 * @return $article
+	 */
+	public function get_articles()
+	{
+	    $articles_list = $this->dbh->query('SELECT id, title, description, tag_id, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%i\') AS creation_date_fr FROM posts WHERE tag_id = 1 ORDER BY creation_date DESC');
+	    return $articles_list;
+	}
+	/**
+	 * selects all the activies
+	 * @return $activies
+	 */
+	public function get_activities()
+	{
+	    $activies_list = $this->dbh->query('SELECT id, title, description, tag_id, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%i\') AS creation_date_fr FROM posts WHERE tag_id = 2 ORDER BY creation_date DESC');
+	    return $activies_list;
+	}
+	/**
+	 * selects all the recipes
+	 * @return $recipes
+	 */
+	public function get_recipes()
+	{
+	    $recipes_list = $this->dbh->query('SELECT id, title, description, tag_id, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%i\') AS creation_date_fr FROM posts WHERE tag_id = 3 ORDER BY creation_date DESC');
+	    return $recipes_list;
+	}
+	
+
+	/*************** DATABASE MODIFICATION ***************/
+
 	/**
 	 * inserts a new post in the database
 	 * @param $title

@@ -4,16 +4,16 @@
 
 <div class="container my-4">
 	<p class="text-justify">
-		Le site de (nom) a été crée dans l'optique d'accompagner les parents dans leur rôle. On ne nait pas avec des connaissances, être parents ça s'apprend aussi ! 
+		Notre site a été crée dans l'optique d'accompagner les parents dans leur rôle. On ne nait pas avec des connaissances, être parents ça s'apprend aussi ! 
 		Nous vous proposons des articles appuyés sur des recherches scientifiques pour expliquer les questionnements sur la parentalité. 
-		Vous pouvez aussi retrouver des activités ludiques et des recettes à faire ensemble pour partager de bons moments et créer des souvenirs. 
+		Vous pouvez aussi retrouver des activités ludiques et des recettes à faire ensemble pour partager de bons moments et créer des souvenirs. Nous vous souhaitons une bonne visite ! 
 	</p>
 </div>
 
 <div class="container my-4"> 	
  	<hr class="mt-5" />
 	<div class="text-center">
-		<h2 class="text-center">Nos derniers articles</h2>
+		<h2 class="text-center title">Nos derniers articles</h2>
 	</div>
 	<hr class="mb-3" />
 
@@ -69,15 +69,15 @@
 <div class="container my-4"> 	
  	<hr class="mt-5" />
 	<div class="text-center">
-		<h2 class="text-center">Les rubriques</h2>
+		<h2 class="text-center title"><a href="index.php?action=list_posts">Les rubriques</a></h2>
 	</div>
 	<hr class="mb-3" />
 	<div class="row">
 		<div class="col-md-4">
     		<div class="card my-4">
 			  	<div class="card-body">
-			  		<a href="index.php?action=list_posts" class="title btn"><img src="public/images/family.jpg" alt="bloc-note avec un stylo et ordinateur posés sur une table" class="img-thumbnail" /></a>
-				    <a href="index.php?action=list_posts" class="carousel-caption"><h4 class="title btn btn-secondary my-2 my-sm-0">Articles</h4></a>
+			  		<a href="index.php?action=list_articles" class="title btn"><img src="public/images/article.jpg" alt="bloc-note avec un stylo et ordinateur posés sur une table" class="img-thumbnail" /></a>
+				    <a href="index.php?action=list_articles" class="carousel-caption"><h4 class="title btn btn-secondary my-2 my-sm-0">Articles</h4></a>
 				</div>
 			</div>
         </div>
