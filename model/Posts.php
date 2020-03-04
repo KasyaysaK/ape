@@ -17,7 +17,7 @@ class Posts extends Database
 	 */
 	public function get_posts()
 	{
-		$posts_list = $this->dbh->query('SELECT posts.id AS postid, tags.id AS tagid, label, title, description, content, DATE_FORMAT(creation_date, \'%d/%m/%Y\') AS creation_date_fr FROM posts LEFT JOIN tags ON posts.tag_id = tags.id ORDER BY creation_date ASC');
+		$posts_list = $this->dbh->query('SELECT posts.id AS postid, tags.id AS tagid, label, title, description, DATE_FORMAT(creation_date, \'%d/%m/%Y\') AS creation_date_fr FROM posts LEFT JOIN tags ON posts.tag_id = tags.id ORDER BY creation_date ASC');
 		return $posts_list;
 	}
 	/**
@@ -26,7 +26,7 @@ class Posts extends Database
 	 */
 	public function get_last_posts()
 	{
-		$posts_list = $this->dbh->query('SELECT id, title, description, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%i\') AS creation_date_fr FROM posts ORDER BY creation_date DESC LIMIT 0, 3');
+		$posts_list = $this->dbh->query('SELECT id, title, description, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%i\') AS creation_date_fr FROM posts ORDER BY creation_date DESC LIMIT 0, 2');
 		return $posts_list;
 	}
 	/**
@@ -74,7 +74,6 @@ class Posts extends Database
 	    return $recipes_list;
 	}
 	
-
 	/*************** DATABASE MODIFICATION ***************/
 
 	/**

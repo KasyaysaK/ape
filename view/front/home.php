@@ -8,19 +8,40 @@
 		Nous vous proposons des articles appuyés sur des recherches scientifiques pour expliquer les questionnements sur la parentalité. 
 		Vous pouvez aussi retrouver des activités ludiques et des recettes à faire ensemble pour partager de bons moments et créer des souvenirs. Nous vous souhaitons une bonne visite ! 
 	</p>
-</div>
 
-<div class="container my-4"> 	
+	<div class="row">
+		<div class="col-md-4">
+    		<fieldset>
+			  	<legend class="text-center"><i class="icons fas fa-users"></i></legend>
+		  		<p>L'APE c'est un site bienveillant qui répond aux questions qu'un parent peut avoir. S'informer c'est déjà être un bon parent !</p>
+			    <a href="index.php?action=about"><h4 class="title btn btn-secondary my-2 my-sm-0">En savoir plus</h4></a>
+			</fieldset>
+		</div>
+		<div class="col-md-4">
+    		<fieldset>
+			  	<legend class="text-center"><i class="icons far fa-envelope"></i></legend>
+		  		<p>Vous avez des questions, une suggestion, des idées ? N'hésitez pas à nous contacter, nous vous répondons au plus vite !</p>
+			    <a href="index.php?action=contact"><h4 class="title btn btn-secondary my-2 my-sm-0">Envoyer un message</h4></a>
+			</fieldset>
+		</div>
+		<div class="col-md-4">
+    		<fieldset>
+			  	<legend class="text-center"><i class="icons fas fa-user"></i></legend>
+		  		<p>En rejoignant la communauté, vous avez la possibilité de commenter les articles et même de devenir auteur !</p>
+			    <a href="index.php?action=login"><h4 class="title btn btn-secondary my-2 my-sm-0">Devenir membre</h4></a>
+			</fieldset>
+		</div>
+    </div>
+
  	<hr class="mt-5" />
 	<div class="text-center">
 		<h2 class="text-center title">Nos derniers articles</h2>
 	</div>
 	<hr class="mb-3" />
-
 	<div class="row">
 		<?php foreach ($last_posts as $post): ?>
-		<div class="col-md-4">
-          	<div class="card mb-2">
+		<div class="col-md-6">
+          	<div class="card mb-2 align-items-center">
 	            <div class="card-body">
 	              	<h4 class="card-title"><?= $post['title']; ?></h4>
 	              	<p class="card-text"><?= $post['description'] ?></p>
@@ -30,43 +51,7 @@
         </div>
       	<?php endforeach; ?>
 	</div>
-</div>
 
-<div id="carousel" class="carousel slide my-4" data-ride="carousel">
-  	<div class="carousel-inner">
-	    <div class="carousel-item active">
-	      	<img class="d-block w-100" src="public/images/family.jpg" alt="First slide" />
-	      	<div class="carousel-caption d-none d-md-block">
-			    <h3>La revue</h3>
-			    <a class="title btn btn-outline-success my-2 my-sm-0" href="index.php?action=list_posts">Lire les articles</a>
-		  	</div>
-	    </div>
-	    <div class="carousel-item">
-     	 	<img class="d-block w-100" src="public/images/together.jpg" alt="Second slide" />
-	      	<div class="carousel-caption d-none d-md-block">
-			    <h3>La revue</h3>
-			    <a class="title btn btn-outline-success my-2 my-sm-0" href="index.php?action=list_posts">Lire les articles</a>
-		  	</div>
-	    </div>
-	    <div class="carousel-item">
-	      	<img class="d-block w-100" src="public/images/kid_activity_1.jpg" alt="Third slide" />
-	      	<div class="carousel-caption d-none d-md-block">
-			    <h3>La revue</h3>
-			    <a class="title btn btn-outline-success my-2 my-sm-0" href="index.php?action=list_posts">Lire les articles</a>
-		  	</div>
-	    </div>
-	  </div>	
-	  <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
-	    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-	    <span class="sr-only">Previous</span>
-	  </a>
-	  <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
-	    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-	    <span class="sr-only">Next</span>
-	  </a>
-</div>
-	
-<div class="container my-4"> 	
  	<hr class="mt-5" />
 	<div class="text-center">
 		<h2 class="text-center title"><a href="index.php?action=list_posts">Les rubriques</a></h2>
@@ -98,6 +83,7 @@
 			</div>
         </div>
 	</div>
+	
 </div>
 		
 

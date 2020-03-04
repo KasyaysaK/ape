@@ -7,11 +7,11 @@
     <h2 class="title text-center">Contact</h2>
     <hr class="mb-3" />
     <div  class="col-md-8 offset-2 my-4 ">
-        <?php if (isset($_SESSION)) : ?>
+        <?php if (isset($_SESSION) && isset($_SESSION['name'])) : ?>
         <form>
             <div class="form-group">
                 <label for="username">Votre pseudo</label>
-                <input type="text" name="username" placeholder="<?= $_SESSION['username'] ?>" class="form-control"/>
+                <input type="text" name="username" placeholder="<?= $_SESSION['name'] ?>" class="form-control"/>
             </div>
             <div class="form-group">
                 <label for="username">Votre adresse email</label>

@@ -16,6 +16,12 @@ body {
 	background: rgba(250,250,250,0.9);
 }
 
+.parallax {
+	background: url(../images/mother-daughter.jpg) no-repeat center;
+	background-size: cover;
+	background-attachment: fixed;
+}
+
 .title {
 	font-family: 'Handlee', cursive;
 	text-transform: uppercase;
@@ -27,13 +33,17 @@ body {
 
 a {
 	text-decoration: none !important;
+	color: black;
+}
+
+a:hover {
 	color: #306b04;
 }
 
-.parallax {
-	background: url(../images/mother-daughter.jpg) no-repeat center;
-	background-size: cover;
-	background-attachment: fixed;
+fieldset {
+	border: dotted;
+	padding: 20px;
+	height: 220px;
 }
 
 .credentials, .user-info, .password {
@@ -45,7 +55,7 @@ a {
 }
 
 .carousel-inner{
-  width:100%;
+  width: 100%;
   max-height: 600px !important;
 }
 
@@ -54,23 +64,12 @@ a {
 	font-size: 2em;
 }
 
-/* CARDS */
-.carousel-caption {
-	bottom: 64px;
-	left: 0;
-	right: 0;
-	width: 100% !important;
+.list-group-item, .sidebar {
 	background: rgba(250,250,250,.5);
 }
-
-.carousel-caption, .list-group-item, .sidebar {
-	background: rgba(250,250,250,.5);
-}
-
 .list-group-item {
 	border: none;
 }
-
 .sidebar {
 	border-left : 1px dotted;
 }
