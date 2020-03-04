@@ -1,3 +1,5 @@
+<?php $title = htmlspecialchars('Panneau d\'administration : Liste des articles'); ?>
+
 <?php ob_start(); ?>
 
 <div class="container">

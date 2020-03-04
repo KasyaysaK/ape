@@ -30,11 +30,11 @@ class Comments extends Database
 	 * @param $post_id 
 	 * @return $comments
 	 */
-	public function get_comment($post_id) 
+	public function get_comment($comment_id) 
 	{
-	    $comments = $this->dbh->prepare('SELECT id, name, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%i\') AS comment_date_fr FROM comments WHERE post_id = ? ORDER BY comment_date DESC');
-	    $comments->execute(array($post_id));
-	    return $comments;
+	    $comment = $this->dbh->prepare('SELECT id, name, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%i\') AS comment_date_fr FROM comments WHERE id = ?');
+	    $comment->execute(array($comment_id));
+	    return $comment;
 	}
 	/**
 	 * inserts a new comment into the database
@@ -53,7 +53,8 @@ class Comments extends Database
 	 * allows user to flag a comment
 	 * @param $comment_id
 	 */
-	public function flag_comment($comment_id) {
+	public function flag_comment($comment_id) 
+	{
 		$flag_comment = $this->dbh->prepare('UPDATE comments SET flagged = 1 WHERE id = ?');
 		$flag_comment->execute(array($comment_id));
 	}
@@ -71,16 +72,16 @@ class Comments extends Database
 	 * @param $comment_id
 	 */
 	public function validate_comment($comment_id) {
-		$validateComment = $this->dbh->prepare('UPDATE comments SET flagged = 0 WHERE id = ?');
-		$validateComment->execute(array($commentId));
+		$validate_comment = $this->dbh->prepare('UPDATE comments SET flagged = 0 WHERE id = ?');
+		$validate_comment->execute(array($comment_id));
 	}
 	/**
 	 * allows admin to delete a comment
 	 * @param $comment_id
 	 */
 	public function reject_comment($comment_id) {
-		$rejectComment = $this->dbh->prepare('DELETE FROM comments WHERE id = ?');
+		$reject_comment = $this->dbh->prepare('DELETE FROM comments WHERE id = ?');
 
-		$rejectComment->execute(array($comment_id));
+		$reject_comment->execute(array($comment_id));
 	}
 }

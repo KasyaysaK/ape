@@ -105,6 +105,8 @@ class Page_controller
 		$last_posts = $this->posts->get_last_posts();
 		$post 	 	= $this->posts->get_post($post_id);
 		$comment 	= $this->comments->get_comment($post_id);
+		$last_articles = $this->posts->get_last_articles();
+		var_dump($last_articles);
 		require('view/front/post.php');
 	}
 

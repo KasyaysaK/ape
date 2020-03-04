@@ -98,7 +98,6 @@ class Backoffice_controller
 	public function save_edited_post($post_id, $title, $description, $content, $tag_id)
 	{
 	    $update_post = $this->posts->update_post($post_id, $title, $description, $content, $tag_id);
-	    var_dump($update_post);
 	    if ($update_post === false) {
 	        echo 'Impossible de mettre à jour le chapitre';
 	    }
@@ -129,12 +128,29 @@ class Backoffice_controller
 	{
 		$comment = $this->comments->get_comments();
 	}
-	/**
-	 * shows the flagged comments
-	 */
-	public function list_flagged_comments()
+	public function unflag_comment($comment_id) 
 	{
-		$comment = $this->comments->get_comments();
+	    $unflag_comment = $this->comments->validate_comment($comment_id);
+	    header('Location: index.php?action=comment_manager');
+       		echo "commentaire mis à jour";
+       		exit;
+	}
+
+	public function delete_comment($comment_id) 
+	{
+	    $delete_comment = $this->comments->reject_comment($comment_id);
+	    header('Location: index.php?action=comment_manager');
+       		echo "commentaire mis à jour";
+       		exit;
+	}
+
+	/**
+	 * get post to edit
+	 */
+	public function edit_comment($comment_id)
+	{
+	    $comment_to_edit = $this->comments->get_comment($comment_id);
+	    require('view/admin/edit_comment.php');
 	}
 
 	//***************************************** USERS *****************************************

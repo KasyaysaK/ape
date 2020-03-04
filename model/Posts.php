@@ -21,7 +21,7 @@ class Posts extends Database
 		return $posts_list;
 	}
 	/**
-	 * selects all the posts
+	 * select the two last posts
 	 * @return $posts_list
 	 */
 	public function get_last_posts()
@@ -54,6 +54,15 @@ class Posts extends Database
 	{
 	    $articles_list = $this->dbh->query('SELECT id, title, description, tag_id, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%i\') AS creation_date_fr FROM posts WHERE tag_id = 1 ORDER BY creation_date DESC');
 	    return $articles_list;
+	}
+	/**
+	 * select the two last articles
+	 * @return $last_articles
+	 */
+	public function get_last_articles()
+	{
+		$last_articles = $this->dbh->query('SELECT id, title, description, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%i\') AS creation_date_fr FROM posts WHERE tag_id = 1 ORDER BY creation_date DESC LIMIT 0, 2');
+		return $last_articles;
 	}
 	/**
 	 * selects all the activies

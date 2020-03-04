@@ -1,3 +1,5 @@
+<?php $title = htmlspecialchars('Panneau d\'administration : Ajouter un article'); ?>
+
 <?php ob_start(); ?>
 
 <div class="container mt-4">

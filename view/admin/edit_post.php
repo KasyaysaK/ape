@@ -1,3 +1,5 @@
+<?php $title = htmlspecialchars('Panneau d\'administration : Modifier l\'article'); ?>
+
 <?php ob_start(); ?>
 
 <div class="container mt-4">

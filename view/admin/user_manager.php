@@ -1,8 +1,10 @@
+<?php $title = htmlspecialchars('Panneau d\'administration : Liste des utilisateurs'); ?>
+
 <?php ob_start(); ?>
 
 <div class="container">
 	<hr class="mb-3" />
-	<div class="d-flex align-items-center justify-content-around">	
+	<div class="d-flex align-items-center justify-content-between">	
 		<a href="index.php?action=dashboard"><i class="fas fa-arrow-left"></i></a>
 		<h2 class="text-center">Utilisateurs</h2>
 		<a href=""></a>
@@ -14,7 +16,6 @@
 		    	<tr>
 		      		<th class="text-center" scope="col">Pseudo</th>
 		      		<th class="text-center" scope="col">Rôle</th>
-		      		<th class="text-center" scope="col">Signalement</th>
 		      		<th class="text-center" scope="col">Action</th>
 
 		    	</tr> 		
@@ -24,7 +25,6 @@
 			    <tr>
 			      	<td class="border-right text-center"><?= htmlspecialchars($user['name']); ?></td>
 			      	<td class="border-right text-center"><?= htmlspecialchars($user['rolelabel']) ?></td>
-			      	<td class="border-right text-center"><?= htmlspecialchars($user['status']) ?></td>
 			      	<td class="text-center">
 			      		<a href="index.php?action=display_profile&amp;user_id=<?= $user['userid'] ?>" class="btn"><i class="far fa-eye"></i></a> | 
 			      		<!-- Button trigger modal -->

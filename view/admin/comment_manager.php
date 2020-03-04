@@ -1,3 +1,5 @@
+<?php $title = htmlspecialchars('Panneau d\'administration : Liste des commentaires'); ?>
+
 <?php ob_start(); ?>
 
 <div class="container">
@@ -14,7 +16,7 @@
 		    	<tr>
 		      		<th class="text-center" scope="col">Pseudo</th>
 		      		<th class="text-center" scope="col">Commentaire</th>
-		      		<th class="text-center" scope="col">Article</th>
+		      		<th class="text-center" scope="col">Signalement</th>
 		      		<th class="text-center" scope="col">Action</th>
 
 		    	</tr> 		
@@ -24,9 +26,11 @@
 			    <tr>
 			      	<td class="border-right text-center"><?= htmlspecialchars($comment['name']); ?></td>
 			      	<td class="border-right text-center"><?= htmlspecialchars($comment['comment']) ?></td>
-			      	<td class="border-right text-center"><?= htmlspecialchars($comment['']) ?></td>
+			      	<td class="border-right text-center"><?= htmlspecialchars($comment['flagged']) ?></td>
 			      	<td>
-			      		<a href="index.php?action=display_comment&amp;id=<?= $comment['id'] ?>" class="btn"><i class="far fa-eye"></i></a>|<a href="index.php?action=edit_comment&amp;id=<?= $comment['commentid'] ?>" class="btn"><i class="fas fa-edit"></i></a>|<a href="index.php?action=remove_comment&amp;comment_id=<?= $comment['id'] ?>" class="btn"><i class="far fa-trash-alt"></i></a>  
+			      		<a href="index.php?action=unflag_comment&amp;id=<?= $comment['id'] ?>" class="btn"><i class="fas fa-check"></i></a>
+			      		<a href="index.php?action=edit_comment&amp;id=<?= $comment['id'] ?>" class="btn"><i class="fas fa-edit"></i></a>
+			      		<a href="index.php?action=delete_comment&amp;id=<?= $comment['id'] ?>" class="btn"><i class="far fa-trash-alt"></i></a>  
 			      	</td>
 			    </tr>
 				<?php endforeach; ?>   

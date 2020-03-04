@@ -176,7 +176,6 @@ class Router
 		                    $this->backoffice_controller->save_edited_post($_GET['post_id'], $_POST['title'], $_POST['description'], $_POST['content'], $_POST['tag_id']);
 			                }
 			                else {
-		                		var_dump('coucou');
 			                    throw new Exception('Veuillez écrire l\'article avant de l\'envoyer.');
 			                }
 			            break;
@@ -193,6 +192,28 @@ class Router
 		            	session_start();
 		            	$this->backoffice_controller->comment_manager();
 		            	break;
+		           	case 'unflag_comment' :
+		            	session_start();
+	                    if (isset ($_GET['id'])) {
+	                        $this->backoffice_controller->unflag_comment($_GET['id']);
+	                    }
+	                    else {
+	                    throw new Exception('L\'identifiant de billet n\'existe pas.');
+	               	 	}
+	               	 	break;
+		           	case 'edit_comment' :
+						session_start();
+		            	$this->backoffice_controller->edit_comment($_GET['id']);
+		            	break;
+		            case 'delete_comment' :
+		            	session_start();
+		                if (isset ($_GET['id'])) {
+		                        $this->backoffice_controller->delete_comment($_GET['id']);
+		                    }
+		                    else {
+		                    throw new Exception('L\'identifiant de billet n\'existe pas.');
+		                }
+                		break;
 		            case 'user_manager' :
 		            	session_start();
 		            	$this->backoffice_controller->user_manager();
