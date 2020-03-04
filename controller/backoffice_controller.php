@@ -109,19 +109,32 @@ class Backoffice_controller
 	    }
 	}
 
-	/**
-	 *allows admin/author to publish a post on the website when status is set to 0
-	 * @param $title
-	 * @param $content
-	 * @param $status
-	 */
-	//public function publish_post($title, $content, $status)
-
 	public function remove_post($post_id)
 	{
 		$post = $this->posts->delete_post($post_id);
 		//$comment = $this->comments->delete_comment($post_id);
 		$this->post_manager();
+	}
+
+	public function comment_manager()
+	{
+		$comments = $this->comments->get_comments();
+		//$posts    = $this->posts->get_posts();
+		require('view/admin/comment_manager.php');
+	}
+	/**
+	 * shows all the comments
+	 */
+	public function list_comments()
+	{
+		$comment = $this->comments->get_comments();
+	}
+	/**
+	 * shows the flagged comments
+	 */
+	public function list_flagged_comments()
+	{
+		$comment = $this->comments->get_comments();
 	}
 
 	//***************************************** USERS *****************************************

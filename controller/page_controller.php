@@ -55,9 +55,7 @@ class Page_controller
 		header('Location: thank_you.php');
 		exit;
 	}
-	/**
-	 * shows all the posts
-	 */
+
 	/**
 	 * loads the terms and conditions page
 	 */
@@ -65,6 +63,9 @@ class Page_controller
 	{
 		require('view/front/terms_conditions.php');
 	}
+	/**
+	 * shows all the posts
+	 */
 	public function list_posts()
 	{
 		$posts = $this->posts->get_posts();
@@ -107,19 +108,32 @@ class Page_controller
 		require('view/front/post.php');
 	}
 
-	/**
-	 * shows all the comments
-	 */
-	public function list_comments()
+	public function add_comment($post_id, $name, $comment)
 	{
-		$comment = $this->comments->get_comments();
-	}
-	/**
-	 * shows the flagged comments
-	 */
-	public function list_flagged_comments()
-	{
-		$comment = $this->comments->get_comments();
+	    $new_comment = $this->comments->post_comment($post_id, $name, $comment);
+	    var_dump($new_comment);
+
+	    if ($new_comment === false) {
+	       throw new Exception('Impossible d\'ajouter le commentaire !');
+	    }
+	    else {
+	        header('Location: index.php?action=display_post&id=' . $post_id);
+	        exit;
+	    }
 	}
 
+	public function report_comment($comment_id, $post_id)
+	{
+	    $flagged_comment = $this->comments->flag_comment($comment_id);
+
+	    if ($flagged_comment === 0) {
+	        throw new Exception('Commentaire non signalé');
+	        echo 'Le commentaire n\'a pas pu être signalé.';   
+	    }
+	    else {
+	        header('Location: index.php?action=display_post&id=' . $post_id);
+	        exit;
+	        echo 'commentaire signalé';
+	    }
+	}
 }

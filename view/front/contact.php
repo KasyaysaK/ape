@@ -11,7 +11,7 @@
         <form action="" method="POST">
             <div class="form-group">
                 <label for="name">Votre pseudo</label>
-                <input type="text" name="name" value="<?= $_SESSION['name'] ?>" class="form-control"/>
+                <input type="text" name="name" value="<?= $_SESSION['name'] ?>" class="form-control" disabled/>
             </div>
             <div class="form-group">
                 <label for="email">Votre adresse email</label>

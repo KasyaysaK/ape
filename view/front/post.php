@@ -46,45 +46,48 @@
 				</div>
 			</div>
 			<div class="comments">
-				<div class="d-flex align-items-center border-top border-bottom my-4">
-					<h5>Commentaires</h5>
-				</div>
-				<div class="">
-					<?php foreach ($comment as $comment): ?>
-					<div class="d-flex justify-content-between">
-						<p class=""><?= htmlspecialchars($comment['author']) ?> le <?= $comment['comment_date_fr'] ?></p>
-						<span class="dropdown">
-					        <a class="dropdown-toggle" href="#" id="comment-setting" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					        </a>
-					        <div class="dropdown-menu" aria-labelledby="comment-setting">
-					         	<a class="btn dropdown-item" href="index.php?action=flagComment&amp;postId=<?= $post['id'] ?>&amp;commentId=<?= $comment['id'] ?>">
-									<i class="fas fa-exclamation-triangle warning"></i>
-								</a>
-							</div>
-					    </span>
-					</div>
-		  	  		<p class="card-text"><?= htmlspecialchars($comment['comment']) ?></p>				   		
-				   	<?php endforeach; ?>
-				</div>
-				<hr class="mb-3" />
 				<div>
 					<?php if (isset($_SESSION) && isset($_SESSION['name'])) : ?>	
 					<hr class="mb-3" />
-					<form class="my-4" id="add-comment" action="index.php?action=addComment&amp;id=<?= $post['id'] ?>" method="post">
+					<form class="my-4" id="add-comment" action="index.php?action=add_comment&amp;id=<?= $post['id'] ?>" method="POST">
 		       			 <div class="form-group">
 		       			 	<label>Pseudo</label>
-					        <input id="author" class="form-control form" aria-describedby="auteur" name="author" placeholder="Entrez votre nom" />
+					        <input class="form-control form" aria-describedby="pseudo" type="text" name="username" value="<?= $_SESSION['name'] ?>" disabled />
+					        <input type="hidden" name="username" value="<?= $_SESSION['name'] ?>" />
 					    </div>
 					    <div class="form-group">
 					    	<label>Commentaire</label>
-					        <textarea id="comment" class="form-control form" aria-describedby="commentaire" name="comment" placeholder="Entrez vore commentaire"></textarea>
+					        <textarea id="comment" class="form-control form" aria-describedby="commentaire" type="text" name="comment" placeholder="Entrez vore commentaire"></textarea>
 					    </div>
-					    <div>
-					         <button type="submit" class="btn btn-dark">Envoyer</button>
-					    </div>
+					    <hr class="mb-3" />
+            			<input type="submit" name="send_comment" value="envoyer" class="title btn btn-outline-success mt-2" />
 		    		</form>
 		    		<?php endif; ?>
 				</div>
+				<div class="d-flex align-items-center border-top border-bottom my-4">
+					<h5>Commentaires</h5>
+				</div>
+				
+					<?php foreach ($comment as $comment): ?>
+					<div class="">
+						<div class="d-flex justify-content-between">
+							<p class=""><?= htmlspecialchars($comment['name']) ?> le <?= $comment['comment_date_fr'] ?></p>
+							<span class="dropdown">
+						        <a class="dropdown-toggle" href="#" id="comment-setting" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						        </a>
+						        <div class="dropdown-menu" aria-labelledby="comment-setting">
+						         	<a class="btn dropdown-item" href="index.php?action=report_comment&amp;post_id=<?= $post['id'] ?>&amp;comment_id=<?= $comment['id'] ?>">
+										<p class="text-uppercase">Signaler</p>
+									</a>
+								</div>
+						    </span>
+						</div>
+			  	  		<p class="card-text"><?= htmlspecialchars($comment['comment']) ?></p>
+			  	  		<hr class="mb-3" />	
+		  	  		</div>			   		
+				   	<?php endforeach; ?>
+				
+
 			</div>
 		</div>
 

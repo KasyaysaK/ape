@@ -18,7 +18,7 @@
 	            <div class="card-body">
 	              	<h3 class="card-title"><?= $recipe['title']; ?></h3>
 	              	<p class="card-text"><? $recipe['description'] ?></p>
-	              	<a href="index.php?action=display_recipe&amp;id=<?= $recipe['recipeid'] ?>"><h3 class="title btn btn-outline-success my-2 my-sm-0">Lire la suite</h3></a> 
+	              	<a href="index.php?action=display_post&amp;id=<?= $recipe['id'] ?>"><h3 class="title btn btn-outline-success my-2 my-sm-0">Lire la suite</h3></a> 
 	            </div>
 	      	</div>
 			<?php endforeach; ?>

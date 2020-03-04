@@ -59,16 +59,7 @@ class Router
 					case 'list_posts' :
 						session_start();
 						$this->page_controller->list_posts();
-						break;
-					case 'display_post' :
-						session_start();
-						if (isset($_GET['id']) && $_GET['id'] > 0) {
-							$this->page_controller->display_post($_GET['id']);
-						}
-						else {
-							echo 'l\'article n\'existe pas';
-						}
-						break;
+						break;		
 					case 'list_articles' : 
 						session_start();
 						$this->page_controller->list_articles();
@@ -81,6 +72,33 @@ class Router
 						session_start();
 						$this->page_controller->list_recipes();
 						break;
+					case 'display_post' :
+						session_start();
+						if (isset($_GET['id']) && $_GET['id'] > 0) {
+							$this->page_controller->display_post($_GET['id']);
+						}
+						else {
+							echo 'l\'article n\'existe pas';
+						}
+						break;
+					case 'add_comment' :
+						session_start();
+		                if (isset($_GET['id']) && $_GET['id'] > 0) {
+		                    if (!empty($_POST['comment'])) {
+		                        $this->page_controller->add_comment($_GET['id'], $_POST['username'], $_POST['comment']);
+		                    }
+		                }
+		                else {
+		                    throw new Exception('L\'identifiant de billet n\'existe pas.');
+		                }
+		                break;
+		            case 'report_comment' :
+		            	session_start();
+		            	if (isset ($_GET['post_id']) && isset ($_GET['comment_id'])) {
+		                    $this->page_controller->report_comment($_GET['comment_id'], $_GET['post_id']);
+		                    echo 'commentaire signalé!';
+		                }
+               	 		break;
 					case 'login':
 						session_start();
 						$this->user_controller->login();
@@ -122,7 +140,6 @@ class Router
 		            	session_start();
 		            	if (!empty ($_POST['tag-name'])) {
 		            		$this->backoffice_controller->add_tag($_POST['tag-name']);
-		            		//$this->controller->add_post();	
 		            	} 
 		            	else {
 		            		echo "tag non crée";
@@ -172,6 +189,10 @@ class Router
 		                  	throw new Exception('L\'article n\'a pas été supprimé');
 		                }
 		                break;
+		            case 'comment_manager' : 
+		            	session_start();
+		            	$this->backoffice_controller->comment_manager();
+		            	break;
 		            case 'user_manager' :
 		            	session_start();
 		            	$this->backoffice_controller->user_manager();
@@ -183,7 +204,7 @@ class Router
 				}
 			}
 			else {
-				$this->controller->home();
+				$this->page_controller->home();
 			}
 		}
 		catch(Exception $e)

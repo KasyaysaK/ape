@@ -18,7 +18,7 @@
 	            <div class="card-body">
 	              	<h3 class="card-title"><?= $activity['title']; ?></h3>
 	              	<p class="card-text"><? $activity['description'] ?></p>
-	              	<a href="index.php?action=display_activity&amp;id=<?= $activity['activityid'] ?>"><h3 class="title btn btn-outline-success my-2 my-sm-0">Lire la suite</h3></a> 
+	              	<a href="index.php?action=display_post&amp;id=<?= $activity['id'] ?>"><h3 class="title btn btn-outline-success my-2 my-sm-0">Lire la suite</h3></a> 
 	            </div>
 	      	</div>
 			<?php endforeach; ?>

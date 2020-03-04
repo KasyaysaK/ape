@@ -17,12 +17,12 @@ class Comments extends Database
 	 */
 	public function get_comments()
 	{
-		$comments_list = $this->dbh->query('SELECT id, author, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%i\') AS comment_date_fr, flagged FROM comments ORDER BY comment_date DESC');
+		$comments_list = $this->dbh->query('SELECT id, name, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%i\') AS comment_date_fr, flagged FROM comments ORDER BY comment_date DESC');
 		return $comments_list;
 	}
 	public function get_last_comments()
 	{
-		$last_comments_list = $this->dbh->query('SELECT comments.id AS commentid, posts.id as postid, title, post_id, author, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%i\') AS comment_date_fr FROM comments LEFT JOIN posts ON comments.post_id = posts.id ORDER BY comment_date DESC LIMIT 0, 5');
+		$last_comments_list = $this->dbh->query('SELECT comments.id AS commentid, posts.id as postid, title, post_id, name, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%i\') AS comment_date_fr FROM comments LEFT JOIN posts ON comments.post_id = posts.id ORDER BY comment_date DESC LIMIT 0, 5');
 		return $last_comments_list;
 	}
 	/**
@@ -32,21 +32,21 @@ class Comments extends Database
 	 */
 	public function get_comment($post_id) 
 	{
-	    $comments = $this->dbh->prepare('SELECT id, author, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%i\') AS comment_date_fr FROM comments WHERE post_id = ? ORDER BY comment_date DESC');
+	    $comments = $this->dbh->prepare('SELECT id, name, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%i\') AS comment_date_fr FROM comments WHERE post_id = ? ORDER BY comment_date DESC');
 	    $comments->execute(array($post_id));
 	    return $comments;
 	}
 	/**
 	 * inserts a new comment into the database
 	 * @param $post_id
-	 * @param $author
+	 * @param $name
 	 * @param $comment
 	 * @return $new_comment
 	 */
-	public function postComment($post_id, $author, $comment)
+	public function post_comment($post_id, $name, $comment)
 	{
-	    $new_comment = $this->dbh->prepare('INSERT INTO comments (post_id, author, comment, comment_date, flagged) VALUES (?, ?, ?, NOW(), 0)');
-	    $new_comment->execute(array($post_id, $author, $comment));
+	    $new_comment = $this->dbh->prepare('INSERT INTO comments (post_id, name, comment, comment_date, flagged) VALUES (?, ?, ?, NOW(), 0)');
+	    $new_comment->execute(array($post_id, $name, $comment));
 	    return $new_comment;
 	}
 	/**
@@ -63,7 +63,7 @@ class Comments extends Database
 	 */
 	public function get_flagged_comments()
 	{
-		$flagged = $this->dbh->query('SELECT id, author, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%i\') AS comment_date_fr FROM comments WHERE flagged = 1 ORDER BY comment_date DESC');
+		$flagged = $this->dbh->query('SELECT id, name, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%i\') AS comment_date_fr FROM comments WHERE flagged = 1 ORDER BY comment_date DESC');
 		return $flagged;
 	}
 	/**

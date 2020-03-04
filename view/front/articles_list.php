@@ -18,7 +18,7 @@
 	            <div class="card-body">
 	              	<h3 class="card-title"><?= $article['title']; ?></h3>
 	              	<p class="card-text"><? $article['description'] ?></p>
-	              	<a href="index.php?action=display_article&amp;id=<?= $article['articleid'] ?>"><h3 class="title btn btn-outline-success my-2 my-sm-0">Lire la suite</h3></a> 
+	              	<a href="index.php?action=display_post&amp;id=<?= $article['id'] ?>"><h3 class="title btn btn-outline-success my-2 my-sm-0">Lire la suite</h3></a> 
 	            </div>
 	      	</div>
 			<?php endforeach; ?>
@@ -30,7 +30,7 @@
 	    		<div>
 	    			<?php foreach ($last_comments as $comment): ?>
 				      	<p>
-				      		Par <?= htmlspecialchars($comment['author']); ?> sur <a href="index.php?action=display_article&amp;id=<?= $comment['articleid'] ?>"><?= htmlspecialchars($comment['title']); ?></a>
+				      		Par <?= htmlspecialchars($comment['author']); ?> sur <a href="index.php?action=display_post&amp;id=<?= $comment['articleid'] ?>"><?= htmlspecialchars($comment['title']); ?></a>
 				      	<br /><?= htmlspecialchars($comment['comment']) ?>
 				      
 				      	</p>
