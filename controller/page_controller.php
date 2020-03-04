@@ -50,6 +50,11 @@ class Page_controller
 	{
 		require('view/front/contact.php');
 	}
+	public function send_message() 
+	{
+		header('Location: thank_you.php');
+		exit;
+	}
 	/**
 	 * shows all the posts
 	 */

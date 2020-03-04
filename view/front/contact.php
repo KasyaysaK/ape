@@ -8,19 +8,22 @@
     <hr class="mb-3" />
     <div  class="col-md-8 offset-2 my-4 ">
         <?php if (isset($_SESSION) && isset($_SESSION['name'])) : ?>
-        <form>
+        <form action="" method="POST">
             <div class="form-group">
-                <label for="username">Votre pseudo</label>
-                <input type="text" name="username" placeholder="<?= $_SESSION['name'] ?>" class="form-control"/>
+                <label for="name">Votre pseudo</label>
+                <input type="text" name="name" value="<?= $_SESSION['name'] ?>" class="form-control"/>
             </div>
             <div class="form-group">
-                <label for="username">Votre adresse email</label>
-                <input type="text" name="username" placeholder="" class="form-control" />
+                <label for="email">Votre adresse email</label>
+                <input type="email" name="email" placeholder="" class="form-control" />
             </div>
             <div class="form-group">
                 <label for="message">Votre message</label>
-                <textarea for="message" placeholder="Écrivez ici" class="form-control"></textarea>
+                <textarea name="message" placeholder="Écrivez ici" class="form-control"></textarea>
             </div>
+
+            <hr class="mb-3"></hr>
+            <input type="submit" name="send_message" value="envoyer" class="title btn btn-outline-success mt-2">
         </form>
         <?php else : ?>
         <p class="text-center">Nous vous remercions de l'intérêt que vous nous portez. Afin de faciliter la communication, nous vous demandons de bien vouloir vous <a href="#" data-toggle="modal" data-target="#login-form">vous connecter</a>. <br /> Vous n'êtes pas encore membre ? <a href="index.php?action=login">Inscrivez-vous</a> en quelques secondes !</p>

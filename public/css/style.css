@@ -33,11 +33,11 @@ body {
 
 a {
 	text-decoration: none !important;
-	color: black;
+	color: #306b04;
 }
 
 a:hover {
-	color: #306b04;
+	color: black;
 }
 
 fieldset {

@@ -21,8 +21,8 @@
 				<h5 class="font-weight-bold text-uppercase mt-3 mb-4">À propos</h5>
 				<ul class="list-unstyled">
 					<li class=""><a href="index.php?action=list_posts">Articles</a></li>
-					<li class=""><a href="index.php?action=list_activities"></a>Activités</li>
-					<li class=""><a href="index.php?action=list_recipes"></a>Recettes</li>
+					<li class=""><a href="index.php?action=list_activities">Activités</a></li>
+					<li class=""><a href="index.php?action=list_recipes">Recettes</a></li>
 				</ul>
 			</div>
 			<div class="col-md-4 mt-4">
@@ -30,8 +30,14 @@
 				<h5 class="font-weight-bold text-uppercase mt-3 mb-4">Administration</h5>
 				<ul class="list-unstyled">
 					<li class=""><a href="index.php?action=post_manager">Articles</a></li>
-					<li class=""><a href="index.php?action=comment_manager"></a>Commentaires</li>
-					<li class=""><a href="index.php?action=user_manager"></a>Utilisateurs</li>
+					<li class=""><a href="index.php?action=comment_manager">Commentaires</a></li>
+					<li class=""><a href="index.php?action=user_manager">Utilisateurs</a></li>
+				</ul>
+				<?php elseif (isset($_SESSION) && isset($_SESSION['name']) && $_SESSION['role'] === 'author' ) : ?>
+				<h5 class="font-weight-bold text-uppercase mt-3 mb-4">Auteur</h5>
+				<ul class="list-unstyled">
+					<li class=""><a href="index.php?action=add_post">Nouvel article</a></li>
+					<li class=""><a href="index.php?action=">Mes articles</a></li>
 				</ul>
 				<?php endif; ?>
 			</div>

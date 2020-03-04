@@ -1,10 +1,10 @@
-<?php $title = htmlspecialchars('Déconnexion'); ?>
+<?php $title = htmlspecialchars('Message envoyé !'); ?>
 
 <?php ob_start(); ?>
 
    	<div class="container">
    		<hr class="mb-3" />
-		<h2 class="text-center">Vous avez été déconnecté</h2>
+		<h2 class="text-center">Nous vous remercions et nous vous recontacterons dès que possible !</h2>
 		<a class="text-center" href="index.php">Revenir sur la page d'accueil</a>
 		<hr class="mb-3" />
 	</div>
