@@ -1,8 +1,10 @@
+<?php $title = htmlspecialchars('Panneau d\'administration : Gérer les rubriques'); ?>
+
 <?php ob_start(); ?>
 <div class="container">
 	<hr class="mb-3" />
 	<div class="d-flex align-items-center justify-content-around">	
-		<a href="index.php?action=dashboard"><i class="fas fa-arrow-left"></i></a>
+		<button class="back-button btn icons"><i class="icon fas fa-arrow-left"></i></button>
 		<h2 class="text-center">Rubriques</h2>
 		<a data-toggle="collapse" href="#add-tag" role="button" aria-expanded="false" aria-controls="add-tag"><i class="icons far fa-plus-square"></i></a>
 	</div>

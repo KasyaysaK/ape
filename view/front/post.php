@@ -103,7 +103,9 @@
 				</li>
 			</ul>
 			<?php endforeach; ?>
-			<a href="index.php?action=list_posts" class="btn text-center">Voir tous les articles</a>
+			<hr class="mb-3" />
+			<a href="index.php?action=list_posts"><p class="text-center">Voir tous les articles</p></a>
+			<img src="public/images/APE_logo.png">
 		</div>
 	</div>
 </div>

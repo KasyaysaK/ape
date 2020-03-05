@@ -5,7 +5,7 @@
 	<div>
 		<hr class="mb-3" />
 		<div class="d-flex align-items-center justify-content-between">
-			<a href="index.php?action=home"><i class="icon fas fa-arrow-left"></i></a>
+			<button class="back-button btn icons"><i class="icon fas fa-arrow-left"></i></button>
 			<h2 class="text-center title">La revue : toutes les activités</h2>
 			<a href="index.php?action=list_posts">Toutes les publications</a>
 		</div>
@@ -30,7 +30,7 @@
 	    		<div>
 	    			<?php foreach ($last_comments as $comment): ?>
 				      	<p>
-				      		Par <?= htmlspecialchars($comment['author']); ?> sur <a href="index.php?action=display_activity&amp;id=<?= $comment['activityid'] ?>"><?= htmlspecialchars($comment['title']); ?></a>
+				      		Par <?= htmlspecialchars($comment['name']); ?> sur <a href="index.php?action=display_activity&amp;id=<?= $comment['activityid'] ?>"><?= htmlspecialchars($comment['title']); ?></a>
 				      	<br /><?= htmlspecialchars($comment['comment']) ?>
 				      
 				      	</p>
