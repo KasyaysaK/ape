@@ -26,7 +26,11 @@
 				<input id="addTitle" class="form-control form my-2" aria-describedby="titre" name="title" placeholder="Titre de l'article" />
 				<div class="error" id="addTitleError"></div>
 			</div>
-
+			<div class="form-group">
+				<label>Auteur</label>
+				<input id="addAuthor" class="form-control form my-2" aria-describedby="auteur" name="author" value="<?= $_SESSION['name'] ?>" disabled/>
+				<input type="hidden" name="author" value="<?= $_SESSION['name'] ?>" disabled/>
+			</div>
 			<div class="form-group">
 				<input id="addDescription" class="form-control form my-2" aria-describedby="description" name="description" placeholder="Description de l'article" />
 				<div class="error" id="addDescriptionError"></div>
@@ -42,7 +46,7 @@
 			</a>
 			<div class="collapse" id="tags">
      			<div class="error" id="addTagError"></div>
-				
+
 				<?php foreach ($tags as $tag): ?>
 					<input id="addTag"  type="radio" name="tag_id" value="<?= $tag['id'] ?>">
 					<label><?= $tag['label'] ?></label>
