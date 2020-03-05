@@ -9,7 +9,7 @@ descriptionValidation.empty();
 const tagValidation 		= new Validation(document.getElementById('tag'), document.getElementById('tag-notice'));
 tagValidation.empty();
 
-const nameValidation 		= new Validation(document.getElementById('name'), document.getElementById('name-notice'));
+const nameValidation 		= new Validation(document.getElementById('loginName'), document.getElementById('name-notice'));
 nameValidation.empty();
 console.log(nameValidation);
 const emailValidation	 	= new Validation(document.getElementById('email'), document.getElementById('email-notice'));

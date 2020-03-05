@@ -22,25 +22,29 @@
 				</ul>
 			</div>
 
-			<form action="index.php?action=signup" onsubmit="return" method="POST">
+			<form name="login" action="index.php?action=signup" onsubmit="return validateSignupForm()" method="POST">
 				<div class="form-group">
 					<label for="name" class="mt-2">Pseudo</label>
-					<input id="name" class="form-control" type="text" aria-describedby="pseudo" name="name" />
+					<input id="signupName" class="form-control" type="text" aria-describedby="pseudo" name="name" />
+					<div class="error" id="nameError"></div>
 				</div>
 
 				<div class="form-group">
 					<label for="email" class="mt-2">Adresse email</label>
-					<input id="email" type="email" name="email" class="form-control" />
+					<input id="signupEmail" type="email" name="email" class="form-control" />
+					<div class="error" id="emailError"></div>
 				</div>
 				
 				<div class="form-group" id="password">
 					<label for="password" class="mt-2">Mot de passe</label>
-					<input type="password" name="password" class="form-control" />
+					<input id="signupPassword" type="password" name="password" class="form-control" />
+					<div class="error" id="passwordError"></div>
 				</div>
 				
 				<div class="form-group" id="password-confirm">
-					<label for="password-confirm" class="mt-2">Confirmez votre mot de passe</label>
-					<input type="password" name="password-confirm" class="form-control" />
+					<label for="confirm" class="mt-2">Confirmez votre mot de passe</label>
+					<input id="signupConfirm" type="password" name="confirm" class="form-control" />
+					<div class="error" id="confirmError"></div>
 				</div>
 				
 

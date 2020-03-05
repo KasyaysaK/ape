@@ -117,24 +117,20 @@
 				        <a class="modal-subtitle btn" href="index.php?action=login">Pas encore membre ? C'est par ici !</a>
 		      		</div>
 
-		         	<form id="signin-form" action="index.php?action=signin" method="POST">
+		         	<form id="signin-form" action="index.php?action=signin"  onsubmit="return validateSigninForm()" method="POST">
 
-		         		<div class="modal-body container">
-
-		         			<div class="row justify-content-center">
-		         				<div class="form-group" id="name">
-									<label for="name" class="my-2 mr-5 ">Pseudo</label>
-									<input type="text" name="name" class="form-control" />
-									<div id="name-error"></div>
-								</div>
-								
-								<div class="form-group my-2" id="password">
-									<label for="password" class="mt-2 mr-2">Mot de passe</label>
-									<input type="password" name="password" class="form-control" />
-								</div>	
-		         			</div>
-
-		         			
+		         		<div class="modal-body justify-content-center">
+	         				<div class="form-group col-sm-8 text-center" id="name">
+								<label for="name" class="my-2 mr-5 ">Pseudo</label>
+								<input id="signinName" type="text" name="name" class="form-control" /> 
+								<div class="error" id="signinNameError"></div>
+							</div>
+							
+							<div class="form-group col-sm-8" id="password">
+								<label for="password" class="mt-2 mr-2">Mot de passe</label>
+								<input id="signinPassword" type="password" name="password" class="form-control" />
+								<div class="error" id="signinPasswordError"></div>
+							</div>			         			
 		         		</div>
 			      		
 			      		<div class="modal-footer justify-content-center">

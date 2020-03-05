@@ -20,20 +20,31 @@
 			<li>Appuyer sur le bouton 'Publier'</li>
 		</ul>
 	</div>
-	<form class="row" action="index.php?action=publish_post" method="POST">
+	<form class="row" action="index.php?action=publish_post"  onsubmit="return validateAddPost()" method="POST">
 		<div class="col-md-10">
-			<input id="title" class="form-control form my-2" aria-describedby="titre" name="title" placeholder="Titre de l'article" />
-			<input id="description" class="form-control form my-2" aria-describedby="description" name="description" placeholder="Description de l'article" />
-			<!-- main image -->
-			<textarea id="content" class="post-editor" aria-describedby="contenu" name="content" placeholder="Contenu de l'article"> </textarea>
+			<div class="form-group">
+				<input id="addTitle" class="form-control form my-2" aria-describedby="titre" name="title" placeholder="Titre de l'article" />
+				<div class="error" id="addTitleError"></div>
+			</div>
+
+			<div class="form-group">
+				<input id="addDescription" class="form-control form my-2" aria-describedby="description" name="description" placeholder="Description de l'article" />
+				<div class="error" id="addDescriptionError"></div>
+			</div>
+			<div class="form-group">
+				<textarea id="addContent" class="post-editor" aria-describedby="contenu" name="content" placeholder="Contenu de l'article"> </textarea>
+				<div class="error" id="addContentError"></div>
+			</div>
 		</div>
 		<div class="col-md-2 list-group justify-content-end">	
 			<a class="list-group-item list-group-item-action text-center" data-toggle="collapse" href="#tags" role="button" aria-expanded="false" aria-controls="tags">
     			Rubriques
 			</a>
 			<div class="collapse" id="tags">
+     			<div class="error" id="addTagError"></div>
+				
 				<?php foreach ($tags as $tag): ?>
-					<input id="tag"  type="radio" name="tag_id" value="<?= $tag['id'] ?>">
+					<input id="addTag"  type="radio" name="tag_id" value="<?= $tag['id'] ?>">
 					<label><?= $tag['label'] ?></label>
 				<p></p>
      			<?php endforeach; ?>

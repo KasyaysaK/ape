@@ -8,7 +8,6 @@ class Validation
 	}
 
 	valid() {
-		console.log('coucou');
 		this.field.style.borderColor     = "green";
 		this.noticeMessage.style.display = "none"; 
 		return true;
