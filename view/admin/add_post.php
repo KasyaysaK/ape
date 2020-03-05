@@ -41,20 +41,22 @@
 			</div>
 		</div>
 		<div class="col-md-2 list-group justify-content-end">	
-			<a class="list-group-item list-group-item-action text-center" data-toggle="collapse" href="#tags" role="button" aria-expanded="false" aria-controls="tags">
+			<a class="list-group-item list-group-item-action text-center mb-3" data-toggle="collapse" href="#tags" role="button" aria-expanded="false" aria-controls="tags">
     			Rubriques
 			</a>
-			<div class="collapse" id="tags">
+			<div class="collapse text-center" id="tags">
      			<div class="error" id="addTagError"></div>
-
 				<?php foreach ($tags as $tag): ?>
-					<input id="addTag"  type="radio" name="tag_id" value="<?= $tag['id'] ?>">
-					<label><?= $tag['label'] ?></label>
-				<p></p>
+					<div class="form-group">
+						<input id="addTag"  type="radio" name="tag_id" value="<?= $tag['id'] ?>">
+						<label><?= $tag['label'] ?></label>
+					</div>
      			<?php endforeach; ?>
+				<hr class="mb-3" />
 				<?php if (isset($_SESSION) && isset($_SESSION['name']) && $_SESSION['role'] === 'admin' ) : ?>
-     			 <a href="index.php?action=display_tags" class="title btn btn-outline-success my-2 my-sm-0">gérer</a>
-     			<?php endif; ?>		
+     			 <span class="my-2"><a href="index.php?action=display_tags" class=""><p class="text-center">Gérer les Rubriques</p></a></span>	
+     			<?php endif; ?>
+				<hr class="mb-3" />		
 			</div>	
 			<!-- Preview -->
 			<button type="submit" class="text-center btn btn-outline-success" id="publish-post">Publier</button>

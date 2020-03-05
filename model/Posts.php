@@ -62,6 +62,7 @@ class Posts extends Database
 	public function get_last_articles()
 	{
 		$last_articles = $this->dbh->query('SELECT id, title, description, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%i\') AS creation_date_fr FROM posts WHERE tag_id = 1 ORDER BY creation_date DESC LIMIT 0, 2');
+		var_dump($last_articles);
 		return $last_articles;
 	}
 	/**

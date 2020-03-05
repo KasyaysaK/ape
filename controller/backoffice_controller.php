@@ -36,7 +36,7 @@ class Backoffice_controller
 	public function post_manager()
 	{
 		$posts = $this->posts->get_posts();
-		$tags = $this->tags->get_tags();
+		$tags  = $this->tags->get_tags();
 		require('view/admin/post_manager.php');
 	}
 	/**
@@ -160,7 +160,10 @@ class Backoffice_controller
 	public function user_manager()
 	{
 		$users = $this->users->get_users();
-		$roles = $this->roles->get_roles();
+		$roles_result = $this->roles->get_roles();
+		foreach($roles_result as $result) {
+			$roles[] = $result;
+		}
 		require('view/admin/user_manager.php');
 	}
 	public function update_role($user_id, $role_id)

@@ -40,7 +40,7 @@ function validateSignupForm() {
 	}
 
 	//password validation
-	if(password = "") {
+	if(password == "") {
 		printError("passwordError", "Veuillez entrer un mot de passe"); 
 	} else {
 		let regex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
@@ -53,7 +53,7 @@ function validateSignupForm() {
 	}
 
 	//confirm validation
-	if(confirm = "") {
+	if(confirm == "") {
 		printError("confirmError", "Veuillez confirmer votre mot de passe"); 
 	} else {
 		if(confirm != password) {
@@ -73,10 +73,9 @@ function validateSignupForm() {
 
 //validate the signin form
 function validateSigninForm() {
-	console.log("coucou");
-
 	let signinName 	    = document.getElementById('signinName').value;
 	let signinPassword  = document.getElementById('signinPassword').value;
+
 
 	let signinNameError = signinPasswordError = true; 
 
@@ -89,7 +88,7 @@ function validateSigninForm() {
 	}	
 
 	//signinPassword validation
-	if(signinPassword = "") {
+	if(signinPassword == "") {
 		printError("signinPasswordError", "Veuillez entrer un mot de passe"); 
 	} else {
 		printError("signinPasswordError", "")

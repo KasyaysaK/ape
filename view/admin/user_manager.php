@@ -28,15 +28,15 @@
 			      	<td class="text-center">
 			      		<a href="index.php?action=display_profile&amp;user_id=<?= $user['userid'] ?>" class="btn"><i class="far fa-eye"></i></a> | 
 			      		<!-- Button trigger modal -->
-						<button type="button" class="btn" data-toggle="modal" data-target="#role"><i class="fas fa-user-tag"></i></button>
+						<button type="button" class="btn" data-toggle="modal" data-target="#role-<?= $user['userid'] ?>"><i class="fas fa-user-tag"></i></button>
 						<!-- Modal -->
-						<div class="modal fade" id="role" tabindex="-1" role="dialog" aria-labelledby="role-title" aria-hidden="true">
+						<div class="modal fade" id="role-<?= $user['userid'] ?>" tabindex="-1" role="dialog" aria-labelledby="role-title" aria-hidden="true">
 							<div class="modal-dialog modal-dialog-centered" role="document">
 							    <div class="modal-content">
 						      		<div class="modal-header">
 								        <h5 class="modal-title title" id="role-title">Rôle du membre : <?= $user['name'] ?> </h5>
 						      		</div>
-						      		<form action="index.php?action=update_role" method="POST">
+						      		<form action="index.php?action=update_role&amp;id=<?= $user['userid'] ?>" method="POST">
 					         			<div class="modal-body">
 					         				<?php foreach ($roles as $role): ?>
 				         					<div class="form-group" id="role_id">

@@ -32,13 +32,13 @@
 			<div >
 				<h5 class="d-flex align-items-center border-top border-bottom my-4">Dans la même rubrique</h5>
 				<div class="d-flex">
-					<?php if ($post['tagid'] === 1) : ?>
+					<?php if ($post['tagid'] === '1') : ?>
 						<?php foreach ($last_articles as $article): ?>
 						<div class="col-md-4">
 				          	<div class="card mb-2">
 					            <div class="card-body">
 					              	<h4 class="card-title"><?= $article['title']; ?></h4>
-					              	<p class="card-text"><?= $particle['description'] ?></p>
+					              	<p class="card-text"><?= $article['description'] ?></p>
 					              	<a href="index.php?action=display_post&amp;id=<?= $post['id'] ?>"><h4 class="title btn btn-outline-success my-2 my-sm-0">Lire la suite</h4></a> 
 					            </div>
 				          	</div>
