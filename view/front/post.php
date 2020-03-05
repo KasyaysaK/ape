@@ -7,7 +7,7 @@
 	<div class="d-flex align-items-center justify-content-between">
 		<div>
 			<h2 class=""><?= $post['title'] ?></h2>
-	 		<p class="card-subtitle">publié le <?= $post['creation_date_fr'] ?> par </p> 
+	 		<p class="card-subtitle">publié le <?= $post['creation_date_fr'] ?> par <?= $post['author'] ?> </p> 
 		</div>
 		<?php if (isset($_SESSION) && isset($_SESSION['name']) && $_SESSION['role'] === 'admin' ) : ?>
 		<div>

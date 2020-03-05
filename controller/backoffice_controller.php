@@ -74,9 +74,9 @@ class Backoffice_controller
 	 * @param $title
 	 * @param $content
 	 */
-	public function save_post($title, $description, $content, $tag_id)
+	public function save_post($title, $author, $description, $content, $tag_id)
 	{
-		$new_post = $this->posts->create_post($title, $description, $content, $tag_id);
+		$new_post = $this->posts->create_post($title, $author, $description, $content, $tag_id);
 		if ($new_post) {
        		header('Location: index.php?action=post_manager');
        		echo "post crée";

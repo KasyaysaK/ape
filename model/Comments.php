@@ -22,7 +22,7 @@ class Comments extends Database
 	}
 	public function get_last_comments()
 	{
-		$last_comments_list = $this->dbh->query('SELECT comments.id AS commentid, posts.id as postid, title, post_id, name, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%i\') AS comment_date_fr FROM comments LEFT JOIN posts ON comments.post_id = posts.id ORDER BY comment_date DESC LIMIT 0, 5');
+		$last_comments_list = $this->dbh->query('SELECT comments.id AS commentid, posts.id as postid, title, post_id, name, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%im%ss\') AS comment_date_fr FROM comments LEFT JOIN posts ON comments.post_id = posts.id ORDER BY comment_date DESC LIMIT 0, 5');
 		return $last_comments_list;
 	}
 	/**

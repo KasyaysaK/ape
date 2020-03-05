@@ -29,7 +29,7 @@
 			<div class="form-group">
 				<label>Auteur</label>
 				<input id="addAuthor" class="form-control form my-2" aria-describedby="auteur" name="author" value="<?= $_SESSION['name'] ?>" disabled/>
-				<input type="hidden" name="author" value="<?= $_SESSION['name'] ?>" disabled/>
+				<input type="hidden" name="author" value="<?= $_SESSION['name'] ?>" />
 			</div>
 			<div class="form-group">
 				<input id="addDescription" class="form-control form my-2" aria-describedby="description" name="description" placeholder="Description de l'article" />

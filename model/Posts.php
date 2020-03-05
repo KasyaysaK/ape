@@ -17,7 +17,7 @@ class Posts extends Database
 	 */
 	public function get_posts()
 	{
-		$posts_list = $this->dbh->query('SELECT posts.id AS postid, tags.id AS tagid, label, title, description, DATE_FORMAT(creation_date, \'%d/%m/%Y\') AS creation_date_fr FROM posts LEFT JOIN tags ON posts.tag_id = tags.id ORDER BY creation_date ASC');
+		$posts_list = $this->dbh->query('SELECT posts.id AS postid, tags.id AS tagid, label, title, description, author, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%im%ss\') AS creation_date_fr FROM posts LEFT JOIN tags ON posts.tag_id = tags.id ORDER BY creation_date ASC');
 		return $posts_list;
 	}
 	/**
@@ -91,10 +91,10 @@ class Posts extends Database
 	 * @param $content
 	 * @return $new_post
 	 */
-	public function create_post($title, $description, $content, $tag_id) 
+	public function create_post($title, $author, $description, $content, $tag_id) 
 	{
-		$request = $this->dbh->prepare('INSERT INTO posts (title, description, content, tag_id, creation_date) VALUES (?, ?, ?, ?, NOW())');
-		$new_post = $request->execute(array($title, $description, $content, $tag_id));
+		$request = $this->dbh->prepare('INSERT INTO posts (title, author, description, content, tag_id, creation_date) VALUES (?, ?, ?, ?, ?, NOW())');
+		$new_post = $request->execute(array($title, $author, $description, $content, $tag_id));
 		return $new_post;
 	}
 
