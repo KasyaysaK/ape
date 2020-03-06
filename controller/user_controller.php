@@ -84,17 +84,21 @@ class User_controller
 			$name = htmlspecialchars($name);
 			$password = htmlspecialchars($password);
 			$hash = password_hash($password, PASSWORD_BCRYPT);
+			$correct_password = password_verify($password, $user['password']);
 			
 			$user = $this->users->get_user($name);
 			if ($user) {
 				$_SESSION['name']     = $name;
 				$_SESSION['password'] = $password;
 				$_SESSION['role'] 	  = $user['roletype'];
-				if($_SESSION['password'] && $_SESSION['role'] == 'admin') {
+				if($correct_password && $_SESSION['role'] == 'admin') {
 					require('view/admin/pannel.php');
 				}
+				elseif ($correct_password && $_SESSION['role'] == 'author'){
+					require('view/author/pannel.php');
+				}
 				else {
-					$correct_password = password_verify($password, $user['password']);
+					
 					if ($correct_password) {
 						header('Location: index.php');
     					exit;

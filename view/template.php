@@ -26,13 +26,23 @@
         </script>
     </head>
     <body class="parallax">
-        
         <section class="header">
             <?php include('header.php'); ?>
         </section>
 
         <section class="main py-5">
-                <?= $content ?>          
+            <?php if (isset($_SESSION) && isset($_SESSION['name']) && $_SESSION['role'] === 'admin') : ?>   
+                <?= $admin_content ?> 
+            <?php elseif (isset($content)) : ?>
+                <?= $content ?>
+            <?php else : ?>
+                <div class="container">
+                    <hr class="mb-3" />
+                    <h2 class="text-center">Vous n'êtes pas autorisé à vous rendre sur cette page</h2>
+                    <a href="index.php"><p class="text-center">Revenir sur la page d'accueil</p></a>
+                    <hr class="mb-3" />      
+                </div>
+            <?php endif; ?>  
         </section>
 
         <section class="footer">

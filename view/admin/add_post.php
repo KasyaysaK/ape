@@ -65,6 +65,6 @@
     
 </div>
 
-<?php $content = ob_get_clean(); ?>  
+<?php $admin_content = ob_get_clean(); ?>  
 <?php require('view/template.php'); ?>
 
