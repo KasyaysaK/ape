@@ -14,21 +14,21 @@
     		<fieldset>
 			  	<legend class="text-center"><i class="icons fas fa-users"></i></legend>
 		  		<p>L'APE c'est un site bienveillant qui répond aux questions qu'un parent peut avoir. S'informer c'est déjà être un bon parent !</p>
-			    <a href="index.php?action=about"><h4 class="title btn btn-secondary my-2 my-sm-0" data-aos="fade-down">En savoir plus</h4></a>
+			    <a href="index.php?action=about"><h4 class="title btn btn-secondary my-2 my-sm-0" data-aos="fade-down"  data-aos-duration="500">En savoir plus</h4></a>
 			</fieldset>
 		</div>
 		<div class="col-md-4">
     		<fieldset>
 			  	<legend class="text-center"><i class="icons far fa-envelope"></i></legend>
 		  		<p>Vous avez des questions, une suggestion, des idées ? N'hésitez pas à nous contacter, nous vous répondons au plus vite !</p>
-			    <a href="index.php?action=contact"><h4 class="title btn btn-secondary my-2 my-sm-0" data-aos="fade-down" data-aos-duration="1000">Envoyer un message</h4></a>
+			    <a href="index.php?action=contact"><h4 class="title btn btn-secondary my-2 my-sm-0" data-aos="fade-down" data-aos-duration="1500">Envoyer un message</h4></a>
 			</fieldset>
 		</div>
 		<div class="col-md-4">
     		<fieldset>
 			  	<legend class="text-center"><i class="icons fas fa-user"></i></legend>
 		  		<p>En rejoignant la communauté, vous avez la possibilité de commenter les articles et même de devenir auteur !</p>
-			    <a href="index.php?action=login"><h4 class="title btn btn-secondary my-2 my-sm-0" data-aos="fade-down" data-aos-duration="2000">Devenir membre</h4></a>
+			    <a href="index.php?action=login"><h4 class="title btn btn-secondary my-2 my-sm-0" data-aos="fade-down" data-aos-duration="2500">Devenir membre</h4></a>
 			</fieldset>
 		</div>
     </div>

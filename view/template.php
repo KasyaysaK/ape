@@ -27,7 +27,7 @@
     </head>
     <body class="parallax">
         <section class="header">
-            <?php include('header.php'); ?>
+            <?php include('includes/header.php'); ?>
         </section>
 
         <section class="main py-5">
@@ -46,7 +46,7 @@
         </section>
 
         <section class="footer">
-            <?php include('footer.php'); ?> 
+            <?php include('includes/footer.php'); ?> 
         </section>
 
         <script src="public/js/jquery.js"></script>

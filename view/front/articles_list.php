@@ -23,21 +23,8 @@
 	      	</div>
 			<?php endforeach; ?>
 	    </div>
-	    <div class="col-sm-4">
-	    	<div>
-	    		<h3>Derniers commentaires</h3>
-	    		<hr class="mb-3" />
-	    		<div>
-	    			<?php foreach ($last_comments as $comment): ?>
-				      	<p>
-				      		Par <?= htmlspecialchars($comment['name']); ?> sur <a href="index.php?action=display_post&amp;id=<?= $comment['articleid'] ?>"><?= htmlspecialchars($comment['title']); ?></a>
-				      	<br /><?= htmlspecialchars($comment['comment']) ?>
-				      
-				      	</p>
-				      	
-				     <?php endforeach; ?> 
-	    		</div>
-	    	</div>
+	    <div class="col-sm-4" data-aos-duration="2000">
+            <?php include('view/includes/sidebar.php'); ?>
 	    </div>
 	</div>
 </div>
