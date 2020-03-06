@@ -14,7 +14,7 @@
 	<div class="row">
 		<div class="col-md-8">
 			<?php foreach ($activities as $activity): ?>
-	      	<div class="card mb-2">
+	      	<div class="card mb-2" data-aos="fade-left" data-aos-easing="ease-in-sine">
 	            <div class="card-body">
 	              	<h3 class="card-title"><?= $activity['title']; ?></h3>
 	              	<p class="card-text"><? $activity['description'] ?></p>

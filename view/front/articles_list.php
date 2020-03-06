@@ -14,7 +14,7 @@
 	<div class="row">
 		<div class="col-md-8">
 			<?php foreach ($articles as $article): ?>
-	      	<div class="card mb-2">
+	      	<div class="card mb-2" data-aos="fade-left" data-aos-easing="ease-in-sine">
 	            <div class="card-body">
 	              	<h3 class="card-title"><?= $article['title']; ?></h3>
 	              	<p class="card-text"><? $article['description'] ?></p>
