@@ -46,7 +46,9 @@ fieldset {
 	padding: 20px;
 	height: 220px;
 }
-
+.card {
+	height: 190px;
+}
 .credentials, .user-info, .password {
 	width: 229px;
 }

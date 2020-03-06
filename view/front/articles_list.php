@@ -18,12 +18,12 @@
 	            <div class="card-body">
 	              	<h3 class="card-title"><?= $article['title']; ?></h3>
 	              	<p class="card-text"><? $article['description'] ?></p>
-	              	<a href="index.php?action=display_post&amp;id=<?= $article['id'] ?>"><h3 class="title btn btn-outline-success my-2 my-sm-0">Lire la suite</h3></a> 
+	              	<a class="float-right" href="index.php?action=display_post&amp;id=<?= $article['id'] ?>"><h3 class="title btn btn-outline-success my-2 my-sm-0">Lire la suite</h3></a> 
 	            </div>
 	      	</div>
 			<?php endforeach; ?>
 	    </div>
-	    <div class="col-sm-4" data-aos-duration="2000">
+	    <div class="col-sm-4" data-aos="fade-up-left" data-aos-duration="1000">
             <?php include('view/includes/sidebar.php'); ?>
 	    </div>
 	</div>

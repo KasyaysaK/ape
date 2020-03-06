@@ -172,13 +172,10 @@ class Router
 		            	break;
 					case 'save_edited_post' :
 						session_start();
-						var_dump('coucou');
 	            	 	if (!empty ($_POST['title']) && !empty($_POST['description']) && !empty($_POST['content']) && !empty($_POST['tag_id'])) {
-	            	 		var_dump('je suis là');
 		                    $this->backoffice_controller->save_edited_post($_GET['post_id'], $_POST['title'], $_POST['description'], $_POST['content'], $_POST['tag_id']);
 			                }
 			                else {
-			                	var_dump('plutôt ici');
 			                    throw new Exception('Veuillez écrire l\'article avant de l\'envoyer.');
 			                }
 			            break;
