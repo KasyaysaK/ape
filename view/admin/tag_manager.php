@@ -13,9 +13,9 @@
 		<table class="table table-light table-striped">
 	  		<thead>
 		    	<tr>
-		      		<th class="text-center" scope="col">Rubrique</th>
-		      		<th class="text-center" scope="col">Nombre d'articles</th>
-		      		<th class="text-center" scope="col">Supprimer</th>
+		      		<th class="border-right text-center" scope="col">Rubrique</th>
+		      		<th class="border-right text-center" scope="col">Nombre d'articles</th>
+		      		<th class="border-right text-center" scope="col">Supprimer</th>
 
 		    	</tr> 		
 		  	</thead>

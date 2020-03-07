@@ -111,7 +111,6 @@ class Backoffice_controller
 	public function remove_post($post_id)
 	{
 		$post = $this->posts->delete_post($post_id);
-		//$comment = $this->comments->delete_comment($post_id);
 		$this->post_manager();
 	}
 
@@ -170,11 +169,17 @@ class Backoffice_controller
 	{
 		$set_role = $this->users->set_role($user_id, $role_id);
 	    if ($set_role === false) {
-	        echo 'Impossible de mettre à jour le chapitre';
+	        echo 'Impossible de modifer le statut de l\'utilisateur';
 	    }
 	    else {
 	        $this->user_manager();
 	    }
+	}
+	public function ban_user($user_id)
+	{
+		$ban_user = $this->users->delete_user($user_id);
+		header('Location: index.php?action=user_manager');
+		echo 'Utilisateur banni';
 	}
 
 }

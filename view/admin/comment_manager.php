@@ -14,12 +14,12 @@
 		<table class="table table-light table-striped">
 	  		<thead>
 		    	<tr>
-		      		<th class="text-center" scope="col">Pseudo</th>
-		      		<th class="text-center" scope="col">Commentaire</th>
-		      		<th class="text-center" scope="col">Signalement</th>
-		      		<th class="text-center" scope="col">Valider</th>
-		      		<th class="text-center" scope="col">Modérer</th>
-		      		<th class="text-center" scope="col">Rejeter</th>
+		      		<th class="border-right text-center" scope="col">Pseudo</th>
+		      		<th class="border-right text-center" scope="col">Commentaire</th>
+		      		<th class="border-right text-center" scope="col">Signalement</th>
+		      		<th class="border-right text-center" scope="col">Valider</th>
+		      		<th class="border-right text-center" scope="col">Modérer</th>
+		      		<th class="border-right text-center" scope="col">Rejeter</th>
 
 		    	</tr> 		
 		  	</thead>

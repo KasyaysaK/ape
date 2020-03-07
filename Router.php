@@ -171,7 +171,6 @@ class Router
 		                    $this->backoffice_controller->save_edited_post($_GET['post_id'], $_POST['title'], $_POST['description'], $_POST['content'], $_POST['tag_id']);
 			                }
 			                else {
-			                	var_dump('coucou');
 			                    throw new Exception('Veuillez écrire l\'article avant de l\'envoyer.');
 			                }
 			            break;
@@ -180,7 +179,6 @@ class Router
 			        	if(isset($_GET['post_id'])) {
 		                  	$this->backoffice_controller->remove_post($_GET['post_id']);
 		                } else {
-
 		                  	throw new Exception('L\'article n\'a pas été supprimé');
 		                }
 		                break;
@@ -217,6 +215,15 @@ class Router
 		            case 'update_role' :
 		            	session_start();
 		            	$this->backoffice_controller->update_role($_GET['id'], $_POST['role_id']);
+		            	break;
+		            case 'ban_user' :
+		            	session_start();
+		            	if (isset($_GET['id'])) {
+		            		$this->backoffice_controller->ban_user($_GET['id']);
+		            	} else {
+		            		var_dump('la');
+		                    throw new Exception('L\'identifiant d\'utilisateur n\'existe pas.');
+		            	}
 		            	break;
 				}
 			}

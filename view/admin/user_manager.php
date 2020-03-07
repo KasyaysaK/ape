@@ -14,9 +14,10 @@
 		<table class="table table-light table-striped">
 	  		<thead>
 		    	<tr>
-		      		<th class="text-center" scope="col">Pseudo</th>
-		      		<th class="text-center" scope="col">Rôle</th>
-		      		<th class="text-center" scope="col">Action</th>
+		      		<th class="border-right text-center" scope="col">Pseudo</th>
+		      		<th class="border-right text-center" scope="col">Rôle</th>
+		      		<th class="border-right text-center" scope="col">Modifier</th>
+		      		<th class="border-right text-center" scope="col">Bannir</th>
 
 		    	</tr> 		
 		  	</thead>
@@ -25,8 +26,7 @@
 			    <tr>
 			      	<td class="border-right text-center"><?= htmlspecialchars($user['name']); ?></td>
 			      	<td class="border-right text-center"><?= htmlspecialchars($user['rolelabel']) ?></td>
-			      	<td class="text-center">
-			      		<a href="index.php?action=display_profile&amp;user_id=<?= $user['userid'] ?>" class="btn"><i class="far fa-eye"></i></a> | 
+			      	<td class="border-right text-center">
 			      		<!-- Button trigger modal -->
 						<button type="button" class="btn" data-toggle="modal" data-target="#role-<?= $user['userid'] ?>"><i class="fas fa-user-tag"></i></button>
 						<!-- Modal -->
@@ -52,9 +52,9 @@
 								    </form>
 							    </div>
 							</div>
-						</div> | 
-						<a href="index.hp?action=ban_user&amp;user_id=<?= $user['id'] ?>" class="btn"><i class="far fa-trash-alt"></i></a>  
-			      	</td>
+						</div>
+					</td>
+			      	<td class="border-right text-center"><a href="index.php?action=ban_user&amp;user_id=<?= $user['userid'] ?>" class="btn"><i class="far fa-trash-alt"></i></a></td>
 			    </tr>
 				<?php endforeach; ?>   
 	  		</tbody>

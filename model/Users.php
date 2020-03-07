@@ -40,7 +40,7 @@ class Users extends Database
 	 * @param $role_id
 	 */
 	public function set_role($user_id, $role_id) {
-		$request = $this->dbh->prepare('UPDATE users SET role_id = ? WHERE id = ?');
+		$request   = $this->dbh->prepare('UPDATE users SET role_id = ? WHERE id = ?');
 		$user_role = $request->execute(array($role_id, $user_id));
 		return $user_role;
 	}
@@ -48,10 +48,9 @@ class Users extends Database
 	 * allows admin to ban a user
 	 * @param $id
 	 */
-	public function ban_user($user_id)
+	public function delete_user($user_id)
 	{
-		$request = $this->dbh->prepare('DELETE FROM users WHERE id = ?');
+		$request 	  = $this->dbh->prepare('DELETE FROM users WHERE id = ?');
 		$deleted_user = $request->execute(array($user_id));
 	}
-
 }
