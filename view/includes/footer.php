@@ -13,7 +13,7 @@
 				<ul class="list-unstyled">
 					<li class=""><a href="index.php?action=about">Qui sommes nous</a></li>
 					<li class=""><a href="index.php?action=terms_conditions">Mentions légales</a></li>
-					<li class=""><a href="index.php?action=privacy_policy">Politique de confidentialité</a></li>
+					<li class=""><a href="index.php?action=terms_conditions#privacy_policy">Politique de confidentialité</a></li>
 					<li class=""><a href="index.php?action=contact">Contact</a></li>
 				</ul>
 			</div>

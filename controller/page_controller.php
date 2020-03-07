@@ -35,7 +35,6 @@ class Page_controller
 		$last_posts = $this->posts->get_last_posts();
 		require('view/front/home.php');
 	}
-	
 	/**
 	 * loads the about page
 	 */
@@ -55,13 +54,19 @@ class Page_controller
 		header('Location: thank_you.php');
 		exit;
 	}
-
 	/**
 	 * loads the terms and conditions page
 	 */
 	public function terms_conditions() //loads homepage
 	{
 		require('view/front/terms_conditions.php');
+	}
+	/**
+	 * loads the errors page
+	 */
+	public function error() //loads homepage
+	{
+		require('view/front/error.php');
 	}
 	/**
 	 * shows all the posts
@@ -132,12 +137,10 @@ class Page_controller
 
 	    if ($flagged_comment === 0) {
 	        throw new Exception('Commentaire non signalé');
-	        echo 'Le commentaire n\'a pas pu être signalé.';   
 	    }
 	    else {
 	        header('Location: index.php?action=display_post&id=' . $post_id);
 	        exit;
-	        echo 'commentaire signalé';
 	    }
 	}
 }

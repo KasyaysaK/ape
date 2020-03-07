@@ -37,19 +37,7 @@ class Router
 					case 'send_message' :
 						session_start();
 						if (isset($_POST['send_message'])) {
-						    $to = "charlene.caruk@gmail.com"; 
-						    $from = $_POST['email']; 
-						    $name = $_POST['name'];
-						    $subject = "Contact depuis le formulaire";
-						    $subject2 = "Copie de votre message envoyé à APE";
-						    $message = $name .  " a écrit:" . "\n\n" . $_POST['message'];
-						    $message2 = "Votre message : " . $name . "\n\n" . $_POST['message'];
-
-						    $headers = "De:" . $from;
-						    $headers2 = "De:" . $to;
-						    mail($to,$subject,$message,$headers);
-						    mail($from,$subject2,$message2,$headers2); 
-						    $this->page_controller->send_message();
+						    
 						    }
 						break;
 					case 'terms_conditions':
@@ -104,9 +92,16 @@ class Router
 						$this->user_controller->login();
 						break;
 					case 'signup':
+					var_dump('coucou');
 						if (!empty($_POST['name']) || !empty($_POST['email']) || !empty($_POST['password']))
 						{
+							var_dump('ici');
 							$this->user_controller->signup($_POST['name'], $_POST['email'], $_POST['password']);
+						} 
+						else 
+						{
+							var_dump('là');
+							$this->page_controller->error();
 						}
 						break;
 					case 'signin':
@@ -176,6 +171,7 @@ class Router
 		                    $this->backoffice_controller->save_edited_post($_GET['post_id'], $_POST['title'], $_POST['description'], $_POST['content'], $_POST['tag_id']);
 			                }
 			                else {
+			                	var_dump('coucou');
 			                    throw new Exception('Veuillez écrire l\'article avant de l\'envoyer.');
 			                }
 			            break;

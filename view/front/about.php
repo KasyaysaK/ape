@@ -8,8 +8,11 @@
 	<hr class="mb-3" />
 
 	<div class="row">
-		<div class="col-md-10">
+		<div class="col-md-4">
 			<div id="users"></div>
+		</div>
+		<div class="col-md-8">
+			<p>Nous avons décidé de créer ce site parce que pourquoi pas.</p>
 		</div>
 	</div>
 </div>

@@ -13,9 +13,8 @@ function validateSignupForm() {
 	let nameError = emailError = passwordError = confirmError = true; 
 
 	//name validation
-	if(name = "") {
+	if(name == "") {
 		printError("nameError", "Veuillez entrer un pseudo"); 
-		style.borderColor = "red"; 
 	} else {
 		let regex = /^[a-zA-Z\s]+$/;
 		if(regex.test(name) === false) {
@@ -27,10 +26,10 @@ function validateSignupForm() {
 	}
 
 	//email validation
-	if(email = "") {
+	if(email == "") {
 		printError("emailError", "Veuillez entrer votre email"); 
 	} else {
-		let regex = /^\S+@\S+\.\S+$/;
+		let regex =  /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/;
 		if(regex.test(email) === false) {
 			printError("emailError", "Veuillez entrer une adresse email valide")
 		} else {

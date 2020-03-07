@@ -32,7 +32,12 @@
 
         <section class="main py-5">
             <?php if (isset($_SESSION) && isset($_SESSION['name']) && $_SESSION['role'] === 'admin') : ?>   
-                <?= $admin_content ?> 
+                <?php if(isset($admin_content)){
+                    echo $admin_content;
+                } else {
+                    echo $content; 
+                }
+            ?>
             <?php elseif (isset($content)) : ?>
                 <?= $content ?>
             <?php else : ?>

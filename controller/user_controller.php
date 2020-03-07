@@ -51,20 +51,16 @@ class User_controller
 	public function signup($name, $email, $password)
 	{
 		session_start();
-		if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['password']) && isset($_POST['password-confirm'])) {
-            if (!empty($_POST['name']) && !empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['password-confirm'])) {
-                $name = htmlspecialchars($_POST['name']);
-                $email = htmlspecialchars($_POST['email']);
-                $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
+        $name = htmlspecialchars($_POST['name']);
+        var_dump($name);
+        $email = htmlspecialchars($_POST['email']);
+        $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
 
-                $new_user = $this->users->create_user($name, $email, $password);
-				if ($new_user) {
-					require('view/front/profile.php');
-				}
-				else {
-					echo 'erreur :(';
-				}
-			}
+        $new_user = $this->users->create_user($name, $email, $password);
+		if ($new_user) {
+			require('view/front/home.php');
+		} else {
+			$this->error();
 		}
 	}
 
@@ -84,21 +80,17 @@ class User_controller
 			$name = htmlspecialchars($name);
 			$password = htmlspecialchars($password);
 			$hash = password_hash($password, PASSWORD_BCRYPT);
-			$correct_password = password_verify($password, $user['password']);
 			
 			$user = $this->users->get_user($name);
 			if ($user) {
 				$_SESSION['name']     = $name;
 				$_SESSION['password'] = $password;
 				$_SESSION['role'] 	  = $user['roletype'];
-				if($correct_password && $_SESSION['role'] == 'admin') {
+				if($_SESSION['password']  && $_SESSION['role'] == 'admin') {
 					require('view/admin/pannel.php');
 				}
-				elseif ($correct_password && $_SESSION['role'] == 'author'){
-					require('view/author/pannel.php');
-				}
 				else {
-					
+					$correct_password = password_verify($password, $user['password']);
 					if ($correct_password) {
 						header('Location: index.php');
     					exit;

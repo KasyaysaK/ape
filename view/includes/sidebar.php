@@ -1,4 +1,4 @@
-<h3>Derniers commentaires</h3>
+<h6>Derniers commentaires</h6>
 <hr class="mb-3" />
 <div>
 	<?php foreach ($last_comments as $comment): ?>
@@ -9,4 +9,5 @@
       	</p>
 		<hr class="mb-3" />      	
     <?php endforeach; ?> 
+	<img src="public/images/APE_logo.png">
 </div>

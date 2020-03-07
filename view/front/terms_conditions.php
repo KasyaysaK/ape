@@ -1,3 +1,5 @@
+<?php $title = htmlspecialchars('Mentions légales'); ?>
+
 <?php ob_start(); ?>
 
 <div class="container">
