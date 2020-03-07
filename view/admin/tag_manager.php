@@ -15,7 +15,7 @@
 		    	<tr>
 		      		<th class="text-center" scope="col">Rubrique</th>
 		      		<th class="text-center" scope="col">Nombre d'articles</th>
-		      		<th class="text-center" scope="col">Action</th>
+		      		<th class="text-center" scope="col">Supprimer</th>
 
 		    	</tr> 		
 		  	</thead>
@@ -24,10 +24,7 @@
 			    <tr>
 			      	<td class="border-right text-center"><?= htmlspecialchars($tag['label']); ?></td>
 			      	<td class="border-right text-center"></td>
-			      	<td class="text-center">
-			      		<a href="index.php?action=display_profile&amp;user_id=<?= $user['userid'] ?>" class="btn"><i class="far fa-eye"></i></a> |  
-						<a href="index.hp?action=ban_user&amp;user_id=<?= $user['id'] ?>" class="btn"><i class="far fa-trash-alt"></i></a>  
-			      	</td>
+			      	<td  class="border-right text-center"><a href="index.hp?action=delete_tag ?>" class="btn"><i class="far fa-trash-alt"></i></a></td>
 			    </tr>
 				<?php endforeach; ?>   
 	  		</tbody>

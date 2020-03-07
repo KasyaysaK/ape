@@ -44,7 +44,7 @@ a:hover {
 fieldset {
 	border: dotted;
 	padding: 20px;
-	height: 220px;
+	text-align: center;
 }
 .card {
 	height: 190px;

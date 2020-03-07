@@ -17,7 +17,9 @@
 		      		<th class="text-center" scope="col">Pseudo</th>
 		      		<th class="text-center" scope="col">Commentaire</th>
 		      		<th class="text-center" scope="col">Signalement</th>
-		      		<th class="text-center" scope="col">Action</th>
+		      		<th class="text-center" scope="col">Valider</th>
+		      		<th class="text-center" scope="col">Modérer</th>
+		      		<th class="text-center" scope="col">Rejeter</th>
 
 		    	</tr> 		
 		  	</thead>
@@ -27,11 +29,9 @@
 			      	<td class="border-right text-center"><?= htmlspecialchars($comment['name']); ?></td>
 			      	<td class="border-right text-center"><?= htmlspecialchars($comment['comment']) ?></td>
 			      	<td class="border-right text-center"><?= htmlspecialchars($comment['flagged']) ?></td>
-			      	<td>
-			      		<a href="index.php?action=unflag_comment&amp;id=<?= $comment['id'] ?>" class="btn"><i class="fas fa-check"></i></a>
-			      		<a href="index.php?action=edit_comment&amp;id=<?= $comment['id'] ?>" class="btn"><i class="fas fa-edit"></i></a>
-			      		<a href="index.php?action=delete_comment&amp;id=<?= $comment['id'] ?>" class="btn"><i class="far fa-trash-alt"></i></a>  
-			      	</td>
+			      	<td class="border-right text-center"><a href="index.php?action=unflag_comment&amp;id=<?= $comment['id'] ?>" class="btn"><i class="fas fa-check"></i></a></td>
+			      	<td class="border-right text-center"><a href="index.php?action=edit_comment&amp;id=<?= $comment['id'] ?>" class="btn"><i class="fas fa-edit"></i></a></td>
+			      	<td class="border-right text-center"><a href="index.php?action=delete_comment&amp;id=<?= $comment['id'] ?>" class="btn"><i class="far fa-trash-alt"></i></a></td>
 			    </tr>
 				<?php endforeach; ?>   
 	  		</tbody>

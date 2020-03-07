@@ -87,7 +87,7 @@ class User_controller
 				$_SESSION['password'] = $password;
 				$_SESSION['role'] 	  = $user['roletype'];
 				if($_SESSION['password']  && $_SESSION['role'] == 'admin') {
-					require('view/admin/pannel.php');
+					header('Location: index.php?action=dashboard');;
 				}
 				else {
 					$correct_password = password_verify($password, $user['password']);

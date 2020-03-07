@@ -51,7 +51,7 @@ class Backoffice_controller
 	/**
 	 * loads the add post view
 	 */
-	public function display_tags()
+	public function tag_manager()
 	{
 		$tags = $this->tags->get_tags();
 		require('view/admin/tag_manager.php');

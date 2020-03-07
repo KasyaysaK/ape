@@ -59,27 +59,21 @@
 	<hr class="mb-3" />
 	<div class="row">
 		<div class="col-md-4" data-aos="flip-up" data-aos-duration="1000">
-    		<div class="card my-4">
-			  	<div class="card-body">
-			  		<a href="index.php?action=list_articles" class="title btn"><img src="public/images/article.jpg" alt="bloc-note avec un stylo et ordinateur posés sur une table" class="img-thumbnail" /></a>
-				    <a href="index.php?action=list_articles" class="carousel-caption"><h4 class="title btn btn-secondary my-2 my-sm-0">Articles</h4></a>
-				</div>
+		  	<div class="card-body">
+		  		<a href="index.php?action=list_articles" class="title btn"><img src="public/images/article.jpg" alt="bloc-note avec un stylo et ordinateur posés sur une table" class="img-thumbnail" /></a>
+			    <a href="index.php?action=list_articles" class="carousel-caption"><h4 class="title btn btn-secondary my-2 my-sm-0">Articles</h4></a>
 			</div>
         </div>
         <div class="col-md-4" data-aos="flip-up" data-aos-duration="1000">
-    		<div class="card my-4">
-			  	<div class="card-body">
-			  		<a href="index.php?action=list_activities" class="title btn"><img src="public/images/activity.jpg" alt="bloc-note avec un stylo et ordinateur posés sur une table" class="img-thumbnail" /></a>
-				    <a href="index.php?action=list_activities" class="carousel-caption"><h4 class="title btn btn-secondary my-2 my-sm-0">Activité</h4></a>
-				</div>
+		  	<div class="card-body">
+		  		<a href="index.php?action=list_activities" class="title btn"><img src="public/images/activity.jpg" alt="bloc-note avec un stylo et ordinateur posés sur une table" class="img-thumbnail" /></a>
+			    <a href="index.php?action=list_activities" class="carousel-caption"><h4 class="title btn btn-secondary my-2 my-sm-0">Activités</h4></a>
 			</div>
         </div>
         <div class="col-md-4" data-aos="flip-up" data-aos-duration="1000">
-    		<div class="card my-4">
-			  	<div class="card-body">
-			  		<a href="index.php?action=list_recipes" class="title btn"><img src="public/images/recipe.jpg" alt="bloc-note avec un stylo et ordinateur posés sur une table" class="img-thumbnail" /></a>
-				    <a href="index.php?action=list_recipes" class="carousel-caption"><h4 class="title btn btn-secondary my-2 my-sm-0">Recette</h4></a>
-				</div>
+		  	<div class="card-body">
+		  		<a href="index.php?action=list_recipes" class="title btn"><img src="public/images/recipe.jpg" alt="bloc-note avec un stylo et ordinateur posés sur une table" class="img-thumbnail" /></a>
+			    <a href="index.php?action=list_recipes" class="carousel-caption"><h4 class="title btn btn-secondary my-2 my-sm-0">Recettes</h4></a>
 			</div>
         </div>
 	</div>

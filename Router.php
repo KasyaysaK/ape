@@ -141,9 +141,9 @@ class Router
 		            		$this->backoffice_controller->add_post();
 		            	}
 		            	break;
-		            case 'display_tags' : 
+		            case 'tag_manager' : 
 		            	session_start();
-		            	$this->backoffice_controller->display_tags();
+		            	$this->backoffice_controller->tag_manager();
 		            	break;
 					case 'publish_post' :
 						session_start();

@@ -30,6 +30,7 @@
 				<h5 class="font-weight-bold text-uppercase mt-3 mb-4">Administration</h5>
 				<ul class="list-unstyled">
 					<li class=""><a href="index.php?action=post_manager">Articles</a></li>
+					<li class=""><a href="index.php?action=tag_manager">Rubriques</a></li>
 					<li class=""><a href="index.php?action=comment_manager">Commentaires</a></li>
 					<li class=""><a href="index.php?action=user_manager">Utilisateurs</a></li>
 				</ul>

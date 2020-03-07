@@ -18,7 +18,9 @@
 		      		<th class="text-center" scope="col">Description</th>
 		      		<th class="text-center" scope="col">Auteur</th>
 		      		<th class="text-center" scope="col">Rubrique</th>
-		      		<th class="text-center" scope="col">Action</th>
+		      		<th class="text-center" scope="col">Voir</th>
+		      		<th class="text-center" scope="col">Modifier</th>
+		      		<th class="text-center" scope="col">Supprimer</th>
 
 		    	</tr> 		
 		  	</thead>
@@ -29,9 +31,9 @@
 			      	<td class="border-right text-center"><?= htmlspecialchars($post['description']) ?></td>
 			      	<td class="border-right text-center"><?= htmlspecialchars($post['author']) ?></td>
 			      	<td class="border-right text-center"><?= htmlspecialchars($post['label']) ?></td>
-			      	<td>
-			      		<a href="index.php?action=display_post&amp;id=<?= $post['postid'] ?>" class="btn"><i class="far fa-eye"></i></a>|<a href="index.php?action=edit_post&amp;id=<?= $post['postid'] ?>" class="btn"><i class="fas fa-edit"></i></a>|<a href="index.php?action=remove_post&amp;post_id=<?= $post['id'] ?>" class="btn"><i class="far fa-trash-alt"></i></a>  
-			      	</td>
+			      	<td class="border-right text-center"><a href="index.php?action=display_post&amp;id=<?= $post['postid'] ?>" class="btn"><i class="far fa-eye"></i></a></td>
+			      	<td class="border-right text-center"><a href="index.php?action=edit_post&amp;id=<?= $post['postid'] ?>" class="btn"><i class="fas fa-edit"></i></a></td>
+			      	<td class="border-right text-center"><a href="index.php?action=remove_post&amp;post_id=<?= $post['id'] ?>" class="btn"><i class="far fa-trash-alt"></i></a></td>
 			    </tr>
 				<?php endforeach; ?>   
 	  		</tbody>

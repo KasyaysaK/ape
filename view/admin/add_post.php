@@ -54,7 +54,7 @@
      			<?php endforeach; ?>
 				<hr class="mb-3" />
 				<?php if (isset($_SESSION) && isset($_SESSION['name']) && $_SESSION['role'] === 'admin' ) : ?>
-     			 <span class="my-2"><a href="index.php?action=display_tags" class=""><p class="text-center">Gérer les Rubriques</p></a></span>	
+     			 <span class="my-2"><a href="index.php?action=tag_manager" class=""><p class="text-center">Gérer les Rubriques</p></a></span>	
      			<?php endif; ?>
 				<hr class="mb-3" />		
 			</div>	
