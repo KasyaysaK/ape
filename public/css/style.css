@@ -76,7 +76,9 @@ fieldset {
 .sidebar {
 	border-left : 1px dotted;
 }
-
+.notice {
+	color: green;
+}
 .cookie-banner {
    position: fixed;
    bottom: 20px;
@@ -110,5 +112,11 @@ fieldset {
    }
    .cookie-banner p {
 	margin-left: 0px;
-}
+	}
+	.card {
+		height: 	220px;
+	}
+	.header-list {
+		flex-direction: 	column;	
+	}
 }

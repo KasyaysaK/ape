@@ -26,7 +26,11 @@
 		</div>
 		<div class="col-md-4">
     		<fieldset>
-    			<?php if (isset($_SESSION) && isset($_SESSION['name']) && $_SESSION['role'] === 'member') : ?>
+    			<?php if (isset($_SESSION) && isset($_SESSION['name']) && $_SESSION['role'] === 'author') : ?>
+				  	<legend class="text-center"><i class="icons fas fa-pencil-alt"></i></legend>
+				    <p>Vous êtes auteur, félicitations ! Vous êtes inspiré ? Ajoutez un article à une des rubriques dès maintenant !</p>
+				    <a href="index.php?action=author_pannel"><h4 class="title btn btn-secondary my-2 my-sm-0" data-aos="fade-down" data-aos-duration="2500">Écrire un article</h4></a>
+			    <?php elseif (isset($_SESSION) && isset($_SESSION['name']) && $_SESSION['role'] === 'member') : ?>
 				  	<legend class="text-center"><i class="icons fas fa-pencil-alt"></i></legend>
 				    <p>Vous pourrez bientôt contribuer à notre site en écrivant des articles ! Ca vous intéresse ?</p>
 				    <a href="index.php?action=author"><h4 class="title btn btn-secondary my-2 my-sm-0" data-aos="fade-down" data-aos-duration="2500">Devenir auteur</h4></a>

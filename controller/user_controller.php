@@ -34,7 +34,7 @@ class User_controller
 		}
 	}
 	/**
-	 * shows the dashboard
+	 * shows the admin dashboard
 	 */
 	public function dashboard()
 	{
@@ -84,24 +84,26 @@ class User_controller
 		$hash = password_hash($password, PASSWORD_BCRYPT);
 		
 		$user = $this->users->get_user($name);
+		$correct_password = password_verify($password, $user['password']);
+
 		if ($user) {
 			$_SESSION['name']     = $name;
-			$_SESSION['password'] = $password;
+			$_SESSION['password'] = $correct_password;
 			$_SESSION['role'] 	  = $user['roletype'];
-			if($_SESSION['password']  && $_SESSION['role'] == 'admin') {
-				header('Location: index.php?action=dashboard');;
+			if($_SESSION['password'] && $_SESSION['role'] == 'admin') {
+				header('Location: index.php?action=dashboard');
 			}
-			else {
-				$correct_password = password_verify($password, $user['password']);
-				if($correct_password) {
-					header('Location: index.php');
-					exit;
-				} 
-				else {
-					$_SESSION['name'] = null;
-					$notice           = "Le pseudo ou le mot de passe est incorrect, veuillez réessayer !";
-					require('view/front/fail.php');
-				}
+			elseif($_SESSION['password'] && $_SESSION['role'] == 'author') {
+					$notice	= "Vous êtes bien connecté ! Vous pouvez publier un article dès maintenant !";
+					require('view/front/success.php');
+			}
+			elseif($_SESSION['password']  && $_SESSION['role'] == 'member') {
+	 				$notice	= "Vous êtes bien connecté ! Nous vous souhaitons une bonne visite sur notre site !";
+					require('view/front/success.php');		
+			} else {
+				$_SESSION['name'] = null;
+				$notice           = "Le pseudo ou le mot de passe est incorrect, veuillez réessayer !";
+				require('view/front/fail.php');
 			}
 		}
 		else {

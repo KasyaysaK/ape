@@ -6,7 +6,6 @@
 
         <title><?= $title ?></title>
 
-
         <link href="https://fonts.googleapis.com/css?family=Handlee|Lato&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
@@ -34,8 +33,15 @@
             <?php if (isset($_SESSION) && isset($_SESSION['name']) && $_SESSION['role'] === 'admin') : ?>   
                 <?php if(isset($admin_content)){
                     echo $admin_content;
+                }else {
+                    echo $content;
+                }
+            ?>
+            <?php elseif (isset($_SESSION) && isset($_SESSION['name']) && $_SESSION['role'] === 'author') : ?>   
+                <?php if (isset($author_content)) {
+                    echo $author_content; 
                 } else {
-                    echo $content; 
+                    echo $content;
                 }
             ?>
             <?php elseif (isset($content)) : ?>
@@ -64,7 +70,7 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
         <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
         <script>
-            AOS.init();
+            AOS.init({disable: 'mobile'});
         </script>
     </body>
 </html>

@@ -4,7 +4,7 @@
 <div class="container">
 	<div>
 		<hr class="mb-3" />
-		<div class="d-flex align-items-center justify-content-between">
+		<div class="header-list d-flex align-items-center justify-content-between">
 			<button class="back-button btn icons"><i class="icon fas fa-arrow-left"></i></button>
 			<h2 class="text-center title">La revue : toutes les activités</h2>
 			<a href="index.php?action=list_posts">Toutes les publications</a>

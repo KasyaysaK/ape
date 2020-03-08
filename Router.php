@@ -125,6 +125,10 @@ class Router
 						session_start();
 		            	$this->user_controller->dashboard();
 		            	break;
+	            	case 'author_pannel' :
+		            	session_start();
+		            	$this->backoffice_controller->author_pannel();
+		            	break;
 					case 'add_post' :
 						session_start();
 		            	$this->backoffice_controller->add_post();
@@ -146,7 +150,6 @@ class Router
 					case 'publish_post' :
 						session_start();
 		            	if (!empty ($_POST['title']) && !empty($_POST['description']) && !empty($_POST['content']) && !empty($_POST['tag_id'])) {
-				       		echo "post crée";
 		                    $this->backoffice_controller->save_post($_POST['title'], $_POST['author'], $_POST['description'], $_POST['content'], $_POST['tag_id']);
 		                }
 		                else {

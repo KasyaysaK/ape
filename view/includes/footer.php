@@ -37,8 +37,7 @@
 				<?php elseif (isset($_SESSION) && isset($_SESSION['name']) && $_SESSION['role'] === 'author' ) : ?>
 				<h5 class="font-weight-bold text-uppercase mt-3 mb-4">Auteur</h5>
 				<ul class="list-unstyled">
-					<li class=""><a href="index.php?action=add_post">Nouvel article</a></li>
-					<li class=""><a href="index.php?action=">Mes articles</a></li>
+					<li class=""><a href="index.php?action=author_pannel">Nouvel article</a></li>
 				</ul>
 				<?php else : ?>
 					<img src="public/images/APE_logo.png">

@@ -31,6 +31,15 @@ class Backoffice_controller
 
 //***************************************** POSTS & COMMENTS *****************************************
 	/**
+	 * litss all the posts an author has written 
+	 */
+	public function author_pannel()
+	{
+		$tags  = $this->tags->get_tags();
+		$notice = null;
+		require('view/author/pannel.php');
+	}
+	/**
 	 * shows all the posts
 	 */
 	public function post_manager()
@@ -78,9 +87,14 @@ class Backoffice_controller
 	{
 		$new_post = $this->posts->create_post($title, $author, $description, $content, $tag_id);
 		if ($new_post) {
-       		header('Location: index.php?action=post_manager');
-       		echo "post crée";
-       		exit;
+			if($_SESSION['password']  && $_SESSION['role'] == 'author') {
+				$notice = "L'article a été publié, merci pour votre contribution !";
+				require('view/author/pannel.php');
+			}
+       		if($_SESSION['password']  && $_SESSION['role'] == 'admin') {
+				header('Location: index.php?action=posts_manager');
+       			exit;
+			}
 	    }
 	}
 	/**
@@ -99,7 +113,7 @@ class Backoffice_controller
 	{
 	    $update_post = $this->posts->update_post($post_id, $title, $description, $content, $tag_id);
 	    if ($update_post === false) {
-	        echo 'Impossible de mettre à jour le chapitre';
+	        echo 'Impossible de mettre à jour l\'article';
 	    }
 	    else {
 	        header('Location: index.php?action=post_manager');
