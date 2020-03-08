@@ -51,14 +51,19 @@ class User_controller
 	public function signup($name, $email, $password)
 	{
 		session_start();
-        $name = htmlspecialchars($_POST['name']);
-        var_dump($name);
-        $email = htmlspecialchars($_POST['email']);
-        $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
+        $name 	  = htmlspecialchars($name);
+        $email 	  = htmlspecialchars($email);
+        $password = password_hash($password, PASSWORD_BCRYPT);
 
         $new_user = $this->users->create_user($name, $email, $password);
+        $role = 'member';
+        var_dump($new_user);
 		if ($new_user) {
-			require('view/front/home.php');
+			$_SESSION['name']     = $name;
+			$_SESSION['password'] = $password;
+			$_SESSION['role'] 	  = $role;
+			$notice	= "Vous pouvez désormais laisser des commentaires et nous contacter ! Nous vous remercions de votre intérêt et vous souhaitons une bonne visite sur notre site !";
+			require('view/front/success.php');
 		} else {
 			$this->error();
 		}
