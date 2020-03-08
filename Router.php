@@ -92,15 +92,12 @@ class Router
 						$this->user_controller->login();
 						break;
 					case 'signup':
-					var_dump('coucou');
 						if (!empty($_POST['name']) || !empty($_POST['email']) || !empty($_POST['password']))
 						{
-							var_dump('ici');
 							$this->user_controller->signup($_POST['name'], $_POST['email'], $_POST['password']);
 						} 
 						else 
 						{
-							var_dump('là');
 							$this->page_controller->error();
 						}
 						break;
@@ -116,9 +113,6 @@ class Router
 		                elseif (isset($_SESSION['name']) && (isset($_SESSION['password']))) {
 		                    $this->user_controller->signin($_SESSION['name'], $_SESSION['password']);
 		                }
-		                else {
-		                        echo 'il y a des erreurs';
-						}
 						break;
 		            case 'signout':
 		            	$this->user_controller->signout();

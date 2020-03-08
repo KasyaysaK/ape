@@ -38,14 +38,14 @@ class Page_controller
 	/**
 	 * loads the about page
 	 */
-	public function about() //loads homepage
+	public function about()
 	{
 		require('view/front/about.php');
 	}
 	/**
 	 * loads the contact page
 	 */
-	public function contact() //loads homepage
+	public function contact() 
 	{
 		require('view/front/contact.php');
 	}
@@ -57,16 +57,30 @@ class Page_controller
 	/**
 	 * loads the terms and conditions page
 	 */
-	public function terms_conditions() //loads homepage
+	public function terms_conditions() 
 	{
 		require('view/front/terms_conditions.php');
 	}
 	/**
 	 * loads the errors page
 	 */
-	public function error() //loads homepage
+	public function error() 
 	{
 		require('view/front/error.php');
+	}
+	/**
+	 * loads the fail page
+	 */
+	public function fail() 
+	{
+		require('view/front/fail.php');
+	}
+	/**
+	 * loads the errors page
+	 */
+	public function success() 
+	{
+		require('view/front/success.php');
 	}
 	/**
 	 * shows all the posts

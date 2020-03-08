@@ -45,7 +45,7 @@
 		            <div class="dropdown-menu" aria-labelledby="about">
 		                <a class="dropdown-item" href="index.php?action=about">Qui sommes nous ?</a>
 		                <div class="dropdown-divider"></div>
-		                <?php if (!isset($_SESSION['name'])) : ?>
+		                <?php if (!isset($_SESSION['name']) && !isset($_SESSION['password'])) : ?>
 			                <a class="dropdown-item" href="index.php?action=login">Devenir membre</a>
 			                <div class="dropdown-divider"></div>
 		            	<?php endif ?>
@@ -69,14 +69,14 @@
 	    </ul>
 
 	    <div class="form-inline my-2 my-lg-0">
-			<?php if (isset($_SESSION) && isset($_SESSION['name'])) : ?>
+			<?php if (isset($_SESSION) && isset($_SESSION['name']) && isset($_SESSION['password'])) : ?>
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item">
 						| Bonjour <?= $_SESSION['name'] ?> ! |
 					</li>
 				</ul>
 
-			<?php if (isset($_SESSION) && isset($_SESSION['name']) && $_SESSION['role'] === 'admin' ) : ?>
+			<?php if (isset($_SESSION) && isset($_SESSION['name']) && isset($_SESSION['password']) && $_SESSION['role'] === 'admin' ) : ?>
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item">
 						<a class="nav-link" href="index.php?action=dashboard">Administration</a>

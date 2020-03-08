@@ -74,31 +74,37 @@ class User_controller
 	public function signin($name, $password)
 	{
 		session_start();
-		if (isset($_POST['signin'])) {
-
-			
-			$name = htmlspecialchars($name);
-			$password = htmlspecialchars($password);
-			$hash = password_hash($password, PASSWORD_BCRYPT);
-			
-			$user = $this->users->get_user($name);
-			if ($user) {
-				$_SESSION['name']     = $name;
-				$_SESSION['password'] = $password;
-				$_SESSION['role'] 	  = $user['roletype'];
-				if($_SESSION['password']  && $_SESSION['role'] == 'admin') {
-					header('Location: index.php?action=dashboard');;
-				}
+		$name = htmlspecialchars($name);
+		$password = htmlspecialchars($password);
+		$hash = password_hash($password, PASSWORD_BCRYPT);
+		
+		$user = $this->users->get_user($name);
+		if ($user) {
+			$_SESSION['name']     = $name;
+			$_SESSION['password'] = $password;
+			$_SESSION['role'] 	  = $user['roletype'];
+			if($_SESSION['password']  && $_SESSION['role'] == 'admin') {
+				header('Location: index.php?action=dashboard');;
+			}
+			else {
+				$correct_password = password_verify($password, $user['password']);
+				if($correct_password) {
+					header('Location: index.php');
+					exit;
+				} 
 				else {
-					$correct_password = password_verify($password, $user['password']);
-					if ($correct_password) {
-						header('Location: index.php');
-    					exit;
-					}
+					$_SESSION['name'] = null;
+					$notice           = "Le pseudo ou le mot de passe est incorrect, veuillez réessayer !";
+					require('view/front/fail.php');
 				}
 			}
+		}
+		else {
+			$notice = "Le pseudo ou le mot de passe est incorrect, veuillez réessayer !";
+			require('view/front/fail.php');
+			}
         }
-	}
+	
 
 	/**
 	 * signs user out
