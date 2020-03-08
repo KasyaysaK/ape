@@ -115,18 +115,7 @@
 		</div>
 
 		<div class="col-md-3 sidebar">
-			<h6 class="text-center">Derniers articles</h6>
-			<hr class="mb-3" />
-			<?php foreach ($last_posts as $post): ?>
-			<ul class="list-group">
-				<li class="list-group-item list-group-item-action">
-					<a href="index.php?action=display_post&amp;id=<?= $post['id'] ?>" class="btn"><?= htmlspecialchars($post['title']) ?></a>
-				</li>
-			</ul>
-			<?php endforeach; ?>
-			<hr class="mb-3" />
-			<a href="index.php?action=list_posts"><p class="text-center">Voir tous les articles</p></a>
-			<img src="public/images/APE_logo.png">
+			
 		</div>
 	</div>
 </div>

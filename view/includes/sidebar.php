@@ -5,6 +5,7 @@
 	<ul class="list-group">
 		<li class="list-group-item list-group-item-action">
 			<a href="index.php?action=display_post&amp;id=<?= $post['id'] ?>" class="btn"><?= htmlspecialchars($post['title']) ?></a>
+			<br />publié par <?= htmlspecialchars($post['author']) ?>
 		</li>
 	</ul>
 	<hr class="mb-3" />
@@ -19,7 +20,7 @@
 		<ul class="list-group">
 			<li class="list-group-item list-group-item-action">
 				Par <?= htmlspecialchars($comment['name']); ?> sur <a href="index.php?action=display_post&amp;id=<?= $comment['postid'] ?>"><?= htmlspecialchars($comment['title']); ?></a>
-      	<br /><?= htmlspecialchars($comment['comment']) ?>
+      			<br /><?= htmlspecialchars($comment['comment']) ?>
 			</li>
 		</ul>
 		<hr class="mb-3" />      	

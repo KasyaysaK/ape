@@ -26,7 +26,7 @@ class Posts extends Database
 	 */
 	public function get_last_posts()
 	{
-		$posts_list = $this->dbh->query('SELECT id, title, description, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%i\') AS creation_date_fr FROM posts ORDER BY creation_date DESC LIMIT 0, 2');
+		$posts_list = $this->dbh->query('SELECT id, title, author, description, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%i\') AS creation_date_fr FROM posts ORDER BY creation_date DESC LIMIT 0, 2');
 		return $posts_list;
 	}
 	/**
@@ -52,7 +52,7 @@ class Posts extends Database
 	 */
 	public function get_articles()
 	{
-	    $articles_list = $this->dbh->query('SELECT id, title, description, tag_id, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%i\') AS creation_date_fr FROM posts WHERE tag_id = 1 ORDER BY creation_date DESC');
+	    $articles_list = $this->dbh->query('SELECT id, title, author, description, tag_id, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%i\') AS creation_date_fr FROM posts WHERE tag_id = 1 ORDER BY creation_date DESC');
 	    return $articles_list;
 	}
 	/**
