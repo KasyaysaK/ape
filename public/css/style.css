@@ -46,9 +46,6 @@ fieldset {
 	padding: 20px;
 	text-align: center;
 }
-.card {
-	height: 190px;
-}
 .credentials, .user-info, .password {
 	width: 229px;
 }
@@ -79,6 +76,10 @@ fieldset {
 .notice {
 	color: green;
 }
+.same-tag {
+	height: 150px;
+	padding: 20px;
+}
 .cookie-banner {
    position: fixed;
    bottom: 20px;
@@ -101,6 +102,11 @@ fieldset {
 .hide {
 	display: none;
 }
+@media only screen and (min-width:767px){
+	.same-tag {
+		height: 175px;
+	}
+}
 @media only screen and (max-width:480px) {
    .cookie-banner {
 	    text-align: center;
@@ -112,9 +118,6 @@ fieldset {
    }
    .cookie-banner p {
 	margin-left: 0px;
-	}
-	.card {
-		height: 	220px;
 	}
 	.header-list {
 		flex-direction: 	column;	

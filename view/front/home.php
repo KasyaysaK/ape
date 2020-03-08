@@ -4,7 +4,7 @@
 
 <div class="container my-4">
 	<p class="text-justify">
-		Notre site a été crée dans l'optique d'accompagner les parents dans leur rôle. On ne nait pas avec des connaissances, être parents ça s'apprend aussi ! 
+		Notre site a été créée dans l'optique d'accompagner les parents dans leur rôle. On ne nait pas avec des connaissances, être parents ça s'apprend aussi ! 
 		Nous vous proposons des articles appuyés sur des recherches scientifiques pour expliquer les questionnements sur la parentalité. 
 		Vous pouvez aussi retrouver des activités ludiques et des recettes à faire ensemble pour partager de bons moments et créer des souvenirs. Nous vous souhaitons une bonne visite ! 
 	</p>

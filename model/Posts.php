@@ -74,6 +74,15 @@ class Posts extends Database
 	    return $activies_list;
 	}
 	/**
+	 * select the two last activities
+	 * @return $last_articles
+	 */
+	public function get_last_activities()
+	{
+		$last_articles = $this->dbh->query('SELECT id, title, description, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%i\') AS creation_date_fr FROM posts WHERE tag_id = 2 ORDER BY creation_date DESC LIMIT 0, 2');
+		return $last_articles;
+	}
+	/**
 	 * selects all the recipes
 	 * @return $recipes
 	 */
@@ -81,6 +90,15 @@ class Posts extends Database
 	{
 	    $recipes_list = $this->dbh->query('SELECT id, title, description, tag_id, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%i\') AS creation_date_fr FROM posts WHERE tag_id = 3 ORDER BY creation_date DESC');
 	    return $recipes_list;
+	}
+	/**
+	 * select the two last recipes
+	 * @return $last_articles
+	 */
+	public function get_last_recipes()
+	{
+		$last_articles = $this->dbh->query('SELECT id, title, description, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%i\') AS creation_date_fr FROM posts WHERE tag_id = 3 ORDER BY creation_date DESC LIMIT 0, 2');
+		return $last_articles;
 	}
 	
 	/*************** DATABASE MODIFICATION ***************/

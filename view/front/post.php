@@ -29,21 +29,44 @@
 					<a href="#login-form" data-toggle="modal" data-target="#login-form">Connectez-vous pour pouvoir laisser un commentaire.</a>
 				<?php endif; ?>
 			</div>
-			<div >
+			<div class="">
 				<h5 class="border-top border-bottom my-4">Dans la même rubrique</h5>
-				<?php if ($post['tagid'] === '1') : ?>
+				<div class="row">
+					<?php if ($post['tagid'] === '1') : ?>
 					<?php foreach ($last_articles as $article): ?>
-					<div class="col-md-4">
-			          	<div class="card mb-2">
-				            <div class="card-body">
-				              	<h4 class="card-title"><?= $article['title']; ?></h4>
-				              	<p class="card-text"><?= $article['description'] ?></p>
+					<div class="col-md-6">
+			          	<div class="same-tag card justify-content-center mb-2">
+			              	<h4 class="card-title"><?= $article['title']; ?></h4>
+				            <div class="text-right">
 				              	<a href="index.php?action=display_post&amp;id=<?= $post['id'] ?>"><h4 class="title btn btn-outline-success my-2 my-sm-0">Lire la suite</h4></a> 
 				            </div>
 			          	</div>
 			        </div>
 			      	<?php endforeach; ?>
+		      	<?php elseif ($post['tagid'] === '2') : ?>
+					<?php foreach ($last_activities as $activity): ?>
+					<div class="col-md-6">
+			          	<div class="same-tag card justify-content-center mb-2">
+		              		<h4 class="card-title"><?= $activity['title']; ?></h4>
+			            	<div class="text-right">
+			              		<a href="index.php?action=display_post&amp;id=<?= $post['id'] ?>"><h4 class="title btn btn-outline-success my-2 my-sm-0">Lire la suite</h4></a> 
+			              	</div>
+			          	</div>
+			        </div>
+			      	<?php endforeach; ?>
+		      	<?php elseif ($post['tagid'] === '3') : ?>
+					<?php foreach ($last_recipes as $recipe): ?>
+					<div class="col-md-6">
+			          	<div class="same-tag card justify-content-center mb-2">
+			              	<h4 class="card-title"><?= $recipe['title']; ?></h4>
+			              	<div class="text-right">
+			              		<a href="index.php?action=display_post&amp;id=<?= $post['id'] ?>"><h4 class="title btn btn-outline-success my-2 my-sm-0">Lire la suite</h4></a> 
+		              		</div>
+			          	</div>
+			        </div>
+			      	<?php endforeach; ?>
 			    <?php endif; ?>
+				</div>
 			</div>
 			<div class="comments">
 				<div>

@@ -95,6 +95,7 @@ class Page_controller
 	public function list_posts()
 	{
 		$posts = $this->posts->get_posts();
+		$last_posts  	 = $this->posts->get_last_posts();
 		$last_comments = $this->comments->get_last_comments();
 		require('view/front/posts_list.php');
 	}
@@ -104,6 +105,7 @@ class Page_controller
 	public function list_articles()
 	{
 		$articles = $this->posts->get_articles();
+		$last_posts  	 = $this->posts->get_last_posts();
 		$last_comments = $this->comments->get_last_comments();
 		require('view/front/articles_list.php');
 	}
@@ -113,6 +115,7 @@ class Page_controller
 	public function list_activities()
 	{
 		$activities = $this->posts->get_activities();
+		$last_posts  	 = $this->posts->get_last_posts();
 		$last_comments = $this->comments->get_last_comments();
 		require('view/front/activities_list.php');
 	}
@@ -122,6 +125,7 @@ class Page_controller
 	public function list_recipes()
 	{
 		$recipes = $this->posts->get_recipes();
+		$last_posts  	 = $this->posts->get_last_posts();
 		$last_comments = $this->comments->get_last_comments();
 		require('view/front/recipes_list.php');
 	}
@@ -131,10 +135,12 @@ class Page_controller
 	 */
 	public function display_post($post_id)
 	{
-		$last_posts = $this->posts->get_last_posts();
-		$post 	 	= $this->posts->get_post($post_id);
-		$comment 	= $this->comments->get_comment($post_id);
-		$last_articles = $this->posts->get_last_articles();
+		$last_posts  	 = $this->posts->get_last_posts();
+		$post 	 		 = $this->posts->get_post($post_id);
+		$comment 		 = $this->comments->get_comment($post_id);
+		$last_articles   = $this->posts->get_last_articles();
+		$last_activities = $this->posts->get_last_activities();
+		$last_recipes    = $this->posts->get_last_recipes();
 		require('view/front/post.php');
 	}
 
