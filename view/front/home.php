@@ -26,9 +26,15 @@
 		</div>
 		<div class="col-md-4">
     		<fieldset>
-			  	<legend class="text-center"><i class="icons fas fa-user"></i></legend>
-		  		<p>En rejoignant la communauté, vous avez la possibilité de commenter les articles et même de devenir auteur !</p>
-			    <a href="index.php?action=login"><h4 class="title btn btn-secondary my-2 my-sm-0" data-aos="fade-down" data-aos-duration="2500">Devenir membre</h4></a>
+    			<?php if (isset($_SESSION) && isset($_SESSION['name']) && $_SESSION['role'] === 'member') : ?>
+				  	<legend class="text-center"><i class="icons fas fa-pencil-alt"></i></legend>
+				    <p>Vous pourrez bientôt contribuer à notre site en écrivant des articles ! Ca vous intéresse ?</p>
+				    <a href="index.php?action=author"><h4 class="title btn btn-secondary my-2 my-sm-0" data-aos="fade-down" data-aos-duration="2500">Devenir auteur</h4></a>
+			    <?php else : ?>
+			    	<legend class="text-center"><i class="icons fas fa-user"></i></legend>
+			  		<p>En rejoignant la communauté, vous avez la possibilité de commenter les articles et même de devenir auteur !</p>
+				    <a href="index.php?action=login"><h4 class="title btn btn-secondary my-2 my-sm-0" data-aos="fade-down" data-aos-duration="2500">Devenir membre</h4></a>
+				<?php endif; ?>
 			</fieldset>
 		</div>
     </div>

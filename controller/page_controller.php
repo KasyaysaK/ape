@@ -55,6 +55,13 @@ class Page_controller
 		exit;
 	}
 	/**
+	 * loads the author page
+	 */
+	public function author()
+	{
+		require('view/front/author.php');
+	}
+	/**
 	 * loads the terms and conditions page
 	 */
 	public function terms_conditions() 

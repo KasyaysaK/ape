@@ -40,6 +40,10 @@ class Router
 						    
 						    }
 						break;
+					case 'author' :
+						session_start();
+						$this->page_controller->author();
+						break;
 					case 'terms_conditions':
 						session_start();
 						$this->page_controller->terms_conditions();

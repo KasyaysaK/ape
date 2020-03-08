@@ -40,6 +40,8 @@
 					<li class=""><a href="index.php?action=add_post">Nouvel article</a></li>
 					<li class=""><a href="index.php?action=">Mes articles</a></li>
 				</ul>
+				<?php else : ?>
+					<img src="public/images/APE_logo.png">
 				<?php endif; ?>
 			</div>
 		</div>	
