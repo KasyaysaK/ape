@@ -20,24 +20,24 @@
 			<li>Appuyer sur le bouton 'Publier'</li>
 		</ul>
 	</div>
-	<form class="row" action="index.php?action=publish_post"  onsubmit="return validateAddPost()" method="POST">
+	<form class="row" action="index.php?action=publish_post" onsubmit="return validatePost()" method="POST">
 		<div class="col-md-10">
 			<div class="form-group">
-				<input id="addTitle" class="form-control form my-2" aria-describedby="titre" name="title" placeholder="Titre de l'article" />
-				<div class="error" id="addTitleError"></div>
+				<input id="title" class="form-control form my-2" aria-describedby="titre" name="title" placeholder="Titre de l'article" />
+				<div class="error" id="titleError"></div>
 			</div>
 			<div class="form-group">
 				<label>Auteur</label>
-				<input id="addAuthor" class="form-control form my-2" aria-describedby="auteur" name="author" value="<?= $_SESSION['name'] ?>" disabled/>
+				<input id="author" class="form-control form my-2" aria-describedby="auteur" name="author" value="<?= $_SESSION['name'] ?>" disabled/>
 				<input type="hidden" name="author" value="<?= $_SESSION['name'] ?>" />
 			</div>
 			<div class="form-group">
-				<input id="addDescription" class="form-control form my-2" aria-describedby="description" name="description" placeholder="Description de l'article" />
-				<div class="error" id="addDescriptionError"></div>
+				<input id="description" class="form-control form my-2" aria-describedby="description" name="description" placeholder="Description de l'article" />
+				<div class="error" id="descriptionError"></div>
 			</div>
 			<div class="form-group">
-				<textarea id="addContent" class="post-editor" aria-describedby="contenu" name="content" placeholder="Contenu de l'article"> </textarea>
-				<div class="error" id="addContentError"></div>
+				<textarea id="content" class="post-editor" aria-describedby="contenu" name="content" placeholder="Contenu de l'article"> </textarea>
+				<div class="error" id="contentError"></div>
 			</div>
 		</div>
 		<div class="col-md-2 list-group justify-content-end">	
@@ -45,10 +45,10 @@
     			Rubriques
 			</a>
 			<div class="collapse text-center" id="tags">
-     			<div class="error" id="addTagError"></div>
+     			<div class="error" id="tagError"></div>
 				<?php foreach ($tags as $tag): ?>
 					<div class="form-group">
-						<input id="addTag"  type="radio" name="tag_id" value="<?= $tag['id'] ?>">
+						<input id="tag"  type="radio" name="tag_id" value="<?= $tag['id'] ?>">
 						<label><?= $tag['label'] ?></label>
 					</div>
      			<?php endforeach; ?>

@@ -124,10 +124,10 @@ class Posts extends Database
 	 * @param $status
 	 * @return $edited_post
 	 */
-	public function update_post($post_id, $title, $description, $content, $tag_id)
+	public function update_post($post_id, $title, $author, $description, $content, $tag_id)
 	{
-		$request = $this->dbh->prepare('UPDATE posts SET title = ?, description = ?, content = ?, tag_id = ? WHERE id = ?');
-		$edited_post = $request->execute(array($title, $description, $content, $tag_id, $post_id));
+		$request = $this->dbh->prepare('UPDATE posts SET title = ?, author = ?, description = ?, content = ?, tag_id = ? WHERE id = ?');
+		$edited_post = $request->execute(array($title, $author, $description, $content, $tag_id, $post_id));
 		return $edited_post;
 	}
 	/**

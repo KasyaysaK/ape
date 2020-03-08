@@ -109,13 +109,16 @@ class Backoffice_controller
 	/**
 	 * saves edited
 	 */
-	public function save_edited_post($post_id, $title, $description, $content, $tag_id)
+	public function save_edited_post($post_id, $title, $author, $description, $content, $tag_id)
 	{
-	    $update_post = $this->posts->update_post($post_id, $title, $description, $content, $tag_id);
+	    $update_post = $this->posts->update_post($post_id, $title, $author, $description, $content, $tag_id);
+	    var_dump($update_post);
 	    if ($update_post === false) {
+	    	require('view/front/error.php');
 	        echo 'Impossible de mettre à jour l\'article';
 	    }
 	    else {
+	    	var_dump('coucou');
 	        header('Location: index.php?action=post_manager');
        		echo "post mis à jour";
        		exit;

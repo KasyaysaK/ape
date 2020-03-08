@@ -1,37 +1,27 @@
-class Validation
-{
-	constructor(field, noticeMessage) {
-		this.field    	 	 = field;
-		this.noticeMessage   = noticeMessage;
-
-  		this.field.addEventListener("input", () => this.empty());
+class Validation {
+	constructor(field, elementId){
+		this.field 	  	  = document.getElementById(field);
+		this.elementId 	  = elementId;
+		this.errorMessage = errorMessage;
 	}
 
-	valid() {
-		this.field.style.borderColor     = "green";
-		this.noticeMessage.style.display = "none"; 
-		return true;
+	printError(errorMessage) {
+		document.getElementById(this.elementId).innerHTML = this.errorMessage;
 	}
 
-	invalid() {
-		this.field.style.borderColor 	 = "red";
-		this.field.focus();
-		this.noticeMessage.style.display = "block";
-		return false; 
-	}
-
-	empty() {
-		if (this.field.value.length == "0") {
-			this.invalid();
-		}
-		else {
-			this.valid();
-		}
-	}
-
-	different() {
-		if (this.field.value != this.field.value) {
-			invalid();
+	name() {
+		this.elementId = true;
+		
+		if(this.field == "") {
+			this.printError(this.errorMessage, "Veuillez entrer un pseudo")
+		} else {
+			let regex = /^[a-zA-Z\s]+$/;
+			if(regex.test(name) === false) {
+				this.printError(this.elementId, "Veuillez entrer un pseudo valide")
+			} else {
+				this.printError(this.elementId, "")
+				this.elementId = false;
+			}	
 		}
 	}
 }

@@ -22,23 +22,37 @@
 		</ul>
 	</div>
 
-	<form class="row" action="index.php?action=save_edited_post&amp;post_id=<?= $post_to_edit['postid'] ?>" method="post">
+	<form class="row" action="index.php?action=save_edited_post&amp;post_id=<?= $post_to_edit['postid'] ?>" onsubmit="return validatePost()" method="post">
 		<div class="col-md-10">
-			<input id="title" class="form-control form my-2" aria-describedby="titre" name="title" value="<?= htmlspecialchars($post_to_edit['title']) ?>" />
-			<input id="description" class="form-control form my-2" aria-describedby="description" name="description" value="<?= htmlspecialchars($post_to_edit['description']) ?>" />
-			<textarea class="post-editor" aria-describedby="contenu" name="content"> 
-				<p><?= htmlspecialchars($post_to_edit['content']) ?> </p> 
-			</textarea>
+
+			<div class="form-group">
+				<input id="title" class="form-control form my-2" aria-describedby="titre" name="title"  value="<?= htmlspecialchars($post_to_edit['title']) ?>" />
+				<div class="error" id="titleError"></div>
+			</div>
+			<div class="form-group">
+				<label>Auteur</label>
+				<input id="author" class="form-control form my-2" aria-describedby="auteur" name="author" value="<?= htmlspecialchars($post_to_edit['author']) ?>" />
+			</div>
+			<div class="form-group">
+				<input id="description" class="form-control form my-2" aria-describedby="description" name="description" value="<?= htmlspecialchars($post_to_edit['description']) ?>" />
+				<div class="error" id="descriptionError"></div>
+			</div>
+			<div class="form-group">
+				<textarea id="content" class="post-editor" aria-describedby="contenu" name="content"> 
+					<p><?= htmlspecialchars($post_to_edit['content']) ?> </p>
+				</textarea>
+				<div class="error" id="contentError"></div>
+			</div>
 		</div>
 		<div class="col-md-2 list-group justify-content-end">	
 			<a class="list-group-item list-group-item-action text-center" data-toggle="collapse" href="#tags" role="button" aria-expanded="false" aria-controls="tags">
     			Rubriques
 			</a>
 			<div class="collapse text-center mb-3" id="tags">
-				<div class="error" id="addTagError"></div>
+				<div class="error" id="tagError"></div>
 				<?php foreach ($tags as $tag): ?>
 					<div class="form-group">
-						<input id="addTag"  type="radio" name="tag_id" value="<?= $tag['id'] ?>">
+						<input id="tag"  type="radio" name="tag_id" value="<?= $tag['id'] ?>">
 						<label><?= $tag['label'] ?></label>
 					</div>
      			<?php endforeach; ?>

@@ -11,7 +11,7 @@
 	</div>
 	<hr class="mb-3" />
 	<div>
-		<table class="table table-light table-striped">
+		<table class="table table-light table-striped" data-aos="zoom-in" data-aos-duration="500">
 	  		<thead>
 		    	<tr>
 		      		<th class="border-right text-center" scope="col">Titre</th>

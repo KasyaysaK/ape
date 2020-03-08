@@ -101,47 +101,49 @@ function validateSigninForm() {
 
 }
 
-//validate add post 
-function validateAddPost() {
-	console.log("coucou");
-	let addTitle	   = document.getElementById('addTitle').value;
-	let addDescription = document.getElementById('addDescription').value;
-	let addContent     = document.getElementById('addContent').value;
-	let addTag 		   = document.getElementsByName('addTag');
+//validate  post 
+function validatePost() {
+	let title	    = document.getElementById('title').value;
+	let description = document.getElementById('description').value;
+	let content     = document.getElementById('content').value;
+	let tag 		= document.getElementsByName('tag');
 
-	let addTitleError = addDescriptionError = addContentError = addTagError = true;
+	let titleError = descriptionError = contentError = tagError = true;
 
-	//addTitle validation
-	if(addTitle == "") {
-		printError("addTitleError", "Veuillez écrire un titre");
+	//Title validation
+	if(title == "") {
+		printError("titleError", "Veuillez écrire un titre");
 	} else {
-		printError("addTitleError", "")
-		addTitleError = false;
+		printError("titleError", "")
+		titleError = false;
 	}
 
-	//addDescription validation
-	if(addDescription == "") {
-		printError("addDescriptionError", "Veuillez écrire une description");
+	//Description validation
+	if(description == "") {
+		printError("descriptionError", "Veuillez écrire une description");
 	} else {
-		printError("addDescriptionError", "")
-		addDescriptionError = false;
+		printError("descriptionError", "")
+		descriptionError = false;
 	}
 
-	//addTitle validation
-	if(addContent == "") {
-		printError("addContentError", "Veuillez écrire un titre");
+	//Title validation
+	if(content == "") {
+		printError("contentError", "Veuillez écrire un titre");
 	} else {
-		printError("addContentError", "")
-		addContentError = false;
+		printError("contentError", "")
+		contentError = false;
 	}
 
-	//addTag validation
-	if(!addTag.checked) {
-		printError("addTagError", "Veuillez sélectionner une rubrique")
+	//Tag validation
+	if(!tag.checked) {
+		printError("tagError", "Veuillez sélectionner une rubrique");
+	} else {
+		printError("tagError", "")
+		tagError = false; 
 	}
 
 	//prevent submission if there are any errors
-	if((addTitleError || addDescriptionError || addContentError) == true) {
+	if((titleError || descriptionError || contentError) == true) {
 		return false;
 	}
 }
