@@ -1,4 +1,4 @@
-<?php $title = htmlspecialchars('Panneau d\'administration : Liste des utilisateurs'); ?>
+<?php $title = htmlspecialchars('APE : Panneau d\'administration : Liste des utilisateurs'); ?>
 
 <?php ob_start(); ?>
 

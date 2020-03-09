@@ -1,4 +1,4 @@
-<?php $title = htmlspecialchars('Panneau d\'administration : Liste des commentaires'); ?>
+<?php $title = htmlspecialchars('APE : Panneau d\'administration : Liste des commentaires'); ?>
 
 <?php ob_start(); ?>
 

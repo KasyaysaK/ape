@@ -17,9 +17,19 @@ class Posts extends Database
 	 */
 	public function get_posts()
 	{
-		$posts_list = $this->dbh->query('SELECT posts.id AS postid, tags.id AS tagid, label, title, description, author, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%im%ss\') AS creation_date_fr FROM posts LEFT JOIN tags ON posts.tag_id = tags.id ORDER BY creation_date ASC');
+		$posts_list = $this->dbh->query('SELECT posts.id AS postid, tags.id AS tagid, label, title, description, author, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%im%ss\') AS creation_date_fr FROM posts LEFT JOIN tags ON posts.tag_id = tags.id ORDER BY creation_date DESC');
 		return $posts_list;
 	}
+//	/**
+//	 * selects all the posts
+//	 * @return $posts_list
+//	 */
+//	public function get_author_posts($author_id)
+//	{
+//		$author_posts_list = $this->dbh->prepare('SELECT posts.id AS postid, tags.id AS tagid, label, title, description, posts.author AS authorid, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%im%ss\') AS creation_date_fr FROM posts LEFT JOIN tags ON posts.tag_id = tags.id RIGHT JOIN users ON posts.author = users.id WHERE authorid = ? ORDER BY creation_date DESC');
+//		$author_posts_list->execute(array($author_id));
+//		return $author_posts_list->fetch();
+//	}
 	/**
 	 * select the two last posts
 	 * @return $posts_list

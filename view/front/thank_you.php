@@ -1,4 +1,4 @@
-<?php $title = htmlspecialchars('Message envoyé !'); ?>
+<?php $title = htmlspecialchars('APE : Message envoyé !'); ?>
 
 <?php ob_start(); ?>
 

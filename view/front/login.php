@@ -1,4 +1,4 @@
-<?php $title = htmlspecialchars('Formulaire d\'inscription'); ?>
+<?php $title = htmlspecialchars('APE : Formulaire d\'inscription'); ?>
 
 <?php ob_start(); ?>
 

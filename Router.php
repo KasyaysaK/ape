@@ -222,7 +222,6 @@ class Router
 		            	if (isset($_GET['id'])) {
 		            		$this->backoffice_controller->ban_user($_GET['id']);
 		            	} else {
-		            		var_dump('la');
 		                    throw new Exception('L\'identifiant d\'utilisateur n\'existe pas.');
 		            	}
 		            	break;
@@ -233,8 +232,8 @@ class Router
 			}
 		}
 		catch(Exception $e)
-					{
-					    $errorMessage = $e->getMessage();
-					}
-}
+		{
+		    $errorMessage = $e->getMessage();
+		}
+	}	
 }

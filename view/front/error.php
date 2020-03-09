@@ -1,4 +1,4 @@
-<?php $title = htmlspecialchars('Oops, quelque chose ne va pas.'); ?>
+<?php $title = htmlspecialchars('APE : Oops, quelque chose ne va pas.'); ?>
 
 <?php ob_start(); ?>
 

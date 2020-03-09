@@ -1,4 +1,4 @@
-<?php $title = htmlspecialchars('Qui sommes nous'); ?>
+<?php $title = htmlspecialchars('APE : Qui sommes nous'); ?>
 
 <?php ob_start(); ?>
 

@@ -1,4 +1,4 @@
-<?php $title = htmlspecialchars('Déconnexion'); ?>
+<?php $title = htmlspecialchars('APE : Déconnexion'); ?>
 
 <?php ob_start(); ?>
 

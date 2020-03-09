@@ -1,4 +1,4 @@
-<?php $title = htmlspecialchars('Erreur'); ?>
+<?php $title = htmlspecialchars('APE : Erreur'); ?>
 
 <?php ob_start(); ?>
 

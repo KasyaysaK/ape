@@ -101,6 +101,33 @@ function validateSigninForm() {
 
 }
 
+function validateContactForm() {
+	let contactEmail 	 = document.getElementById('contactEmail').value;
+	let contactMessage   = document.getElementById('contactMessage').value;
+
+	//email validation
+	if(email == "") {
+		printError("contactEmailError", "Veuillez entrer votre email"); 
+	} else {
+		let regex =  /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/;
+		if(regex.test(email) === false) {
+			printError("contactEmailError", "Veuillez entrer une adresse email valide")
+		} else {
+			printError("contactEmailError", "")
+			contactemailError = false;
+		}	
+	}
+	//Content validation
+	if(content == "") {
+		printError("contactMessage", "Veuillez écrire un titre");
+	} else {
+		printError("contactMessage", "")
+		contactMessage = false;
+	}
+	
+}
+	
+
 //validate  post 
 function validatePost() {
 	let title	    = document.getElementById('title').value;
@@ -126,7 +153,7 @@ function validatePost() {
 		descriptionError = false;
 	}
 
-	//Title validation
+	//Content validation
 	if(content == "") {
 		printError("contentError", "Veuillez écrire un titre");
 	} else {

@@ -1,4 +1,4 @@
-<?php $title = htmlspecialchars('Par des parents, pour des parents et leurs enfants !'); ?>
+<?php $title = htmlspecialchars('APE : Par des parents, pour des parents et leurs enfants !'); ?>
 
 <?php ob_start(); ?>
 

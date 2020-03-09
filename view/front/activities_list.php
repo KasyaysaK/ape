@@ -1,4 +1,4 @@
-<?php $title = htmlspecialchars('La revue : liste des activités'); ?>
+<?php $title = htmlspecialchars('APE : La revue - liste des activités'); ?>
 
 <?php ob_start(); ?>
 <div class="container">

@@ -17,12 +17,14 @@ class Page_controller
 	protected $posts;
 	protected $tags;
 	protected $comments;
+	protected $messages;
 
 	public function __construct()
 	{
 		$this->posts 	= new Posts();
 		$this->tags 	= new Tags();
 		$this->comments = new Comments();
+		$this->messages = new Messages();
 	}
 
 //****************************************** CONTENT MANAGER ******************************************

@@ -1,4 +1,4 @@
-<?php $title = htmlspecialchars('Formulaire de contact'); ?>
+<?php $title = htmlspecialchars('APE : Formulaire de contact'); ?>
 
 <?php ob_start(); ?>
 
@@ -8,18 +8,19 @@
     <hr class="mb-3" />
     <div  class="col-md-8 offset-2 my-4 ">
         <?php if (isset($_SESSION) && isset($_SESSION['name'])) : ?>
-        <form action="" method="POST">
+        <form action="index.php?action=send_message" onsubmit="return validateContactForm()" method="POST">
             <div class="form-group">
                 <label for="name">Votre pseudo</label>
                 <input type="text" name="name" value="<?= $_SESSION['name'] ?>" class="form-control" disabled/>
+                <input type="hidden" name="username" value="<?= $_SESSION['name'] ?>" />
             </div>
             <div class="form-group">
                 <label for="email">Votre adresse email</label>
-                <input type="email" name="email" placeholder="" class="form-control" />
+                <input id="email" type="email" name="email" placeholder="" class="form-control" />
             </div>
             <div class="form-group">
                 <label for="message">Votre message</label>
-                <textarea name="message" placeholder="Écrivez ici" class="form-control"></textarea>
+                <textarea id="message" name="message" placeholder="Écrivez ici" class="form-control"></textarea>
             </div>
 
             <hr class="mb-3"></hr>

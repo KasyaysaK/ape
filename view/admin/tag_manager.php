@@ -1,4 +1,4 @@
-<?php $title = htmlspecialchars('Panneau d\'administration : Gérer les rubriques'); ?>
+<?php $title = htmlspecialchars('APE : Panneau d\'administration : Gérer les rubriques'); ?>
 
 <?php ob_start(); ?>
 <div class="container">

@@ -1,4 +1,4 @@
-<?php $title = htmlspecialchars('Mentions légales'); ?>
+<?php $title = htmlspecialchars('APE : Mentions légales'); ?>
 
 <?php ob_start(); ?>
 

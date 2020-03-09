@@ -1,4 +1,4 @@
-<?php $title = htmlspecialchars('Devenir auteur'); ?>
+<?php $title = htmlspecialchars('APE : Devenir auteur'); ?>
 
 <?php ob_start(); ?>
 

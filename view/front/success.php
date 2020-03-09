@@ -1,11 +1,11 @@
-<?php $title = htmlspecialchars('Erreur'); ?>
+<?php $title = htmlspecialchars('APE : Super !'); ?>
 
 <?php ob_start(); ?>
 
    	<div class="container">
    		<hr class="mb-3" />
 		<h2 class="text-center">Bonne nouvelle !</h2>
-		<p><?= $notice ?></p>
+		<p class="text-center"><?= $notice ?></p>
 		<a class="text-center" href="index.php?action=home"><p class="text-center">Revenir sur la page d'accueil</p></a>
 		<hr class="mb-3" />
 	</div>

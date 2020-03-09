@@ -1,4 +1,4 @@
-<?php $title = htmlspecialchars($post['title']); ?>
+<?php $title = htmlspecialchars('APE : ' . $post['title']); ?>
 
 <?php ob_start(); ?>
 
