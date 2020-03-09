@@ -35,7 +35,6 @@ class Backoffice_controller
 	 */
 	public function author_pannel()
 	{
-		//$author_posts = $this->posts->get_author_posts($author_id);
 		$tags  	 	  = $this->tags->get_tags();
 		$notice 	  = null;
 		require('view/author/pannel.php');

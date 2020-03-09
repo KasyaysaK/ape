@@ -50,7 +50,7 @@
 	<div class="notice">
 		
 	</div>
-		<form id="add_post" class="row" action="index.php?action=publish_post"  onsubmit="return validatePost()" method="POST">
+		<form id="add_post" class="row" action="index.php?action=publish_post" onsubmit="return validatePost()" method="POST">
 			<div class="col-md-10">
 				<div class="form-group">
 					<input id="title" class="form-control form my-2" aria-describedby="titre" name="title" placeholder="Titre de l'article" />

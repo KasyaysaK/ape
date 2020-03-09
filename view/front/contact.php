@@ -16,11 +16,13 @@
             </div>
             <div class="form-group">
                 <label for="email">Votre adresse email</label>
-                <input id="email" type="email" name="email" placeholder="" class="form-control" />
+                <input id="contactEmail" type="email" name="email" placeholder="" class="form-control" />
+                <div class="error" id="contactEmailError"></div>
             </div>
             <div class="form-group">
                 <label for="message">Votre message</label>
-                <textarea id="message" name="message" placeholder="Écrivez ici" class="form-control"></textarea>
+                <textarea id="contactMessage" name="message" placeholder="Écrivez ici" class="form-control"></textarea>
+                <div class="error" id="contactMessageError"></div>
             </div>
 
             <hr class="mb-3"></hr>

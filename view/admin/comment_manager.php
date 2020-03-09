@@ -18,7 +18,6 @@
 		      		<th class="border-right text-center" scope="col">Commentaire</th>
 		      		<th class="border-right text-center" scope="col">Signalement</th>
 		      		<th class="border-right text-center" scope="col">Valider</th>
-		      		<th class="border-right text-center" scope="col">Modérer</th>
 		      		<th class="border-right text-center" scope="col">Rejeter</th>
 
 		    	</tr> 		
@@ -30,7 +29,6 @@
 			      	<td class="border-right text-center"><?= htmlspecialchars($comment['comment']) ?></td>
 			      	<td class="border-right text-center"><?= htmlspecialchars($comment['flagged']) ?></td>
 			      	<td class="border-right text-center"><a href="index.php?action=unflag_comment&amp;id=<?= $comment['id'] ?>" class="btn"><i class="fas fa-check"></i></a></td>
-			      	<td class="border-right text-center"><a href="index.php?action=edit_comment&amp;id=<?= $comment['id'] ?>" class="btn"><i class="fas fa-edit"></i></a></td>
 			      	<td class="border-right text-center"><a href="index.php?action=delete_comment&amp;id=<?= $comment['id'] ?>" class="btn"><i class="far fa-trash-alt"></i></a></td>
 			    </tr>
 				<?php endforeach; ?>   

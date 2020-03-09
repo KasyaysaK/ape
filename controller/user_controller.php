@@ -68,7 +68,6 @@ class User_controller
 			$this->error();
 		}
 	}
-
 	/**
 	 * signs an existing user in
 	 * if the password is admin and the role_id is set to 1 -> show admin pannel
@@ -85,7 +84,6 @@ class User_controller
 		
 		$user = $this->users->get_user($name);
 		$correct_password = password_verify($password, $user['password']);
-
 		if ($user) {
 			$_SESSION['name']     = $name;
 			$_SESSION['password'] = $correct_password;
@@ -111,8 +109,6 @@ class User_controller
 			require('view/front/fail.php');
 			}
         }
-	
-
 	/**
 	 * signs user out
 	 */
@@ -123,5 +119,4 @@ class User_controller
         session_destroy();
 		require('view/front/logout.php');
 	}
-
 }

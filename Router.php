@@ -36,8 +36,8 @@ class Router
 						break;
 					case 'send_message' :
 						session_start();
-						if (isset($_POST['send_message'])) {
-						    
+						if (!empty($_POST['email']) && !empty($_POST['message'])) {
+						    $this->page_controller->send_message($_POST['username'], $_POST['email'], $_POST['message']);
 						    }
 						break;
 					case 'author' :
@@ -106,7 +106,7 @@ class Router
 						}
 						break;
 					case 'signin':
-						if (!isset($_SESSION['name']) || !isset($_SESSION['password'])) {
+						if (!isset($_SESSION['name'])) {
 								if(!empty($_POST['name']) || !empty($_POST['password'])) {
 									$this->user_controller->signin($_POST['name'], $_POST['password']);
 								}
@@ -114,7 +114,7 @@ class Router
 									echo 'veuillez remplir le formulaire';
 								}
 		                }
-		                elseif (isset($_SESSION['name']) && (isset($_SESSION['password']))) {
+		                elseif (isset($_SESSION['name'])) {
 		                    $this->user_controller->signin($_SESSION['name'], $_SESSION['password']);
 		                }
 						break;

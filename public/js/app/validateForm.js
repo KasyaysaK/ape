@@ -106,25 +106,27 @@ function validateContactForm() {
 	let contactMessage   = document.getElementById('contactMessage').value;
 
 	//email validation
-	if(email == "") {
+	if(contactEmail == "") {
 		printError("contactEmailError", "Veuillez entrer votre email"); 
 	} else {
 		let regex =  /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/;
-		if(regex.test(email) === false) {
+		if(regex.test(contactEmail) === false) {
 			printError("contactEmailError", "Veuillez entrer une adresse email valide")
 		} else {
 			printError("contactEmailError", "")
-			contactemailError = false;
+			contactEmailError = false;
 		}	
 	}
 	//Content validation
-	if(content == "") {
+	if(contactMessage == "") {
 		printError("contactMessage", "Veuillez écrire un titre");
 	} else {
 		printError("contactMessage", "")
-		contactMessage = false;
+		contactMessageError = false;
 	}
-	
+	if((contactEmailError || contactMessageError) == true) {
+		return false;
+	}	
 }
 	
 

@@ -12,6 +12,18 @@ class Messages extends Database
 		$this->dbh = $this->dbhConnect();
 	}
 	/**
+	 * inserts a new post in the database
+	 * @param $title
+	 * @param $content
+	 * @return $new_post
+	 */
+	public function send_message($name, $email, $message) 
+	{
+		$request = $this->dbh->prepare('INSERT INTO messages (name, email, message, message_date) VALUES (?, ?, ?, NOW())');
+		$new_message = $request->execute(array($name, $email, $message));
+		return $new_message;
+	}
+	/**
 	 * selects all the comments
 	 * @return $comments
 	 */

@@ -51,10 +51,17 @@ class Page_controller
 	{
 		require('view/front/contact.php');
 	}
-	public function send_message() 
+	public function send_message($name, $email, $message) 
 	{
-		header('Location: thank_you.php');
-		exit;
+		var_dump('coucoucou');
+		$message = $this->messages->send_message($name, $email, $message);
+		 if ($message === false) {
+	       throw new Exception('Impossible d\'envoyer le message !');
+	    }
+	    else {
+	        require('view/front/thank_you.php');
+	    }
+		
 	}
 	/**
 	 * loads the author page
@@ -149,8 +156,6 @@ class Page_controller
 	public function add_comment($post_id, $name, $comment)
 	{
 	    $new_comment = $this->comments->post_comment($post_id, $name, $comment);
-	    var_dump($new_comment);
-
 	    if ($new_comment === false) {
 	       throw new Exception('Impossible d\'ajouter le commentaire !');
 	    }
