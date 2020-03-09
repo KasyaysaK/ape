@@ -14,11 +14,15 @@ class User_controller
 	 */
 
 	protected $users;
+	protected $roles;
+	protected $messages;
 
 	public function __construct()
 	{
 		$this->users 	= new Users();
 		$this->roles 	= new Roles();
+		$this->messages = new Messages();
+
 	}
 
 	/**
@@ -39,6 +43,7 @@ class User_controller
 	public function dashboard()
 	{
 		if(isset($_SESSION['name']) && isset($_SESSION['password'])) {
+			$messages = $this->messages->get_messages();
 			require('view/admin/pannel.php');
 		}
 	}

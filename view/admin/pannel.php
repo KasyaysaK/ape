@@ -3,6 +3,33 @@
 <?php ob_start(); ?>
 
 <div class="container">
+	<hr class="mb-3" />
+	<h2 class="text-center title">Messages</h2>
+	<hr class="mb-3" />
+
+	<div>
+		<table class="table table-light table-striped" data-aos="zoom-in" data-aos-duration="500">
+	  		<thead>
+		    	<tr>
+		      		<th class="border-right text-center" scope="col">Pseudo</th>
+		      		<th class="border-right text-center" scope="col">Email</th>
+		      		<th class="border-right text-center" scope="col">Message</th>
+		      		<th class="border-right text-center" scope="col">Répondre</th>
+
+		    	</tr> 		
+		  	</thead>
+		  	<tbody>
+			  	<?php foreach ($messages as $message): ?>
+			    <tr>
+			      	<td class="border-right text-center"><?= htmlspecialchars($message['name']); ?></td>
+			      	<td class="border-right text-center"><?= htmlspecialchars($message['email']) ?></td>
+			      	<td class="border-right text-center"><?= htmlspecialchars($message['message']) ?></td>
+			      	<td class="border-right text-center"> <a href="mailto:<?=$message['email'] ?>?subject=Contact à partir des mentions légales via le site">mail</a></td>
+			    </tr>
+				<?php endforeach; ?>   
+	  		</tbody>
+		</table>
+	</div>
 
 	<hr class="mb-3" />
 	<h2 class="text-center title">Gestion du site</h2>

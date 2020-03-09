@@ -19,6 +19,8 @@ class Backoffice_controller
 	protected $posts;
 	protected $tags;
 	protected $comments;
+	protected $messages;
+
 
 	public function __construct()
 	{
@@ -27,18 +29,11 @@ class Backoffice_controller
 		$this->posts 	= new Posts();
 		$this->tags 	= new Tags();
 		$this->comments = new Comments();
+		$this->messages = new Messages();
+
 	}
 
 //***************************************** POSTS & COMMENTS *****************************************
-	/**
-	 * litss all the posts an author has written 
-	 */
-	public function author_pannel()
-	{
-		$tags  	 	  = $this->tags->get_tags();
-		$notice 	  = null;
-		require('view/author/pannel.php');
-	}
 	/**
 	 * shows all the posts
 	 */

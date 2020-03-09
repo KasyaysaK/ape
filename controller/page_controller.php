@@ -53,7 +53,6 @@ class Page_controller
 	}
 	public function send_message($name, $email, $message) 
 	{
-		var_dump('coucoucou');
 		$message = $this->messages->send_message($name, $email, $message);
 		 if ($message === false) {
 	       throw new Exception('Impossible d\'envoyer le message !');

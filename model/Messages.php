@@ -29,7 +29,7 @@ class Messages extends Database
 	 */
 	public function get_messages()
 	{
-		$messages_list = $this->dbh->query('SELECT id, name, email, message, DATE_FORMAT(message_date, \'%d/%m/%Y à %Hh%i\') AS message_date_fr FROM messagess ORDER BY message_date DESC');
-		return $$messages_list;
+		$messages_list = $this->dbh->query('SELECT name, email, message, DATE_FORMAT(message_date, \'%d/%m/%Y à %Hh%i\') AS message_date_fr FROM messages ORDER BY message_date DESC');
+		return $messages_list;
 	}
 }
