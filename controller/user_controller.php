@@ -1,16 +1,13 @@
 <?php
-
-//namespace APE\Site\Controller;
-
 /**
- * Class Controller
+ * Class User_ontroller
  */
 class User_controller
 {
-
 	/**
 	 * @var $users defines the model managing the users
 	 * @var $session starts the session
+	 * @var $messages dtefines the model managing the messages
 	 */
 
 	protected $users;
@@ -30,7 +27,7 @@ class User_controller
 	 */
 	public function login() //shows registration form
 	{
-		if (!isset($_SESSION['name']) || !isset($_SESSION['password'])) {
+		if (!isset($_SESSION['name'])) {
 			require('view/front/login.php');
 		}
 		else {
@@ -42,7 +39,7 @@ class User_controller
 	 */
 	public function dashboard()
 	{
-		if(isset($_SESSION['name']) && isset($_SESSION['password'])) {
+		if(isset($_SESSION['name'])) {
 			$messages = $this->messages->get_messages();
 			require('view/admin/pannel.php');
 		}
@@ -62,7 +59,6 @@ class User_controller
 
         $new_user = $this->users->create_user($name, $email, $password);
         $role = 'member';
-        var_dump($new_user);
 		if ($new_user) {
 			$_SESSION['name']     = $name;
 			$_SESSION['password'] = $password;

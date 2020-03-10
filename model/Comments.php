@@ -1,6 +1,4 @@
 <?php
-
-//namespace APE\Site\Model;
 require_once('model/Database.php');
 
 class Comments extends Database
@@ -81,7 +79,6 @@ class Comments extends Database
 	 */
 	public function reject_comment($comment_id) {
 		$reject_comment = $this->dbh->prepare('DELETE FROM comments WHERE id = ?');
-
 		$reject_comment->execute(array($comment_id));
 	}
 }

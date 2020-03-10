@@ -25,5 +25,5 @@
 		</ul>
 		<hr class="mb-3" />      	
     <?php endforeach; ?> 
-	<img src="public/images/APE_logo.png">
+	<img src="public/images/APE_logo.png" alt="dessin d'enfants qui jouent avec des blocs">
 </div>

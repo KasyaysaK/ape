@@ -1,17 +1,14 @@
 <?php
-
-//namespace APE\Site\Controller;
-
 /**
- * Class Controller
+ * Class Page_controller
  */
 class Page_controller
 {
-
 	/**
 	 * @var $posts defines the model managing the posts
 	 * @var $tags defines the model managing the tags
 	 * @var $comments dtefines the model managing the comments
+	 * @var $messages dtefines the model managing the messages
 	 */
 
 	protected $posts;
@@ -59,8 +56,7 @@ class Page_controller
 	    }
 	    else {
 	        require('view/front/thank_you.php');
-	    }
-		
+	    }		
 	}
 	/**
 	 * loads the author page

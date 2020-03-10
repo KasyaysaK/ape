@@ -1,6 +1,4 @@
 <?php
-
-//namespace APE\Site\Model;
 require_once('model/Database.php');
 
 class Messages extends Database

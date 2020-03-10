@@ -1,6 +1,4 @@
 <?php
-
-//labelspace APE\Site\Model;
 require_once('model/Database.php');
 
 class Tags extends Database

@@ -1,7 +1,4 @@
 <?php 
-
-//namespace APE\Site\Model;
-
 class Database
 {
 //		private $host = host;

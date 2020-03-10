@@ -40,7 +40,7 @@
 					<li class=""><a href="index.php?action=author_pannel">Nouvel article</a></li>
 				</ul>
 				<?php else : ?>
-					<img src="public/images/APE_logo_2.png">
+					<img src="public/images/APE_logo_2.png" alt="dessin avec plusieurs enfants qui se tiennent la main">
 				<?php endif; ?>
 			</div>
 		</div>	

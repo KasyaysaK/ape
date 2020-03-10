@@ -196,10 +196,6 @@ class Router
 	                    throw new Exception('L\'identifiant de billet n\'existe pas.');
 	               	 	}
 	               	 	break;
-		           	case 'edit_comment' :
-						session_start();
-		            	$this->backoffice_controller->edit_comment($_GET['id']);
-		            	break;
 		            case 'delete_comment' :
 		            	session_start();
 		                if (isset ($_GET['id'])) {

@@ -105,24 +105,24 @@
 					</div>
 				</div>
 			<?php else : ?>
-			<button type="button" class="title btn btn-outline-success my-2 my-sm-0" data-toggle="modal" data-target="#login-form">je me connecte</button>
+			<button type="button" id="login-form-title" class="title btn btn-outline-success my-2 my-sm-0" data-toggle="modal" data-target="#login-form">je me connecte</button>
 			<!-- Modal -->
 			<div class="modal fade" id="login-form" tabindex="-1" role="dialog" aria-labelledby="login-form-title" aria-hidden="true">
 			  <div class="modal-dialog modal-dialog-centered" role="document">
 			    <div class="modal-content">
 		      		<div class="modal-header">
-				        <button class="btn" id="signin-button"><h5 class="modal-title title" id="login-form-title">Connexion</h5></button>
+				        <button class="btn" id="signin-button">Connexion</button>
 				        <a class="modal-subtitle btn" href="index.php?action=login">Pas encore membre ? C'est par ici !</a>
 		      		</div>
 		         	<form id="signin-form" action="index.php?action=signin"  onsubmit="return validateSigninForm()" method="POST">
 		         		<div class="modal-body justify-content-center">
 	         				<div class="form-group col-sm-8 text-center" id="name">
-								<label for="name" class="my-2 mr-5 ">Pseudo</label>
+								<label for="signinName" class="my-2 mr-5 ">Pseudo</label>
 								<input id="signinName" type="text" name="name" class="form-control" /> 
 								<div class="error" id="signinNameError"></div>
 							</div>							
 							<div class="form-group col-sm-8" id="password">
-								<label for="password" class="mt-2 mr-2">Mot de passe</label>
+								<label for="signinPassword" class="mt-2 mr-2">Mot de passe</label>
 								<input id="signinPassword" type="password" name="password" class="form-control" />
 								<div class="error" id="signinPasswordError"></div>
 							</div>			         			

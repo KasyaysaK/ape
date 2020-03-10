@@ -3,10 +3,16 @@
 <?php ob_start(); ?>
 
 <div class="container">
-    <hr class="mb-3" />
-    <h2 class="title text-center">Contact</h2>
-    <hr class="mb-3" />
-    <div  class="col-md-8 offset-2 my-4 ">
+    <div>
+        <hr class="mb-3" />
+        <div class="header-list d-flex align-items-center justify-content-between">
+            <button class="back-button btn icons"><i class="icon fas fa-arrow-left"></i></button>
+            <h2 class="text-center title">Contact</h2>
+            <a href=""></a>
+        </div>
+        <hr class="mb-3" />
+    </div>
+    <div  class="col-md-12 my-4 ">
         <?php if (isset($_SESSION) && isset($_SESSION['name'])) : ?>
         <form action="index.php?action=send_message" onsubmit="return validateContactForm()" method="POST">
             <div class="form-group">

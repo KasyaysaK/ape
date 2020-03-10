@@ -1,6 +1,4 @@
 <?php
-
-//namespace APE\Site\Model;
 require_once('model/Database.php');
 
 class Posts extends Database
@@ -40,12 +38,6 @@ class Posts extends Database
 	    $post->execute(array($post_id));
 	    return $post->fetch();
 	}
-	/*public function get_post($post_id)
-	{
-	    $post = $this->dbh->prepare('SELECT id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y\') AS creation_date_fr FROM posts WHERE id = ?');
-	    $post->execute(array($post_id));
-	    return $post->fetch();
-	}*/
 	/**
 	 * selects all the articles
 	 * @return $article
@@ -115,7 +107,6 @@ class Posts extends Database
 		$new_post = $request->execute(array($title, $author, $description, $content, $tag_id));
 		return $new_post;
 	}
-
 	/**
 	 * inserts a new post in the database, to be added : possibility to change the status of the post 0 : draft 1 : public
 	 * @param $id

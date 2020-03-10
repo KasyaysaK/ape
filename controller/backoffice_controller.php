@@ -1,9 +1,6 @@
 <?php
-
-//namespace APE\Site\Controller;
-
 /**
- * Class Controller
+ * Class Backoffice_ontroller
  */
 class Backoffice_controller
 {
@@ -53,7 +50,7 @@ class Backoffice_controller
 
 	}
 	/**
-	 * loads the add post view
+	 * loads all the tags
 	 */
 	public function tag_manager()
 	{
@@ -102,7 +99,13 @@ class Backoffice_controller
 	    require('view/admin/edit_post.php');
 	}
 	/**
-	 * saves edited
+	 * saves edited_post
+	 * @param $post_id
+	 * @param $title
+	 * @param $author
+	 * @param $description
+	 * @param $content
+	 * @param $tag_id
 	 */
 	public function save_edited_post($post_id, $title, $author, $description, $content, $tag_id)
 	{
@@ -117,26 +120,26 @@ class Backoffice_controller
        		exit;
 	    }
 	}
-
+	/**
+	 * delete post to edit
+	 * @param $post_id
+	 */
 	public function remove_post($post_id)
 	{
 		$post = $this->posts->delete_post($post_id);
 		$this->post_manager();
 	}
-
-	public function comment_manager()
-	{
-		$comments = $this->comments->get_comments();
-		//$posts    = $this->posts->get_posts();
-		require('view/admin/comment_manager.php');
-	}
 	/**
 	 * shows all the comments
 	 */
-	public function list_comments()
+	public function comment_manager()
 	{
-		$comment = $this->comments->get_comments();
+		$comments = $this->comments->get_comments();
+		require('view/admin/comment_manager.php');
 	}
+	/**
+	 * approve a reported comment
+	 */
 	public function unflag_comment($comment_id) 
 	{
 	    $unflag_comment = $this->comments->validate_comment($comment_id);
@@ -144,7 +147,9 @@ class Backoffice_controller
        		echo "commentaire mis à jour";
        		exit;
 	}
-
+	/**
+	 * delete a reported comment
+	 */
 	public function delete_comment($comment_id) 
 	{
 	    $delete_comment = $this->comments->reject_comment($comment_id);
@@ -152,16 +157,6 @@ class Backoffice_controller
        		echo "commentaire mis à jour";
        		exit;
 	}
-
-	/**
-	 * get post to edit
-	 */
-	public function edit_comment($comment_id)
-	{
-	    $comment_to_edit = $this->comments->get_comment($comment_id);
-	    require('view/admin/edit_comment.php');
-	}
-
 	//***************************************** USERS *****************************************
 	/**
 	 * shows all the users
@@ -175,6 +170,11 @@ class Backoffice_controller
 		}
 		require('view/admin/user_manager.php');
 	}
+	/**
+	 * update users' role 
+	 * @param $user_id
+	 * @param $role_id
+	 */
 	public function update_role($user_id, $role_id)
 	{
 		$set_role = $this->users->set_role($user_id, $role_id);
@@ -185,6 +185,9 @@ class Backoffice_controller
 	        $this->user_manager();
 	    }
 	}
+	/**
+	 * delete user from database
+	 */
 	public function ban_user($user_id)
 	{
 		$ban_user = $this->users->delete_user($user_id);

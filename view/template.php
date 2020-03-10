@@ -1,19 +1,20 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width">
 
         <title><?= $title ?></title>
 
-        <link href="https://fonts.googleapis.com/css?family=Handlee|Lato&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Handlee&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
         <link href="public/css/style.css" rel="stylesheet" /> 
 
         <script src="https://kit.fontawesome.com/8e724af005.js"></script>
         <script src="public/js/tinymce/tinymce.min.js" referrerpolicy="origin"></script>
-        <script type="text/javascript">
+        <script>
             tinymce.init({ 
                 height : "480",
                 selector:'.post-editor', 
