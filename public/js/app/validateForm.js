@@ -157,7 +157,7 @@ function validatePost() {
 
 	//Content validation
 	if(content == "") {
-		printError("contentError", "Veuillez écrire un titre");
+		printError("contentError", "Veuillez écrire le contenu de l'article");
 	} else {
 		printError("contentError", "")
 		contentError = false;

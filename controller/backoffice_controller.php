@@ -32,6 +32,15 @@ class Backoffice_controller
 
 //***************************************** POSTS & COMMENTS *****************************************
 	/**
+	 * shows author pannel
+	 */
+	public function author_pannel()
+	{
+		$tags  	 	  = $this->tags->get_tags();
+		$notice 	  = null;
+		require('view/author/pannel.php');
+	}
+	/**
 	 * shows all the posts
 	 */
 	public function post_manager()

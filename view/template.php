@@ -21,7 +21,7 @@
                 language: 'fr_FR',
                 plugins: 'placeholder copy cut paste link lists image code',
                 menubar: 'insert edit',
-                toolbar: 'undo redo | copy | cut | paste | link | numlist | bullist | image | code',
+                toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify |  copy | cut | paste | link | numlist bullist outdent indent | image | code | preview',
             });
         </script>
     </head>
